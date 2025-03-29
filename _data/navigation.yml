@@ -5,11 +5,96 @@ sections:
     items:
       - name: fmt
         path: /paquetes/fmt/
-      - name: net/http
-        path: /paquetes/net/
       - name: encoding
         path: /paquetes/encoding/
-
+      - name: archive
+        path: /paquetes/archive/
+      - name: bufio
+        path: /paquetes/bufio/
+      - name: builtin
+        path: /paquetes/builtin/
+      - name: bytes
+        path: /paquetes/bytes/
+      - name: cmp
+        path: /paquetes/cmp/
+      - name: compress
+        path: /paquetes/compress/
+      - name: container
+        path: /paquetes/container/
+      - name: context
+        path: /paquetes/context/
+      - name: crypto
+        path: /paquetes/crypto/
+      - name: database
+        path: /paquetes/database/
+      - name: debug
+        path: /paquetes/debug/
+      - name: embed
+        path: /paquetes/embed/
+      - name: errors
+        path: /paquetes/errors/
+      - name: expvar
+        path: /paquetes/expvar/
+      - name: flag
+        path: /paquetes/flag/
+      - name: go
+        path: /paquetes/go/
+      - name: hash
+        path: /paquetes/hash/
+      - name: html
+        path: /paquetes/html/
+      - name: http
+        path: /paquetes/http/
+      - name: image
+        path: /paquetes/image/
+      - name: io
+        path: /paquetes/io/
+      - name: json
+        path: /paquetes/json/
+      - name: log
+        path: /paquetes/log/
+      - name: maps
+        path: /paquetes/maps/
+      - name: math
+        path: /paquetes/math/
+      - name: mime
+        path: /paquetes/mime/
+      - name: os
+        path: /paquetes/os/
+      - name: path
+        path: /paquetes/path/
+      - name: plugin
+        path: /paquetes/plugin/
+      - name: reflect
+        path: /paquetes/reflect/
+      - name: regexp
+        path: /paquetes/regexp/
+      - name: runtime
+        path: /paquetes/runtime/
+      - name: slices
+        path: /paquetes/slices/
+      - name: sort
+        path: /paquetes/sort/
+      - name: strconv
+        path: /paquetes/strconv/
+      - name: strings
+        path: /paquetes/strings/
+      - name: structs
+        path: /paquetes/structs/
+      - name: sync
+        path: /paquetes/sync/
+      - name: syscall
+        path: /paquetes/syscall/
+      - name: testing
+        path: /paquetes/testing/
+      - name: text
+        path: /paquetes/text/
+      - name: time
+        path: /paquetes/time/
+      - name: unicode
+        path: /paquetes/unicode/
+      - name: unsafe
+        path: /paquetes/unsafe/
   - title: Ejemplos
     path: /ejemplos/
     icon: 🧩
