@@ -9,20 +9,39 @@ permalink: /
 
 Tu repositorio de aprendizaje y proyectos técnicos.
 
-## Secciones Principales
+## Secciones Destacadas
 
-### Paquetes
+### Paquetes de Aprendizaje
+Explora nuestros paquetes de aprendizaje en diferentes tecnologías:
 
-Explora nuestros paquetes de aprendizaje en diferentes tecnologías.
+- **Golang**: Desarrollo de aplicaciones modernas y eficientes
+- **JavaScript**: Desarrollo web y aplicaciones dinámicas
+- **Jekyll**: Creación de sitios web estáticos
+- **Git y GitHub**: Control de versiones y colaboración
+- **Arquitecturas de software**: Diseño y patrones
+- **SQL**: Bases de datos y consultas
+- **DevOps**: Automatización y despliegue
 
-### Ejemplos
+### Ejemplos Prácticos
+Descubre ejemplos prácticos y proyectos:
 
-Descubre ejemplos prácticos y proyectos.
+- **Golang**: APIs REST, microservicios y herramientas CLI
+- **JavaScript**: Aplicaciones web, frameworks y librerías
+- **Proyectos Integrados**: Soluciones completas
 
-### Contacto
+### Recursos Adicionales
+- Documentación detallada
+- Tutoriales paso a paso
+- Mejores prácticas
+- Recursos de la comunidad
 
-Ponte en contacto con nosotros.
+## ¿Por qué DevSphere?
 
-### Sobre mí
+- **Aprendizaje Estructurado**: Contenido organizado y progresivo
+- **Ejemplos Prácticos**: Código real y casos de uso
+- **Comunidad**: Recursos compartidos y colaboración
+- **Actualización Continua**: Contenido siempre al día
 
-Conoce más sobre el autor.
+## Comienza tu Viaje
+
+Explora nuestras secciones y encuentra el contenido que mejor se adapte a tus necesidades de aprendizaje.

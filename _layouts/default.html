@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+    {% include head.html %}
+</head>
+<body>
+    {% include header.html %}
+    
+    <div class="container">
+        <div class="content-wrapper">
+            {% include sidebar.html %}
+            <main class="main-content">
+                {{ content }}
+            </main>
+        </div>
+    </div>
+
+    {% include footer.html %}
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html> 
