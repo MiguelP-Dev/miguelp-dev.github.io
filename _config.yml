@@ -1,0 +1,41 @@
+title: DevSphere
+description: Repositorio de Aprendizaje y Proyectos Técnicos
+baseurl: ""
+url: "https://miguelp-dev.github.io"
+
+# Configuración de Jekyll
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Configuración de sintaxis highlighting
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
+# Configuración de colecciones
+collections:
+  packages:
+    output: true
+    permalink: /:collection/:path/
+  examples:
+    output: true
+    permalink: /:collection/:path/
+
+# Excluir archivos
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git/
+
+# Información del autor
+author:
+  name: MiguelP-Dev
+  github: https://github.com/MiguelP-Dev 
