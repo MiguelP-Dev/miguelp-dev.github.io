@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% include head.html %}
+</head>
+<body>
+    <div class="site">
+        {% include navbar.html %}
+        
+        <div class="sidebar-overlay"></div>
+        <aside class="sidebar">
+            {% include sidebar.html %}
+        </aside>
+        
+        <div class="main-container">
+            <main class="content">
+                {{ content }}
+            </main>
+            {% include footer.html %}
+        </div>
+    </div>
+    {% include github-floating.html %}
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

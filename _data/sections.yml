@@ -1,0 +1,24 @@
+- title: Inicio
+  url: /
+  icon: 🏠
+  description: Página principal
+
+- title: Sobre Nosotros
+  url: /about/
+  icon: 👥
+  description: Información sobre el proyecto
+
+- title: Paquetes
+  url: /packages/
+  icon: 📦
+  description: Paquetes de Golang documentados
+
+- title: Ejemplos
+  url: /examples/
+  icon: 💡
+  description: Ejemplos prácticos de código
+
+- title: Otras Tecnologías
+  url: /technologies/
+  icon: 🔧
+  description: Guías de tecnologías complementarias

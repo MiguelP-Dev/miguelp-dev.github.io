@@ -1,0 +1,11 @@
+<aside class="sidebar">
+    <nav class="sidebar-menu">
+        {% for item in site.data.sections %}
+            <a href="{{ item.url | relative_url }}" 
+               class="sidebar-link {% if page.url == item.url or page.url == item.url | append: '/' %}active{% endif %}"
+               title="{{ item.description }}">
+                {{ item.icon }} {{ item.title }}
+            </a>
+        {% endfor %}
+    </nav>
+</aside>

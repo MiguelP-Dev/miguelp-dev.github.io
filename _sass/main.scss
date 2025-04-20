@@ -1,0 +1,374 @@
+/* ========== PALETA NORDIC MEJORADA ========== */
+$nord0: #2E3440;    // Noche ártica
+$nord1: #3B4252;    // Gris profundo
+$nord2: #434C5E;    // Gris glaciar
+$nord3: #4C566A;    // Gris suave
+$nord4: #D8DEE9;    // Luz de luna
+$nord5: #E5E9F0;    // Nieve fresca
+$nord6: #ECEFF4;    // Aurora boreal
+$nord7: #8FBCBB;    // Verde pino
+$nord8: #88C0D0;    // Azul fiordo
+$nord9: #81A1C1;    // Azul hielo
+$nord10: #5E81AC;   // Azul profundo
+$nord11: #BF616A;   // Rojo aurora
+$nord13: #EBCB8B;   // Oro nórdico
+
+/* ========== VARIABLES ACTUALIZADAS ========== */
+$spacing-unit: 1rem;
+$background-color: $nord0;
+$secondary-background: $nord1;
+$text-color: $nord4;
+$heading-color: $nord6;
+$accent-color: $nord8;
+$icon-color: $nord9;
+$hover-accent: $nord7;
+
+/* ========== MIXINS ========== */
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 600px) { @content; }
+    }
+    @else if $breakpoint == tablet {
+        @media (min-width: 601px) and (max-width: 1024px) { @content; }
+    }
+    @else if $breakpoint == desktop {
+        @media (min-width: 1025px) { @content; }
+    }
+}
+
+/* ========== BASE LAYOUT ========== */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+}
+
+.site {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: $background-color;
+    color: $text-color;
+}
+
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: $nord1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    
+    &-brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 0 1rem;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        
+        h1 {
+            font-size: 1.2rem;
+            margin: 0;
+            color: $nord4;
+            letter-spacing: -0.3px;
+        }
+        
+        .sidebar-toggle {
+            position: absolute;
+            left: 1rem;
+            background: none;
+            border: none;
+            color: $nord4;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            
+            @include respond-to(desktop) {
+                display: none;
+            }
+        }
+    }
+    
+    .logo {
+        height: 40px;
+        width: auto;
+    }
+}
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 280px;
+    height: calc(100vh - 60px);
+    background-color: $nord2;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transform: translateX(-100%);
+    
+    &.active {
+        transform: translateX(0);
+    }
+
+    @include respond-to(phone) {
+        width: 85%;
+        
+        &.active {
+            transform: translateX(0);
+        }
+    }
+
+    @include respond-to(tablet) {
+        width: 280px;
+        
+        &.active {
+            transform: translateX(0);
+        }
+    }
+
+    @include respond-to(desktop) {
+        transform: translateX(0) !important;
+        left: 0;
+        width: 250px;
+    }
+
+    &-menu {
+        padding: 1rem 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            color: $nord4;
+            text-decoration: none;
+            transition: all 0.2s;
+            flex-shrink: 0;
+            position: relative;
+            .sidebar-link {
+                position: relative;
+                
+                &:hover::after {
+                    content: attr(title);
+                    position: absolute;
+                    left: 100%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: $nord1;
+                    color: $nord4;
+                    padding: 0.5rem 1rem;
+                    border-radius: 4px;
+                    white-space: nowrap;
+                    margin-left: 1rem;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    pointer-events: none;
+                }
+                
+                &:hover::after {
+                    opacity: 1;
+                }
+            }
+            &:hover {
+                background-color: rgba($nord8, 0.1);
+                color: $nord7;
+            }
+
+            &.active {
+                background-color: rgba($nord8, 0.2);
+                color: $nord8;
+                border-left: 3px solid $nord8;
+            }
+        }
+    }
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: calc(100vh - 60px);
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 998;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    
+    &.active {
+        display: block;
+    }
+
+    @include respond-to(desktop) {
+        display: none !important;
+    }
+}
+
+/* ========== MAIN CONTENT ========== */
+.main-container {
+    margin-top: 60px;
+    width: 100%;
+    transition: margin-left 0.3s ease;
+
+    @include respond-to(desktop) {
+        margin-left: 250px;
+        width: calc(100% - 250px);
+    }
+}
+
+.content {
+    padding: 2rem;
+    min-height: calc(100vh - 120px); /* 60px navbar + 60px footer */
+    
+    @include respond-to(phone) {
+        padding: 1rem;
+    }
+}
+
+/* ========== CARDS ========== */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.card {
+    background-color: $nord1;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    padding: 1.5rem;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    &-icon {
+        font-size: 2rem;
+        color: $nord8;
+        margin-bottom: 1rem;
+    }
+    
+    &-title {
+        font-size: 1.5rem;
+        color: $nord6;
+        margin: 0 0 1rem;
+    }
+    
+    &-description {
+        color: $nord4;
+        margin-bottom: 1.5rem;
+    }
+    
+    &-link {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background-color: $nord8;
+        color: $nord0;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.2s;
+        
+        &:hover {
+            background-color: $nord7;
+        }
+    }
+}
+
+/* ========== SECTIONS ========== */
+.section {
+    &-title {
+        font-size: 1.75rem;
+        color: $nord6;
+        margin-bottom: 2rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid $nord3;
+    }
+    
+    &-link {
+        display: block;
+        text-align: right;
+        margin-top: 1rem;
+        color: $nord8;
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    background-color: $nord1;
+    color: $nord4;
+    padding: 1rem;
+    height: 60px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    
+    .content {
+        text-align: center;
+        padding: 0;
+    }
+}
+
+/* ========== RESPONSIVE ADJUSTMENTS ========== */
+@include respond-to(phone) {
+    body.sidebar-active {
+        overflow:scroll;
+    }
+}
+
+.github-floating {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 500;
+}
+
+/* ========== SECTIONS NO RESULTS ========== */
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    color: $nord4;
+    
+    .button {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: $nord8;
+        color: $nord0;
+        border-radius: 4px;
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "DevSphere",
+  "short_name": "DevSphere",
+  "description": "Repositorio técnico con guías, clases de desarrollo y otras tecnologías",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2E3440",
+  "theme_color": "#2E3440",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "{{ '/assets/images/favicon/apple-touch-icon.png' | relative_url }}",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "{{ '/assets/images/favicon/favicon-32x32.png' | relative_url }}",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "{{ '/assets/images/favicon/favicon-16x16.png' | relative_url }}",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
