@@ -1,14 +1,9 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.4.1"
-
-# gem "minima", "~> 2.5"
+# The official GitHub Pages gem
+# This gem includes all dependencies needed for GitHub Pages
+# and ensures compatibility with GitHub's build system
 
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
-  gem "jekyll-seo-tag"
-  gem "jekyll-github-metadata"
-  gem "kramdown-parser-gfm"
-  gem "jekyll-sass-converter"
-  gem "sass-embedded"
+  gem "github-pages", group: :jekyll_plugins
 end
