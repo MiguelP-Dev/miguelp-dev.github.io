@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    {% include head.html %}
-</head>
-<body>
-    <div class="site">
+    <head>
+        {% include head.html %}
+    </head>
+    <body>
+        <div class="site">
         {% include navbar.html %}
         
-        <div class="sidebar-overlay"></div>
-        <aside class="sidebar">
-            {% include sidebar.html %}
-        </aside>
+        {% include sidebar.html %}
         
         <div class="main-container">
             <main class="content">
@@ -20,6 +17,27 @@
         </div>
     </div>
     {% include github-floating.html %}
-    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/hightlight.js' | relative_url }}"></script>
+
+
+<!-- Sintaxis de Código -->
+    <!-- Highlight.js CSS  Nordic Theme -->
+<link rel="stylesheet" href="/assets/css/hightlight.css">
+
+<!-- Highlight.js JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+<!-- Lenguajes que necesitas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/go.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/yaml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/scss.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/json.min.js"></script>
+
+<!-- Mermaid.js JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.4/mermaid.min.js"></script>
+
 </body>
 </html>

@@ -1,19 +1,19 @@
 /* ========== PALETA NORDIC MEJORADA ========== */
-$nord0: #2E3440;    // Noche ártica
-$nord1: #3B4252;    // Gris profundo
-$nord2: #434C5E;    // Gris glaciar
-$nord3: #4C566A;    // Gris suave
-$nord4: #D8DEE9;    // Luz de luna
-$nord5: #E5E9F0;    // Nieve fresca
-$nord6: #ECEFF4;    // Aurora boreal
-$nord7: #8FBCBB;    // Verde pino
-$nord8: #88C0D0;    // Azul fiordo
-$nord9: #81A1C1;    // Azul hielo
-$nord10: #5E81AC;   // Azul profundo
-$nord11: #BF616A;   // Rojo aurora
-$nord13: #EBCB8B;   // Oro nórdico
+$nord0: #2E3440;
+$nord1: #3B4252;
+$nord2: #434C5E;
+$nord3: #4C566A;
+$nord4: #D8DEE9;
+$nord5: #E5E9F0;
+$nord6: #ECEFF4;
+$nord7: #8FBCBB;
+$nord8: #88C0D0;
+$nord9: #81A1C1;
+$nord10: #5E81AC;
+$nord11: #BF616A;
+$nord13: #EBCB8B;
 
-/* ========== VARIABLES ACTUALIZADAS ========== */
+/* ========== VARIABLES ========== */
 $spacing-unit: 1rem;
 $background-color: $nord0;
 $secondary-background: $nord1;
@@ -36,11 +36,15 @@ $hover-accent: $nord7;
     }
 }
 
-/* ========== BASE LAYOUT ========== */
+/* ========== ESTILOS GENERALES ========== */
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     line-height: 1.6;
+    &.no-scroll {
+        overflow: hidden;
+        height: 100vh;
+    }
 }
 
 .site {
@@ -49,13 +53,6 @@ body {
     min-height: 100vh;
     background-color: $background-color;
     color: $text-color;
-}
-
-.site-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    position: relative;
 }
 
 /* ========== NAVBAR ========== */
@@ -97,9 +94,10 @@ body {
             font-size: 1.5rem;
             cursor: pointer;
             padding: 0.5rem;
+            display: none;
             
-            @include respond-to(desktop) {
-                display: none;
+            @include respond-to(phone) {
+                display: block;
             }
         }
     }
@@ -115,140 +113,138 @@ body {
     position: fixed;
     top: 60px;
     left: 0;
-    width: 280px;
+    width: 250px;
     height: calc(100vh - 60px);
     background-color: $nord2;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 999;
     overflow-y: auto;
-    overflow-x: hidden;
-    transform: translateX(-100%);
-    
-    &.active {
-        transform: translateX(0);
-    }
+    padding-right: 12px;
 
-    @include respond-to(phone) {
-        width: 85%;
-        
-        &.active {
-            transform: translateX(0);
+    scrollbar-width: thin;
+    scrollbar-color: $nord3 $nord1;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba($nord4, 0.4);
+        border-radius: 3px;
+        &:hover {
+            background-color: rgba($nord4, 0.6);
         }
-    }
-
-    @include respond-to(tablet) {
-        width: 280px;
-        
-        &.active {
-            transform: translateX(0);
-        }
-    }
-
-    @include respond-to(desktop) {
-        transform: translateX(0) !important;
-        left: 0;
-        width: 250px;
     }
 
     &-menu {
         padding: 1rem 0;
-        height: 100%;
+        height: auto;
+        min-height: 100%;
         display: flex;
         flex-direction: column;
+        gap: 0.5rem;
+    }
 
-        .sidebar-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            color: $nord4;
-            text-decoration: none;
-            transition: all 0.2s;
+    .sidebar-link {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        color: $nord4;
+        text-decoration: none;
+        transition: background-color 0.2s;
+        
+        .icon {
+            font-size: 1.5rem;
+            min-width: 30px;
+            text-align: center;
+            margin-right: 12px;
             flex-shrink: 0;
-            position: relative;
-            .sidebar-link {
-                position: relative;
-                
-                &:hover::after {
-                    content: attr(title);
-                    position: absolute;
-                    left: 100%;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    background: $nord1;
-                    color: $nord4;
-                    padding: 0.5rem 1rem;
-                    border-radius: 4px;
-                    white-space: nowrap;
-                    margin-left: 1rem;
-                    opacity: 0;
-                    transition: opacity 0.3s;
-                    pointer-events: none;
-                }
-                
-                &:hover::after {
-                    opacity: 1;
-                }
-            }
-            &:hover {
-                background-color: rgba($nord8, 0.1);
-                color: $nord7;
-            }
-
-            &.active {
-                background-color: rgba($nord8, 0.2);
-                color: $nord8;
-                border-left: 3px solid $nord8;
-            }
         }
+
+        .link-text {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        &:hover {
+            background-color: rgba($nord8, 0.1);
+        }
+
+        &.active {
+            background-color: rgba($nord8, 0.2);
+            border-left: 3px solid $nord8;
+        }
+    }
+
+    /* Comportamiento Mobile */
+    @include respond-to(phone) {
+        width: 250px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+
+        &.mobile-open {
+            transform: translateX(0);
+            box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+        }
+    }
+
+    @include respond-to(desktop) {
+        width: 250px !important;
+        transform: none !important; 
     }
 }
 
+/* Mobile Overlay */
 .sidebar-overlay {
+    display: none;
     position: fixed;
     top: 60px;
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100vw;
-    height: calc(100vh - 60px);
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
+    background: rgba($nord0, 0.7);
     z-index: 998;
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(3px);
     
-    &.active {
-        display: block;
-    }
-
-    @include respond-to(desktop) {
-        display: none !important;
+    @include respond-to(phone) {
+        &.mobile-open {
+            display: block;
+        }
     }
 }
 
-/* ========== MAIN CONTENT ========== */
+/* ========== CONTENEDOR PRINCIPAL ========== */
 .main-container {
     margin-top: 60px;
-    width: 100%;
-    transition: margin-left 0.3s ease;
-
+    transition: transform 0.3s ease, margin-left 0.3s ease;
+    backface-visibility: hidden;
+    
     @include respond-to(desktop) {
         margin-left: 250px;
         width: calc(100% - 250px);
+        transition: none !important;
+    }
+    
+    @include respond-to(phone) {
+        margin-left: 0;
+        width: 100%;
+        
+        .sidebar.mobile-open ~ & {
+            transform: translateX(250px);
+        }
     }
 }
 
+/* ========== CONTENIDO ========== */
 .content {
     padding: 2rem;
-    min-height: calc(100vh - 120px); /* 60px navbar + 60px footer */
+    min-height: calc(100vh - 120px);
+    overflow-x: hidden;
     
     @include respond-to(phone) {
         padding: 1rem;
     }
 }
 
-/* ========== CARDS ========== */
+/* ========== COMPONENTES ========== */
 .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -302,29 +298,6 @@ body {
     }
 }
 
-/* ========== SECTIONS ========== */
-.section {
-    &-title {
-        font-size: 1.75rem;
-        color: $nord6;
-        margin-bottom: 2rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid $nord3;
-    }
-    
-    &-link {
-        display: block;
-        text-align: right;
-        margin-top: 1rem;
-        color: $nord8;
-        text-decoration: none;
-        
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
-
 /* ========== FOOTER ========== */
 .footer {
     background-color: $nord1;
@@ -341,34 +314,28 @@ body {
         text-align: center;
         padding: 0;
     }
-}
-
-/* ========== RESPONSIVE ADJUSTMENTS ========== */
-@include respond-to(phone) {
-    body.sidebar-active {
-        overflow:scroll;
+    
+    a {
+        color: $nord8;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.2s;
+        
+        &:hover {
+            color: $nord9;
+        }
     }
 }
 
-.github-floating {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    z-index: 500;
-}
-
-/* ========== SECTIONS NO RESULTS ========== */
-.no-results {
-    text-align: center;
-    padding: 2rem;
-    color: $nord4;
+/* ========== AJUSTES ESPECIALES ========== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
     
-    .button {
-        display: inline-block;
-        margin-top: 1rem;
-        padding: 0.5rem 1rem;
-        background-color: $nord8;
-        color: $nord0;
-        border-radius: 4px;
+    .sidebar,
+    .main-container {
+        transition: none !important;
     }
 }

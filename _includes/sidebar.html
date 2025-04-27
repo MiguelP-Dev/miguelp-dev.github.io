@@ -2,10 +2,13 @@
     <nav class="sidebar-menu">
         {% for item in site.data.sections %}
             <a href="{{ item.url | relative_url }}" 
-               class="sidebar-link {% if page.url == item.url or page.url == item.url | append: '/' %}active{% endif %}"
-               title="{{ item.description }}">
-                {{ item.icon }} {{ item.title }}
+                class="sidebar-link {% if page.url == item.url %}active{% endif %}"
+                title="{{ item.title }}">
+                <span class="icon">{{ item.icon }}</span>
+                <span class="link-text">{{ item.title }}</span>
             </a>
         {% endfor %}
     </nav>
 </aside>
+
+<div class="sidebar-overlay"></div>
