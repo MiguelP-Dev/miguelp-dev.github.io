@@ -2,8 +2,8 @@
 layout: default
 title: "Guía Completa de Contenedores: Podman vs Docker"
 description: "Guía detallada de contenedores, incluyendo diferencia entre Docker y Podman"
-permalink: /othertech/contenedores/
-categories: othertech
+permalink: /technologies/contenedores/
+categories: technologies
 subcategories: contenedores
 icon: 🐳
 article: true

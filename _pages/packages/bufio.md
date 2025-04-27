@@ -33,6 +33,7 @@ Un buffer es un área temporal de memoria que almacena datos antes de procesarlo
 #### 2.1 Creación y Uso Básico
 
 {% raw %}
+
 ```go
 func ejemploBasicoReader() {
     input := strings.NewReader("Hola\nmundo\ndesde\nGo")
@@ -51,10 +52,13 @@ func ejemploBasicoReader() {
     }
 }
 ```
+
 {% endraw %}
 
 #### 2.2 Ejemplo de Peek
+
 {% raw %}
+
 ```go
 func ejemploPeek() error {
     archivo, err := os.Open("documento.txt")
@@ -82,6 +86,7 @@ func ejemploPeek() error {
     return nil
 }
 ```
+
 {% endraw %}
 
 #### 2.3 Manejo de Errores Robusto
@@ -111,7 +116,7 @@ func manejoErroresRobusto(reader *bufio.Reader) error {
 
 ### 3. Funciones Comunes
 
-#### 3.1 `NewReader`
+#### 3.1 **`NewReader`**
 
 - Crea un nuevo `Reader` que lee desde un `io.Reader` dado (como un archivo o una conexión de red) y lo envuelve en un buffer.
 
@@ -119,7 +124,7 @@ func manejoErroresRobusto(reader *bufio.Reader) error {
   reader := bufio.NewReader(file)
   ```
 
-#### 3.2 `NewWriter`
+#### 3.2 **`NewWriter`**
 
 - Crea un nuevo `Writer` que escribe en un `io.Writer` dado (como un archivo o una conexión de red) y lo envuelve en un buffer.
 
@@ -127,7 +132,7 @@ func manejoErroresRobusto(reader *bufio.Reader) error {
   writer := bufio.NewWriter(file)
   ```
 
-#### 3.3 `NewScanner`
+#### 3.3 **`NewScanner`**
 
 - Crea un nuevo `Scanner` para leer datos secuenciales como líneas o palabras desde un `io.Reader`.
 
@@ -135,7 +140,7 @@ func manejoErroresRobusto(reader *bufio.Reader) error {
   scanner := bufio.NewScanner(file)
   ```
 
-#### 3.4 `Peek`
+#### 3.4 **`Peek`**
 
 - Permite ver los próximos `n` bytes del buffer sin avanzar el lector. Es útil para inspeccionar datos sin consumirlos.
 
@@ -143,7 +148,7 @@ func manejoErroresRobusto(reader *bufio.Reader) error {
   bytes, err := reader.Peek(10)
   ```
 
-#### 3.5 `ReadLine`
+#### 3.5 **`ReadLine`**
 
 - Lee una línea del `Reader`, excluyendo el delimitador de línea. Es útil para leer datos línea por línea.
 
@@ -151,7 +156,7 @@ func manejoErroresRobusto(reader *bufio.Reader) error {
   line, isPrefix, err := reader.ReadLine()
   ```
 
-#### 3.6 `ReadBytes`
+#### 3.6 **`ReadBytes`**
 
 - Lee hasta y incluyendo el delimitador especificado y devuelve un slice de bytes.
 
@@ -159,7 +164,7 @@ func manejoErroresRobusto(reader *bufio.Reader) error {
   bytes, err := reader.ReadBytes('\n')
   ```
 
-#### 3.7 `ReadString`
+#### 3.7 **`ReadString`**
 
 - Lee hasta e incluyendo el delimitador especificado y devuelve una cadena.
 
@@ -167,7 +172,7 @@ func manejoErroresRobusto(reader *bufio.Reader) error {
   line, err := reader.ReadString('\n')
   ```
 
-#### 3.8 `Write`
+#### 3.8 **`Write`**
 
 - Escribe un slice de bytes en el buffer del `Writer`. Debes llamar a `Flush` para asegurarte de que los datos se escriban en el destino subyacente.
 
@@ -175,7 +180,7 @@ func manejoErroresRobusto(reader *bufio.Reader) error {
   _, err := writer.Write([]byte("hello, world"))
   ```
 
-#### 3.9 `WriteString`
+#### 3.9 **`WriteString`**
 
 - Escribe una cadena en el buffer del `Writer`. Debes llamar a `Flush` para asegurarte de que los datos se escriban en el destino subyacente.
 
@@ -183,7 +188,7 @@ func manejoErroresRobusto(reader *bufio.Reader) error {
   _, err := writer.WriteString("hello, world")
   ```
 
-#### 3.10 `Flush`
+#### 3.10 **`Flush`**
 
 - Vacía el contenido del buffer del `Writer` y lo escribe en el destino subyacente.
 
@@ -191,7 +196,7 @@ func manejoErroresRobusto(reader *bufio.Reader) error {
   err := writer.Flush()
   ```
 
-#### 3.11 `Scanner.Split`
+#### 3.11 **`Scanner.Split`**
 
 - Configura el `Scanner` para dividir el texto según una función personalizada. El paquete `bufio` proporciona varias funciones de división predefinidas como `ScanLines`, `ScanWords`, y `ScanRunes`.
 
@@ -199,7 +204,7 @@ func manejoErroresRobusto(reader *bufio.Reader) error {
   scanner.Split(bufio.ScanWords)
   ```
 
-#### 3.12 `Scanner.Scan`
+#### 3.12 **`Scanner.Scan`**
 
 - Avanza el `Scanner` al próximo token, que puede ser una línea, una palabra, o cualquier otra unidad definida por la función de división.
 
@@ -209,7 +214,7 @@ func manejoErroresRobusto(reader *bufio.Reader) error {
   }
   ```
 
-#### 3.13 `Scanner.Text`
+#### 3.13 **`Scanner.Text`**
 
 - Devuelve el token más reciente leído por el `Scanner` como una cadena.
 
@@ -217,7 +222,7 @@ func manejoErroresRobusto(reader *bufio.Reader) error {
   text := scanner.Text()
   ```
 
-#### 3.14 `Reader.Read`
+#### 3.14 **`Reader.Read`**
 
 - Lee datos en un buffer de bytes. Similar a `io.Reader` pero con un buffer subyacente.
 
@@ -225,7 +230,7 @@ func manejoErroresRobusto(reader *bufio.Reader) error {
   n, err := reader.Read(buf)
   ```
 
-#### 3.15 `Writer.Buffered`
+#### 3.15 **`Writer.Buffered`**
 
 - Devuelve el número de bytes que actualmente están almacenados en el buffer y que aún no se han escrito al destino subyacente.
 

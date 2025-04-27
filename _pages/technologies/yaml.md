@@ -2,8 +2,8 @@
 layout: default
 title: "YAML desde cero"
 description: "Domina la cración de archívos '.yml' y '.yaml' para configurar contenedores, servicios, etc."
-permalink: /othertech/yaml/
-categories: othertech
+permalink: /technologies/yaml/
+categories: technologies
 subcategories: configuracion
 icon: 🔧
 article: true

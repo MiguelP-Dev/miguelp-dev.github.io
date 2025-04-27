@@ -2,8 +2,8 @@
 layout: default
 title: "Mermaid desde cero"
 description: "Domina la creación de diagramas textuales"
-permalink: /othertech/mermaid/
-categories: othertech
+permalink: /technologies/mermaid/
+categories: technologies
 subcategories: diagramas
 icon: 🧜‍♀️
 article: true

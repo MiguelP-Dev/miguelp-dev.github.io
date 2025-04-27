@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Paquete Archive"
-description: "Gestión avanzada de archivos coprimidos en golang"
+title: "Paquete Archive en Go"
+description: "Guía para el paquete archive en Go, incluyendo ejemplos prácticos y mejores prácticas."
 permalink: /packages/archive
 categories: packages
 article: true
@@ -23,7 +23,7 @@ El formato TAR (Tape Archive) es ampliamente utilizado en sistemas Unix para alm
 
 #### 1.2 **Funciones Principales**
 
-###### `NewReader`
+**`NewReader`**
 
 **Propósito**: Crear un lector para archivos TAR.
 
@@ -32,6 +32,7 @@ reader := tar.NewReader(file)
 ```
 
 **Ejemplo Completo de Lectura**:
+
 ```go
 func readTarFile(filename string) error {
     file, err := os.Open(filename)
@@ -59,11 +60,12 @@ func readTarFile(filename string) error {
 }
 ```
 
-###### `NewWriter`
+**`NewWriter`**
 
 **Propósito**: Crear un escritor para archivos TAR.
 
 **Ejemplo Completo de Creación**:
+
 ```go
 func createTarArchive(files []string, output string) error {
     outFile, err := os.Create(output)
@@ -120,7 +122,7 @@ El formato ZIP es uno de los formatos de compresión más populares, especialmen
 
 #### 2.2 **Ejemplos Detallados**
 
-###### Crear un Archivo ZIP
+##### 2.2.1 **Crear un Archivo ZIP**
 
 **Propósito**: Crear un nuevo archivo ZIP con múltiples archivos.
 
@@ -171,7 +173,7 @@ func addFileToZip(archive *zip.Writer, filename string) error {
 }
 ```
 
-###### Leer un Archivo ZIP
+##### 2.2.2 **Leer un Archivo ZIP**
 
 **Propósito**: Extraer y leer el contenido de un archivo ZIP.
 
@@ -204,7 +206,7 @@ func readZip(filename string) error {
 
 #### 2.3 **Características Avanzadas**
 
-###### Compresión con Contraseña
+##### 2.3.1 Compresión con Contraseña
 
 **Propósito**: Crear archivos ZIP protegidos con contraseña.
 
@@ -252,20 +254,24 @@ func createPasswordProtectedZip(files []string, zipName, password string) error 
 ### 3. Mejores Prácticas
 
 #### 3.1 **Manejo de Errores**
+
 - Verificar siempre los errores retornados
 - Usar `defer` para cerrar recursos
 - Implementar recuperación de errores
 
 #### 3.2 **Cierre de Recursos**
+
 - Usar `defer` para cerrar archivos y writers
 - Manejar correctamente los recursos en caso de error
 
 #### 3.3 **Compresión Eficiente**
+
 - Elegir el método de compresión adecuado
 - Considerar el tamaño de los archivos
 - Implementar compresión progresiva para archivos grandes
 
 #### 3.4 **Consideraciones de Memoria**
+
 - Usar `io.Copy` para archivos grandes
 - Implementar buffers para control de memoria
 - Considerar el uso de goroutines para procesamiento paralelo
@@ -297,7 +303,7 @@ func createPasswordProtectedZip(files []string, zipName, password string) error 
 type BackupSystem struct {
     sourceDir  string
     backupDir  string
-    compression string // "zip" o "tar"
+    compression string  // "zip" o "tar"
 }
 
 func (bs *BackupSystem) CreateBackup() error {

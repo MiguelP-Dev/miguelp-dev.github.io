@@ -18,6 +18,7 @@ El paquete `reflect` en Go permite inspeccionar y manipular tipos y valores en t
 ### Funciones y Tipos Clave
 
 #### 1. **Obtener Tipo y Valor**
+
 ```go
 package main
 
@@ -34,6 +35,7 @@ func main() {
 ```
 
 #### 2. **Modificar Valores (Requiere Direccionabilidad)**
+
 ```go
 func modificarValor() {
     y := 10
@@ -46,6 +48,7 @@ func modificarValor() {
 ```
 
 #### 3. **Crear Valores Dinámicamente**
+
 ```go
 func crearValor() {
     t := reflect.TypeOf(0)                // Tipo int
@@ -61,6 +64,7 @@ func crearValor() {
 ### Casos de Uso Avanzados
 
 #### 1. **Inspeccionar una Estructura**
+
 ```go
 type Usuario struct {
     Nombre string `json:"nombre"`
@@ -85,6 +89,7 @@ func inspeccionarStruct() {
 ```
 
 #### 2. **Llamar a una Función Dinámicamente**
+
 ```go
 func llamarFuncion() {
     // Función a llamar: func Sumar(a, b int) int
@@ -102,6 +107,7 @@ func llamarFuncion() {
 ```
 
 #### 3. **Validar Tipos en Tiempo de Ejecución**
+
 ```go
 func validarTipo(valor interface{}, esperado reflect.Kind) bool {
     return reflect.TypeOf(valor).Kind() == esperado
@@ -119,6 +125,7 @@ func main() {
 
 1. **Direccionabilidad**:
    - Solo los valores obtenidos con `reflect.ValueOf(&x).Elem()` son modificables.
+
    ```go
    x := 5
    v := reflect.ValueOf(x)
@@ -126,6 +133,7 @@ func main() {
    ```
 
 2. **Verificar `Kind()` Antes de Operar**:
+
    ```go
    v := reflect.ValueOf(42)
    if v.Kind() == reflect.Int {
@@ -138,6 +146,7 @@ func main() {
 
 4. **Manejo de Errores**:
    - Usa `recover()` para capturar panics en operaciones inseguras:
+
    ```go
    defer func() {
        if r := recover(); r != nil {
@@ -178,11 +187,13 @@ func main() {
 ### Conclusión
 
 El paquete `reflect` es útil para:
+
 - Implementar librerías genéricas (JSON, YAML).
 - Validar estructuras dinámicamente.
 - Crear sistemas de plugins o configuración flexible.
 
 **Recomendaciones**:
+
 - Úsalo solo cuando sea necesario (evítalo en código crítico).
 - Verifica siempre tipos y direccionabilidad.
 - Combínalo con interfaces para mantener seguridad de tipos.

@@ -2,8 +2,8 @@
 layout: default
 title: "Kubernetes desde cero"
 description: "Domina la Orquestación de contenedores con kubernetes"
-permalink: /othertech/kubernetes/
-categories: othertech
+permalink: /technologies/kubernetes/
+categories: technologies
 subcategories: orquestacion
 icon: 🚀
 article: true

@@ -1,120 +1,146 @@
+/* Contenedor de código */
 pre code.hljs {
-    display: block;
-    overflow-x: auto;
-    padding: 1.5em;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  }
-  
-  code.hljs {
-    padding: 3px 6px;
-    font-family: 'Fira Code', 'Menlo', 'Consolas', monospace;
-    line-height: 1.5;
-  }
-  
-  /* Nordic Theme */
-  .hljs {
-    color: #2E3440; /* Dark blue-gray - primary text */
-    background: #F8F9FA; /* Very light gray - background */
-  }
-  
-  /* Keywords, types */
-  .hljs-doctag,
-  .hljs-keyword,
-  .hljs-meta .hljs-keyword,
-  .hljs-template-tag,
-  .hljs-template-variable,
-  .hljs-type,
-  .hljs-variable.language_ {
-    color: #5E81AC; /* Soft blue */
-  }
-  
-  /* Titles, classes, functions */
-  .hljs-title,
-  .hljs-title.class_,
-  .hljs-title.class_.inherited__,
-  .hljs-title.function_ {
-    color: #88C0D0; /* Light teal */
-  }
-  
-  /* Attributes, numbers, operators */
-  .hljs-attr,
-  .hljs-attribute,
-  .hljs-literal,
-  .hljs-meta,
-  .hljs-number,
-  .hljs-operator,
-  .hljs-selector-attr,
-  .hljs-selector-class,
-  .hljs-selector-id,
-  .hljs-variable {
-    color: #81A1C1; /* Medium blue */
-  }
-  
-  /* Strings, regex */
-  .hljs-meta .hljs-string,
-  .hljs-regexp,
-  .hljs-string {
-    color: #A3BE8C; /* Soft green */
-  }
-  
-  /* Built-ins, symbols */
-  .hljs-built_in,
-  .hljs-symbol {
-    color: #D08770; /* Soft orange */
-  }
-  
-  /* Comments */
-  .hljs-code,
-  .hljs-comment,
-  .hljs-formula {
-    color: #8FBCBB; /* Teal */
-    font-style: italic;
-  }
-  
-  /* Tags, quotes */
-  .hljs-name,
-  .hljs-quote,
-  .hljs-selector-pseudo,
-  .hljs-selector-tag {
-    color: #B48EAD; /* Soft purple */
-  }
-  
-  .hljs-subst {
-    color: #2E3440; /* Same as primary text */
-  }
-  
-  /* Sections */
-  .hljs-section {
-    color: #5E81AC; /* Soft blue */
-    font-weight: 700;
-  }
-  
-  /* Bullets */
-  .hljs-bullet {
-    color: #D08770; /* Soft orange */
-  }
-  
-  /* Emphasis */
-  .hljs-emphasis {
-    color: #2E3440;
-    font-style: italic;
-  }
-  
-  /* Strong */
-  .hljs-strong {
-    color: #2E3440;
-    font-weight: 700;
-  }
-  
-  /* Additions (diff) */
-  .hljs-addition {
-    color: #A3BE8C; /* Soft green */
-    background-color: rgba(163, 190, 140, 0.1);
-  }
-  
-  /* Deletions (diff) */
-  .hljs-deletion {
-    color: #BF616A; /* Soft red */
-    background-color: rgba(191, 97, 106, 0.1);
-  }
+  display: block;
+  overflow-x: auto;
+  padding: 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 0 10px 2px rgba(136, 192, 208, 0.4), 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 1rem 0;
+  border: 1px solid rgba(136, 192, 208, 0.5);
+}
+
+code.hljs {
+  padding: 3px 6px;
+  font-family: 'Fira Code', 'Menlo', 'Consolas', monospace;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+/* Nordic Theme - Dark Version */
+.hljs {
+  color: #ECEFF4; /* Nord6 - Light text for dark background */
+  background: #16191f; /* - Dark background to match site */
+}
+
+/* Keywords, types */
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  color: #88C0D0; /* Nord8 - Bright blue */
+  font-weight: bold;
+}
+
+/* Titles, classes, functions */
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+  color: #8FBCBB; /* Nord7 - Teal */
+  font-weight: bold;
+}
+
+/* Attributes, numbers, operators */
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-variable {
+  color: #81A1C1; /* Nord9 - Medium blue */
+}
+
+/* Strings, regex */
+.hljs-meta .hljs-string,
+.hljs-regexp,
+.hljs-string {
+  color: #A3BE8C; /* Soft green */
+}
+
+/* Built-ins, symbols */
+.hljs-built_in,
+.hljs-symbol {
+  color: #EBCB8B; /* Nord13 - Soft yellow */
+}
+
+/* Comentarios mejorados */
+.hljs-code,
+.hljs-comment,
+.hljs-formula {
+  color: #B48EAD; /* Cambiado a púrpura más visible */
+  font-style: italic;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* Tags, quotes */
+.hljs-name,
+.hljs-quote,
+.hljs-selector-pseudo,
+.hljs-selector-tag {
+  color: #B48EAD; /* Soft purple */
+  font-weight: bold;
+}
+
+.hljs-subst {
+  color: #D8DEE9; /* Nord4 - Same as primary text */
+}
+
+/* Sections */
+.hljs-section {
+  color: #5E81AC; /* Nord10 - Darker blue */
+  font-weight: 700;
+}
+
+/* Bullets */
+.hljs-bullet {
+  color: #D08770; /* Soft orange */
+}
+
+/* Emphasis */
+.hljs-emphasis {
+  color: #E5E9F0; /* Nord5 - Slightly darker than text */
+  font-style: italic;
+}
+
+/* Strong */
+.hljs-strong {
+  color: #ECEFF4; /* Nord6 - Light text */
+  font-weight: 700;
+}
+
+/* Additions (diff) */
+.hljs-addition {
+  color: #A3BE8C; /* Soft green */
+  background-color: rgba(163, 190, 140, 0.2);
+}
+
+/* Deletions (diff) */
+.hljs-deletion {
+  color: #BF616A; /* Soft red */
+  background-color: rgba(191, 97, 106, 0.2);
+}
+
+/* Para enlaces en el código */
+.hljs a {
+  color: #88C0D0; /* Nord8 */
+  text-decoration: underline;
+}
+
+/* Efecto hover para los bloques de código */
+pre code.hljs:hover {
+  box-shadow: 0 0 14px 4px rgba(136, 192, 208, 0.5), 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Línea opcional para bloques de código específicos */
+pre code.hljs.highlight-special {
+  border-left: 4px solid #88C0D0;
+}

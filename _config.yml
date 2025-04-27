@@ -67,7 +67,7 @@ defaults:
       type: "technologies"
     values:
       layout: section
-      category: othertech
+      category: technologies
 
 # Sass settings
 sass:

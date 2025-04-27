@@ -16,6 +16,7 @@ El paquete `plugin` en Go permite cargar módulos compilados dinámicamente (`.s
 ---
 
 ### Requisitos y Limitaciones
+
 - **Sistemas soportados**: Linux, macOS (no soportado oficialmente en Windows).
 - **Versión de Go**: El plugin y el programa principal deben compilarse con la misma versión de Go y flags.
 - **Dependencias**: Los plugins deben compartir las mismas dependencias que el programa principal.
@@ -25,6 +26,7 @@ El paquete `plugin` en Go permite cargar módulos compilados dinámicamente (`.s
 ### Ejemplo Básico: Crear y Usar un Plugin
 
 #### 1. Crear el Plugin (`mi_plugin.go`)
+
 ```go
 // mi_plugin.go
 package main
@@ -43,11 +45,13 @@ func main() {
 ```
 
 #### 2. Compilar el Plugin
+
 ```bash
 go build -buildmode=plugin -o mi_plugin.so mi_plugin.go
 ```
 
 #### 3. Cargar el Plugin en el Programa Principal
+
 ```go
 // main.go
 package main
@@ -89,6 +93,7 @@ func main() {
 ### Casos de Uso Avanzados
 
 #### 1. Variables Exportadas en el Plugin
+
 ```go
 // Plugin
 var Version = "1.0.0"
@@ -100,6 +105,7 @@ fmt.Println("Versión del plugin:", version) // 1.0.0
 ```
 
 #### 2. Funciones con Parámetros y Retorno
+
 ```go
 // Plugin
 func Sumar(a, b int) int {
@@ -119,6 +125,7 @@ fmt.Println(sumarFunc(2, 3)) // 5
 1. **Manejo de Errores**:
    - Verifica errores en `plugin.Open` y `Lookup`.
    - Usar type assertion segura:
+
      ```go
      if saludarFunc, ok := sym.(func() string); ok {
          // Usar la función
@@ -142,6 +149,7 @@ fmt.Println(sumarFunc(2, 3)) // 5
 ### Advertencias y Problemas Comunes
 
 1. **Incompatibilidad de Versiones**:
+
    ```bash
    # Error común:
    plugin.Open("mi_plugin.so"): plugin was built with a different version of package...
@@ -149,6 +157,7 @@ fmt.Println(sumarFunc(2, 3)) // 5
 
 2. **Tipos Incorrectos**:
    - Si la firma de la función no coincide, el type assertion fallará:
+
      ```go
      // Plugin: func Saludar() string
      sym.(func() int) // Panic: interface conversion error
@@ -165,7 +174,8 @@ fmt.Println(sumarFunc(2, 3)) // 5
 ### Ejemplo Integrado: Sistema de Plugins Modular
 
 **Estructura de Archivos**:
-```
+
+```plaintext
 mi_app/
 ├── main.go
 └── plugins/
@@ -178,6 +188,7 @@ mi_app/
 ```
 
 **Plugin de Matemáticas** (`math.go`):
+
 ```go
 package main
 
@@ -186,6 +197,7 @@ func Restar(a, b int) int { return a - b }
 ```
 
 **Cargar Múltiples Plugins**:
+
 ```go
 func cargarPlugin(ruta string) {
     p, err := plugin.Open(ruta)
@@ -212,11 +224,13 @@ func main() {
 ### Conclusión
 
 El paquete `plugin` de Go es una herramienta poderosa para:
+
 - Crear aplicaciones extensibles sin recompilar.
 - Implementar arquitecturas modulares.
 - Desarrollar sistemas de complementos.
 
 **Recomendaciones Finales**:
+
 - Úsalo en entornos controlados (Linux/macOS).
 - Mantén consistencia en versiones y dependencias.
 - Prioriza la seguridad al cargar plugins externos.

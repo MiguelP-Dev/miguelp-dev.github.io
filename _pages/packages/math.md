@@ -16,6 +16,7 @@ El paquete `math` en Go proporciona una amplia gama de funciones matemáticas es
 ---
 
 ### Constantes Matemáticas Clave
+
 ```go
 math.Pi   // 3.141592653589793
 math.E    // 2.718281828459045
@@ -29,6 +30,7 @@ math.NaN()   // Not-a-Number
 ### Funciones Básicas Mejoradas
 
 #### 1. **`math.Abs` - Valor Absoluto**
+
 ```go
 // Manejo de tipos enteros
 func AbsInt(x int) int {
@@ -44,6 +46,7 @@ fmt.Println(math.Abs(math.Inf(1))) // +Inf
 ```
 
 #### 2. **`math.Pow` - Potenciación**
+
 ```go
 // Cálculo de interés compuesto
 principal := 1000.0
@@ -57,6 +60,7 @@ fmt.Println(math.Pow(5, 0)) // 1 (siempre)
 ```
 
 #### 3. **`math.Sqrt` - Raíz Cuadrada**
+
 ```go
 // Distancia entre dos puntos (teorema de Pitágoras)
 func Distancia(x1, y1, x2, y2 float64) float64 {
@@ -72,6 +76,7 @@ fmt.Println(Distancia(0, 0, 3, 4)) // 5
 ### Funciones Trigonométricas Avanzadas
 
 #### 4. **Conversión de Grados a Radianes**
+
 ```go
 func GradosARadianes(grados float64) float64 {
     return grados * math.Pi / 180
@@ -85,6 +90,7 @@ fmt.Printf("Altura: %.2f metros\n", altura) // 86.60 m
 ```
 
 #### 5. **`math.Sin` - Movimiento Ondulatorio**
+
 ```go
 // Simulación de onda senoidal
 amplitud := 2.0
@@ -100,6 +106,7 @@ fmt.Printf("Posición: %.2f\n", posicion) // 2.00
 ### Funciones Logarítmicas y Exponenciales
 
 #### 6. **`math.Log` - Crecimiento Exponencial**
+
 ```go
 // Cálculo de tiempo de duplicación (regla del 72)
 tasaCrecimiento := 0.08  // 8%
@@ -108,6 +115,7 @@ fmt.Printf("Se duplica en %.1f años\n", tiempoDuplicacion) // 9.0 años
 ```
 
 #### 7. **`math.Exp` - Decaimiento Radioactivo**
+
 ```go
 // Cálculo de material restante
 cantidadInicial := 100.0  // gramos
@@ -123,6 +131,7 @@ fmt.Printf("Material restante: %.2f gramos\n", cantidad) // 60.65 g
 ### Funciones de Comparación y Casos Especiales
 
 #### 8. **`math.Max`/`math.Min` - Normalización de Datos**
+
 ```go
 // Normalizar valores entre 0 y 1
 valores := []float64{4, 2, 7, 1}
@@ -141,6 +150,7 @@ fmt.Println(valores) // [0.5 0.166... 1 0]
 ```
 
 #### 9. **`math.Mod` - Manejo de Números Negativos**
+
 ```go
 fmt.Println(math.Mod(7, 3))   // 1
 fmt.Println(math.Mod(-7, 3))  // -1 (comportamiento particular)
@@ -153,6 +163,7 @@ fmt.Println(math.Mod(7, 0))   // NaN
 ### Mejores Prácticas y Advertencias
 
 1. **Precisión en Comparaciones**:
+
    ```go
    // Evitar comparaciones directas con floats
    a := 0.1 + 0.2
@@ -162,6 +173,7 @@ fmt.Println(math.Mod(7, 0))   // NaN
    ```
 
 2. **Manejo de Valores Especiales**:
+
    ```go
    x := math.Log(-1)                    // NaN
    fmt.Println(math.IsNaN(x))           // true
@@ -169,6 +181,7 @@ fmt.Println(math.Mod(7, 0))   // NaN
    ```
 
 3. **Optimización de Rendimiento**:
+
    ```go
    // Precalcular valores frecuentes
    var (

@@ -2,8 +2,8 @@
 layout: default
 title: "Arquitectura de software"
 description: "Domina la arquitectura de software para ser un buen profesional con golang"
-permalink: /othertech/arquitecturas/
-categories: othertech
+permalink: /technologies/arquitecturas/
+categories: technologies
 subcategories: arquitecturas
 icon: 🏗️
 article: true

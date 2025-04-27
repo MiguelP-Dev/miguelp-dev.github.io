@@ -18,6 +18,7 @@ El paquete `log` en Go ofrece herramientas fundamentales para el registro de eve
 ### Funciones Principales y Uso Avanzado
 
 #### 1. **Registro Básico**
+
 ```go
 // Registro simple
 log.Print("Inicio de la aplicación")
@@ -30,6 +31,7 @@ log.Println("Usuario: john_doe | Acción: login")
 ```
 
 #### 2. **Manejo de Errores Críticos**
+
 ```go
 func cargarConfiguracion() error {
     if _, err := os.ReadFile("config.yaml"); err != nil {
@@ -46,7 +48,9 @@ func main() {
 ```
 
 #### 3. **Diferencias entre `Panic` y `Fatal`**
+
 - **`log.Panic`**: Genera un panic (recuperable con `recover`)
+
   ```go
   defer func() {
       if r := recover(); r != nil {
@@ -57,6 +61,7 @@ func main() {
   ```
 
 - **`log.Fatal`**: Termina el programa inmediatamente
+
   ```go
   if conn == nil {
       log.Fatal("Conexión de base de datos no disponible")
@@ -68,6 +73,7 @@ func main() {
 ### Configuración Avanzada
 
 #### 4. **Personalización de Formato**
+
 ```go
 // Configurar prefijo y formato
 log.SetFlags(log.Ldate | log.Ltime | log.Lmicroseconds | log.Lshortfile)

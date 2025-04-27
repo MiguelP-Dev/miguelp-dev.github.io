@@ -18,6 +18,7 @@ El paquete `os` en Go permite interactuar con el sistema operativo, gestionando 
 ### Funciones Clave y Ejemplos
 
 #### 1. **Abrir y Leer un Archivo (`os.Open`)**
+
 ```go
 package main
 
@@ -43,11 +44,13 @@ func main() {
     fmt.Println("Contenido:", string(contenido))
 }
 ```
+
 - **Nota**: Si el archivo no existe, `os.Open` retorna un error. Usa `defer` para cerrar el archivo después de su uso.
 
 ---
 
 #### 2. **Crear un Archivo (`os.Create`)**
+
 ```go
 package main
 
@@ -71,11 +74,13 @@ func main() {
     fmt.Println("Archivo creado y escrito.")
 }
 ```
+
 - **Advertencia**: Si el archivo ya existe, `os.Create` lo **sobrescribe**.
 
 ---
 
 #### 3. **Verificar Existencia de un Archivo (`os.Stat`)**
+
 ```go
 func archivoExiste(nombre string) bool {
     _, err := os.Stat(nombre)
@@ -90,21 +95,26 @@ func main() {
     }
 }
 ```
+
 - **Condición de carrera**: Entre la verificación y la operación, otro proceso podría modificar el archivo.
 
 ---
 
 #### 4. **Manejo de Directorios**
-###### Crear Directorio (`os.Mkdir`):
+
+##### Crear Directorio (`os.Mkdir`)
+
 ```go
 err := os.Mkdir("directorio", 0755)
 if err != nil {
     fmt.Println("Error al crear directorio:", err)
 }
 ```
+
 - **Permisos**: `0755` permite al dueño leer, escribir y ejecutar, y a otros solo leer y ejecutar.
 
-###### Listar Archivos en un Directorio (`os.ReadDir`):
+##### Listar Archivos en un Directorio (`os.ReadDir`)
+
 ```go
 entries, err := os.ReadDir(".")
 if err != nil {
@@ -116,7 +126,8 @@ for _, entry := range entries {
 }
 ```
 
-###### Eliminar Directorio (`os.Remove`):
+##### Eliminar Directorio (`os.Remove`)
+
 ```go
 err := os.Remove("directorio")
 if err != nil {
@@ -127,24 +138,29 @@ if err != nil {
 ---
 
 #### 5. **Variables de Entorno**
-###### Obtener una Variable (`os.Getenv`):
+
+##### Obtener una Variable (`os.Getenv`)
+
 ```go
 path := os.Getenv("PATH")
 fmt.Println("PATH:", path)
 ```
 
-###### Establecer una Variable (`os.Setenv`):
+##### Establecer una Variable (`os.Setenv`)
+
 ```go
 err := os.Setenv("MODO_DEBUG", "true")
 if err != nil {
     fmt.Println("Error al establecer:", err)
 }
 ```
+
 - **Alcance**: Solo afecta al proceso actual y sus subprocesos.
 
 ---
 
 #### 6. **Renombrar/Mover Archivos (`os.Rename`)**
+
 ```go
 err := os.Rename("viejo.txt", "nuevo.txt")
 if err != nil {
@@ -155,12 +171,14 @@ if err != nil {
 ---
 
 #### 7. **Terminar el Programa (`os.Exit`)**
+
 ```go
 func main() {
     defer fmt.Println("¡Esto no se ejecutará!") // defer no se ejecuta con os.Exit
     os.Exit(1) // Código de salida 1 (error)
 }
 ```
+
 - **Advertencia**: `os.Exit` termina el programa inmediatamente, sin ejecutar `defer`.
 
 ---
@@ -169,6 +187,7 @@ func main() {
 
 1. **Manejo de Errores**:
    - Verifica siempre los errores retornados por las funciones del paquete `os`.
+
    ```go
    file, err := os.Open("archivo.txt")
    if err != nil {
@@ -178,6 +197,7 @@ func main() {
 
 2. **Cierre de Recursos**:
    - Usa `defer` para cerrar archivos y liberar recursos.
+
    ```go
    file, _ := os.Open("archivo.txt")
    defer file.Close()
@@ -192,6 +212,7 @@ func main() {
 ---
 
 ### Ejemplo Integrado: Copiar un Archivo
+
 ```go
 package main
 

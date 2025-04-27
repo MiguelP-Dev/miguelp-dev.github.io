@@ -18,9 +18,11 @@ El paquete `net` en Go es fundamental para desarrollar aplicaciones de red, ofre
 ### Funciones Clave y Uso
 
 #### 1. **`net.Dial(network, address string) (Conn, error)`**
+
 **Propósito**: Establece una conexión a un servidor remoto.  
 **Redes soportadas**: `tcp`, `tcp4`, `tcp6`, `udp`, `udp4`, `udp6`, `unix`, `unixpacket`.  
 **Ejemplo (TCP)**:
+
 ```go
 conn, err := net.Dial("tcp", "google.com:80")
 if err != nil {
@@ -31,8 +33,10 @@ fmt.Fprintf(conn, "GET / HTTP/1.0\r\n\r\n")
 ```
 
 #### 2. **`net.Listen(network, address string) (Listener, error)`**
+
 **Propósito**: Crea un servidor que escucha conexiones entrantes.  
 **Ejemplo (Servidor TCP)**:
+
 ```go
 ln, err := net.Listen("tcp", ":8080")
 if err != nil {
@@ -56,8 +60,10 @@ func manejarConexion(conn net.Conn) {
 ```
 
 #### 3. **`net.ResolveIPAddr(network, address string) (*IPAddr, error)`**
+
 **Propósito**: Resuelve un nombre de host a una dirección IP.  
 **Ejemplo**:
+
 ```go
 ip, err := net.ResolveIPAddr("ip", "google.com")
 if err != nil {
@@ -67,8 +73,10 @@ fmt.Println("IP de Google:", ip) // Ejemplo: 172.217.10.238
 ```
 
 #### 4. **`net.LookupHost(host string) ([]string, error)`**
+
 **Propósito**: Obtiene todas las direcciones IP (IPv4 e IPv6) de un host.  
 **Ejemplo**:
+
 ```go
 addrs, err := net.LookupHost("google.com")
 if err != nil {
@@ -78,8 +86,10 @@ fmt.Println("Direcciones IP:", addrs) // [172.217.10.238 2a00:1450:4009:81c::200
 ```
 
 #### 5. **`net.Interfaces() ([]Interface, error)`**
+
 **Propósito**: Lista las interfaces de red del sistema.  
 **Ejemplo (Listar interfaces activas)**:
+
 ```go
 ifaces, err := net.Interfaces()
 if err != nil {
@@ -94,16 +104,20 @@ for _, iface := range ifaces {
 ```
 
 #### 6. **`net.JoinHostPort(host, port string) string`**
+
 **Propósito**: Formatea una dirección IP y puerto correctamente.  
 **Ejemplo (IPv6)**:
+
 ```go
 address := net.JoinHostPort("::1", "8080")
 fmt.Println(address) // [::1]:8080
 ```
 
 #### 7. **`net.SplitHostPort(hostport string) (host, port string, err error)`**
+
 **Propósito**: Divide una dirección en host y puerto.  
 **Ejemplo**:
+
 ```go
 host, port, err := net.SplitHostPort("[::1]:8080")
 if err != nil {
@@ -118,19 +132,25 @@ fmt.Println("Puerto:", port) // 8080
 ### Tipos Principales
 
 #### **`net.Conn`** (Interfaz)
+
 **Métodos**:
+
 - `Read(b []byte) (n int, err error)`: Lee datos de la conexión.
 - `Write(b []byte) (n int, err error)`: Escribe datos en la conexión.
 - `Close() error`: Cierra la conexión.
 
 #### **`net.Listener`** (Interfaz)
+
 **Métodos**:
+
 - `Accept() (Conn, error)`: Acepta una conexión entrante.
 - `Close() error`: Detiene el listener.
 
 #### **`net.IP`** (Tipo)
+
 **Uso**: Manipulación de direcciones IP.  
 **Ejemplo**:
+
 ```go
 ip := net.ParseIP("192.168.1.1")
 if ip.To4() != nil {
@@ -139,6 +159,7 @@ if ip.To4() != nil {
 ```
 
 #### **`net.Addr`** (Interfaz)
+
 **Propósito**: Representa una dirección de red (ej: `TCPAddr`, `UDPAddr`).
 
 ---
@@ -147,6 +168,7 @@ if ip.To4() != nil {
 
 1. **Manejo de Concurrencia**:
    - Usar goroutines para manejar múltiples conexiones simultáneamente.
+
    ```go
    ln, _ := net.Listen("tcp", ":8080")
    for {
@@ -163,6 +185,7 @@ if ip.To4() != nil {
 
 3. **Manejo de Errores**:
    - Verificar errores en cada operación de red.
+
    ```go
    conn, err := net.Dial("tcp", "servidor:80")
    if err != nil {
@@ -173,6 +196,7 @@ if ip.To4() != nil {
 
 4. **IPv6 y Formatos Especiales**:
    - Usar `JoinHostPort` para direcciones IPv6:
+
      ```go
      net.JoinHostPort("2001:db8::1", "80") // [2001:db8::1]:80
      ```
@@ -182,6 +206,7 @@ if ip.To4() != nil {
 ### Ejemplo Integrado: Cliente-Servidor TCP
 
 **Servidor**:
+
 ```go
 package main
 
@@ -214,6 +239,7 @@ func handleRequest(conn net.Conn) {
 ```
 
 **Cliente**:
+
 ```go
 package main
 

@@ -18,44 +18,59 @@ El paquete `mime` en Go facilita el manejo de tipos MIME (Multipurpose Internet 
 ### Funciones Principales
 
 #### 1. **`mime.TypeByExtension(ext string) string`**
+
 **Propósito**: Obtiene el tipo MIME asociado a una extensión de archivo.  
 **Ejemplo**:
+
 ```go
 fmt.Println(mime.TypeByExtension(".png")) // "image/png"
 fmt.Println(mime.TypeByExtension(".xyz")) // "" (extensión desconocida)
 ```
+
 **Consideraciones**:
+
 - Las extensiones deben incluir el punto (ej: `.jpg`, no `jpg`).
 - No distingue entre mayúsculas y minúsculas: `.JPG` y `.jpg` devuelven `image/jpeg`.
 
 #### 2. **`mime.ExtensionsByType(typ string) ([]string, error)`**
+
 **Propósito**: Obtiene las extensiones asociadas a un tipo MIME.  
 **Ejemplo**:
+
 ```go
 exts, err := mime.ExtensionsByType("application/json")
 fmt.Println(exts) // [".json"]
 ```
+
 **Manejo de Errores**:
+
 - Devuelve `nil, nil` si el tipo MIME no existe (no un error explícito).
 - Para tipos con parámetros (ej: `text/html; charset=utf-8`), ignora los parámetros:
+
   ```go
   exts, _ := mime.ExtensionsByType("text/html; charset=utf-8")
   fmt.Println(exts) // [".html"]
   ```
 
 #### 3. **`mime.AddExtensionType(ext, typ string) error`**
+
 **Propósito**: Asocia una extensión a un tipo MIME personalizado.  
 **Ejemplo**:
+
 ```go
 err := mime.AddExtensionType(".md", "text/markdown")
 fmt.Println(mime.TypeByExtension(".md")) // "text/markdown"
 ```
+
 **Advertencias**:
-- Sobrescribe asociaciones existentes:  
+
+- Sobrescribe asociaciones existentes:
+
   ```go
   mime.AddExtensionType(".jpg", "application/x-custom-image")
   fmt.Println(mime.TypeByExtension(".jpg")) // "application/x-custom-image"
   ```
+
 - Las asociaciones son globales en la aplicación, no por instancia.
 
 ---
@@ -63,6 +78,7 @@ fmt.Println(mime.TypeByExtension(".md")) // "text/markdown"
 ### Casos de Uso Avanzados
 
 #### 1. **Servir Archivos con el Tipo MIME Correcto**
+
 ```go
 func handleRequest(w http.ResponseWriter, r *http.Request) {
     filePath := r.URL.Path[1:]
@@ -80,6 +96,7 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 ```
 
 #### 2. **Manejo de Tipos MIME Personalizados**
+
 ```go
 func init() {
     // Registrar tipos personalizados al iniciar la app
@@ -163,11 +180,13 @@ func main() {
 ### Conclusión
 
 El paquete `mime` de Go es una herramienta esencial para:
+
 - Identificar tipos de contenido por extensiones.
 - Personalizar asociaciones MIME en aplicaciones.
 - Garantizar encabezados HTTP correctos al servir archivos.
 
 **Recomendaciones**:
+
 - Usar `AddExtensionType` para tipos no incluidos por defecto.
 - Combinar con detección por contenido (bibliotecas de terceros) para mayor precisión.
 - Verificar extensiones en minúsculas para consistencia.
