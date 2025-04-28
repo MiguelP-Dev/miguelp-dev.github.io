@@ -162,6 +162,7 @@ sequenceDiagram
 
 ```mermaid
 classDiagram
+  direction BT
   class Animal {
     +String nombre
     +int edad
@@ -279,13 +280,15 @@ flowchart LR
   A[Inicio] --> B[Proceso]
   B --> C[Fin]
   
-  classDef default fill:#f9f9f9,stroke:#333,stroke-width:1px
-  classDef success fill:#d4edda,stroke:#28a745,stroke-width:1px
-  classDef danger fill:#f8d7da,stroke:#dc3545,stroke-width:1px
-  
+  classDef default fill:#E09DF5,stroke:#A60DF5,stroke-width:2px,color:#2E3440
+  classDef success fill:#9DAFF5,stroke:#1A237E,stroke-width:2px,color:#FFFFFF
+  classDef danger fill:#F59AE6,stroke:#D81B60,stroke-width:2px,color#2E3440
+  classDef accent fill:#C39DF4,stroke:#6A1B9A,stroke-width:2px,color:#FFFFFF
+
   class A default
-  class B default
+  class B accent
   class C success
+  
 ```
 
 ## **11. Depuración y Solución de Problemas**

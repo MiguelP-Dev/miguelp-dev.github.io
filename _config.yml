@@ -15,9 +15,16 @@ plugins:
   - jekyll-github-metadata
   - jekyll-sass-converter
   - kramdown-parser-gfm
-  
+  - jekyll-mermaid
+
+mermaid:
+  enabled: true
+  version: "latest"
+  theme: "base" # Usamos 'base' porque personalizamos con CSS
+
 markdown: kramdown
 kramdown:
+  input: GFM
   syntax_highlighter_opts:
     disable: true
 lsi: false
@@ -89,8 +96,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules/
+  - vendor
   - vendor/bundle/
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-
