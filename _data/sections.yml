@@ -16,9 +16,14 @@
 - title: Ejemplos
   url: /examples/
   icon: 💡
-  description: Ejemplos prácticos de código
+  description: Ejemplos prácticos
 
 - title: Otras Tecnologías
   url: /technologies/
   icon: 🔧
   description: Guías de tecnologías complementarias
+
+- title: Hojas de Trucos
+  url: /cheat_sheets/
+  icon: 📋
+  description: Colección de hojas detrucos en varios lenguajes y tecnologías

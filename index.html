@@ -12,20 +12,20 @@ title: DevSphere - Inicio
                 {% include card.html article=article %}
             {% endfor %}
         </div>
-        {% if packages.size >= 6 %}
+        {% if packages.size >= 4 %}
                 <a href="/packages" class="section-link">Ver todos los paquetes →</a>
             {% endif %}
         </section>
 
         <section class="section">
-            <h2 class="section-title">Ejemplos de código con Go</h2>
+            <h2 class="section-title">Ejemplos de código</h2>
             <div class="cards-container">
                 {% assign examples = site.pages | where: "category", "examples" | where: "article", true | sort: "title" %}
                 {% for article in examples limit : 3 %}
                     {% include card.html article=article %}
                 {% endfor %}
             </div>
-            {% if examples.size >= 6 %}
+            {% if examples.size >= 4 %}
                 <a href="/examples" class="section-link">Ver todos los ejemplos →</a>
             {% endif %}
         </section>
@@ -38,8 +38,21 @@ title: DevSphere - Inicio
                     {% include card.html article=article %}
                 {% endfor %}
             </div>
-            {% if technologies.size >= 6 %}
+            {% if technologies.size >= 4 %}
                 <a href="/technologies" class="section-link">Ver todas las tecnologías →</a>
+            {% endif %}
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Otras Tecnologías</h2>
+            <div class="cards-container">
+                {% assign cheatsheets = site.pages | where: "category", "cheatsheets" | where: "article", true | sort: "title" %}
+                {% for article in cheatsheets limit: 3 %}
+                    {% include card.html article=article %}
+                {% endfor %}
+            </div>
+            {% if cheatsheets.size >= 4 %}
+                <a href="/cheat_sheets" class="section-link">Ver todas las hojas de trucos →</a>
             {% endif %}
         </section>
     </div>

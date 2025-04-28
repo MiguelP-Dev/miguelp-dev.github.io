@@ -17,57 +17,57 @@
         </div>
     </div>
     {% include github-floating.html %}
+    
     <script src="{{ '/assets/js/hightlight.js' | relative_url }}"></script>
 
-<!-- Highlight.js JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-<!-- Lenguajes que necesitas -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/bash.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/go.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/javascript.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/yaml.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/scss.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/xml.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/json.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/protobuf.min.js"></script>
+    <!-- Highlight.js JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <!-- Lenguajes que necesitas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/go.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/javascript.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/yaml.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/scss.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/protobuf.min.js"></script>
 
-<!-- Añadir Mermaid con configuración temática para Nordic -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: 'base', // Usamos 'base' para poder personalizar completamente con CSS
-      themeVariables: {
-        // Variables personalizadas para ajustarse al tema Nordic
-        primaryColor: '#88C0D0',
-        primaryTextColor: '#ECEFF4', 
-        primaryBorderColor: '#81A1C1',
-        lineColor: '#81A1C1',
-        secondaryColor: '#3B4252',
-        tertiaryColor: '#2E3440'
-      },
-      fontFamily: 'inherit',
-      securityLevel: 'loose'
-    });
-    
-    // Buscar bloques de código Mermaid y renderizarlos
-    document.querySelectorAll('pre code.language-mermaid').forEach(function(el) {
-      const content = el.textContent;
-      const mermaidDiv = document.createElement('div');
-      mermaidDiv.classList.add('mermaid');
-      mermaidDiv.innerHTML = content;
-      
-      const pre = el.parentElement;
-      if (pre.parentElement) {
-        pre.parentElement.replaceChild(mermaidDiv, pre);
-      }
-    });
-    
-    // Inicializar Mermaid
-    mermaid.init(undefined, '.mermaid');
-  });
-</script>
+    <!-- Añadir Mermaid con configuración temática para Nordic -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: 'base', // Usamos 'base' para poder personalizar completamente con CSS
+          themeVariables: {
+            // Variables personalizadas para ajustarse al tema Nordic
+            primaryColor: '#88C0D0',
+            primaryTextColor: '#ECEFF4', 
+            primaryBorderColor: '#81A1C1',
+            lineColor: '#81A1C1',
+            secondaryColor: '#3B4252',
+            tertiaryColor: '#2E3440'
+          },
+          fontFamily: 'inherit',
+          securityLevel: 'loose'
+        });
 
+        // Buscar bloques de código Mermaid y renderizarlos
+        document.querySelectorAll('pre code.language-mermaid').forEach(function(el) {
+          const content = el.textContent;
+          const mermaidDiv = document.createElement('div');
+          mermaidDiv.classList.add('mermaid');
+          mermaidDiv.innerHTML = content;
+
+          const pre = el.parentElement;
+          if (pre.parentElement) {
+            pre.parentElement.replaceChild(mermaidDiv, pre);
+          }
+        });
+
+        // Inicializar Mermaid
+        mermaid.init(undefined, '.mermaid');
+      });
+    </script>
 </body>
 </html>

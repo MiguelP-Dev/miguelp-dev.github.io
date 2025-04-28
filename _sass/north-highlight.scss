@@ -1,0 +1,128 @@
+// _nord-highlight.scss
+/* ========== HIGHLIGHT.JS NORD THEME ========== */
+.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+    background: $nord1;
+    color: $nord4;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    font-size: 0.95em;
+    line-height: 1.6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    @include respond-to(phone) {
+        font-size: 0.85em;
+        padding: 0.8em;
+    }
+}
+
+    .hljs-keyword,
+    .hljs-selector-tag,
+    .hljs-title,
+    .hljs-section,
+    .hljs-doctag,
+    .hljs-name,
+    .hljs-strong {
+        color: $nord9; // Azul claro
+    }
+
+    .hljs-comment {
+        color: $nord3; // Gris azulado
+        font-style: italic;
+    }
+
+    .hljs-string,
+    .hljs-title,
+    .hljs-section,
+    .hljs-built_in,
+    .hljs-literal,
+    .hljs-type,
+    .hljs-addition,
+    .hljs-tag,
+    .hljs-quote,
+    .hljs-name,
+    .hljs-selector-id,
+    .hljs-selector-class {
+        color: $nord14; // Verde 
+    }
+
+    .hljs-meta,
+    .hljs-subst,
+    .hljs-symbol,
+    .hljs-regexp,
+    .hljs-attribute,
+    .hljs-deletion,
+    .hljs-variable,
+    .hljs-template-variable,
+    .hljs-link,
+    .hljs-bullet {
+        color: $nord8; // Cian
+    }
+
+    .hljs-emphasis {
+        font-style: italic;
+    }
+
+    .hljs-attr,
+    .hljs-selector-attr {
+        color: $nord7; // Verde azulado
+    }
+
+    .hljs-number {
+        color: $nord13; // Amarillo 
+    }
+
+    .hljs-tag .hljs-attr {
+        color: $nord4; // Texto normal
+    }
+
+  /* Específico para Liquid */
+    .language-liquid .hljs-template-tag,
+    .language-liquid .hljs-template-variable {
+        color: $nord9;
+    }
+
+    .language-liquid .hljs-variable {
+        color: $nord8;
+    }
+
+    .language-liquid .hljs-tag {
+        color: $nord11; // Rojo
+    }
+
+    .language-liquid .hljs-name {
+        color: $nord9;
+    }
+
+  /* Ajustes para la numeración de líneas */
+    .hljs-ln {
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+
+    .hljs-ln td {
+        padding: 0;
+    }
+
+    .hljs-ln-numbers {
+        text-align: right;
+        color: $nord3;
+        padding-right: 1em !important;
+        user-select: none;
+    }
+
+  /* Clases para los bloques de código */
+    pre code.hljs {
+        padding: 1.5em;
+        border-radius: 8px;
+    }
+
+    div.highlighter-rouge pre.highlight {
+        background: $nord1;
+        padding: 1em;
+        border-radius: 8px;
+        overflow-x: auto;
+    }

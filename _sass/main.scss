@@ -289,6 +289,17 @@ body {
     }
 }
 
+.section-link{
+    color: $nord8;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+    
+    &:hover {
+        color: $nord9;
+    }
+}
+
 /* ========== AJUSTES ESPECIALES ========== */
 @media (prefers-reduced-motion: reduce) {
     * {

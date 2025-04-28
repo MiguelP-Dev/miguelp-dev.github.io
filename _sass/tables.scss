@@ -1,0 +1,102 @@
+/* ========== ESTILOS PARA TABLAS AUTOGENERADAS ========== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background-color: $nord1;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    font-size: 0.95em;
+    line-height: 1.5;
+  
+    // Cabeceras
+    thead {
+      background-color: $nord2;
+      
+      tr {
+        th {
+          padding: 1rem 1.5rem;
+          color: $nord6;
+          font-weight: 600;
+          text-align: left;
+          border-bottom: 2px solid $nord3;
+          
+          &:first-child {
+            border-top-left-radius: 8px;
+          }
+          
+          &:last-child {
+            border-top-right-radius: 8px;
+          }
+        }
+      }
+    }
+  
+    // Cuerpo de la tabla
+    tbody {
+      tr {
+        transition: background-color 0.2s ease;
+        border-bottom: 1px solid rgba($nord3, 0.3);
+        
+        &:hover {
+          background-color: rgba($nord8, 0.08);
+        }
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        td {
+          padding: 1rem 1.5rem;
+          color: $nord4;
+          
+          // Estilo especial para la primera columna
+          &:first-child {
+            color: $nord5;
+            font-weight: 500;
+            font-family: 'SF Mono', 'Roboto Mono', monospace;
+          }
+          
+          // Estilo para código inline
+          code {
+            background-color: rgba($nord3, 0.3);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Roboto Mono', monospace;
+            font-size: 0.9em;
+            color: $nord8;
+          }
+        }
+      }
+      
+      // Zebra striping automático
+      tr:nth-child(even) {
+        background-color: rgba($nord3, 0.05);
+        
+        &:hover {
+          background-color: rgba($nord8, 0.1);
+        }
+      }
+    }
+  
+    // Adaptación móvil
+    @include respond-to(phone) {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+      font-size: 0.85em;
+      margin: 1.5rem 0;
+      box-shadow: none;
+      border: 1px solid $nord3;
+      
+      th, td {
+        min-width: 120px;
+      }
+      
+      thead tr th:first-child,
+      thead tr th:last-child {
+        border-radius: 0;
+      }
+    }
+  }

@@ -42,9 +42,12 @@ collections:
   examples:
     output: true
     permalink: /examples/:name/
-  othertech:
+  technologies:
     output: true
-    permalink: /othertech/:name/
+    permalink: /technologies/:name/
+  cheatsheets:
+    output: true
+    permalink: /cheat_sheets/:name/
 
 # Default front matter
 defaults:
@@ -75,6 +78,12 @@ defaults:
     values:
       layout: section
       category: technologies
+  - scope:
+      path: "_cheat_sheets"
+      type: "cheatsheets"
+    values:
+      layout: section
+      category: cheatsheets
 
 # Sass settings
 sass:
