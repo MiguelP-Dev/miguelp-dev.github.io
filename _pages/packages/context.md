@@ -3,9 +3,9 @@ layout: default
 title: context
 description: Guía del paquete context de Go para manejo de contextos y cancelación
 permalink: /packages/context/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🔄
 ---
 

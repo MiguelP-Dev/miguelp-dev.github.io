@@ -3,8 +3,8 @@ layout: default
 title: "Goroutines"
 description: "Guía completa sobre el uso de goroutines en Go"
 permalink: /examples/go/goroutines/
-categories: examples
-subcategories: go
+category: examples
+subcategory: go
 icon: ⚡
 article: true
 ---

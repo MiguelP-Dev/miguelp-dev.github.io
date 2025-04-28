@@ -3,9 +3,9 @@ layout: default
 title: "Paquete Archive en Go"
 description: "Guía para el paquete archive en Go, incluyendo ejemplos prácticos y mejores prácticas."
 permalink: /packages/archive
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🗃️
 ---
 

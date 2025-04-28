@@ -3,9 +3,9 @@ layout: default
 title: regexp
 description: Guía completa del paquete regexp de Go para expresiones regulares
 permalink: /packages/regexp/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🔍
 ---
 

@@ -3,8 +3,8 @@ layout: default
 title: "Servidor HTTP en Go"
 description: "Implementación completa de un servidor HTTP en Go con mejores prácticas"
 permalink: /examples/go/http-server/
-categories: examples
-subcategories: go
+category: examples
+subcategory: go
 icon: 🔌
 article: true
 ---

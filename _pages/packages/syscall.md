@@ -3,9 +3,9 @@ layout: default
 title: syscall
 description: Guía del paquete syscall de Go para acceso a llamadas del sistema
 permalink: /packages/syscall/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🖥️
 ---
 

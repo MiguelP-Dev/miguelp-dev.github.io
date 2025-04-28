@@ -3,9 +3,9 @@ layout: default
 title: sort
 description: Guía del paquete sort de Go para ordenamiento y búsqueda
 permalink: /packages/sort/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 📊
 ---
 

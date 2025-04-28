@@ -3,9 +3,9 @@ layout: default
 title: container
 description: Guía del paquete container de Go para estructuras de datos
 permalink: /packages/container/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 📚
 ---
 

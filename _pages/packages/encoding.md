@@ -3,9 +3,9 @@ layout: default
 title: encoding
 description: Guía del paquete encoding de Go para codificación y decodificación de datos
 permalink: /packages/encoding/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🔄
 ---
 

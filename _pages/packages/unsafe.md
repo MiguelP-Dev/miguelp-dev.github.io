@@ -3,9 +3,9 @@ layout: default
 title: unsafe
 description: Guía del paquete unsafe de Go para manipulación de memoria de bajo nivel
 permalink: /packages/unsafe/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: ⚠️
 ---
 

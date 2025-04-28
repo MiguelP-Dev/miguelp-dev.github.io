@@ -3,9 +3,9 @@ layout: default
 title: fmt
 description: Guía completa del paquete fmt de Go para formateo e I/O
 permalink: /packages/fmt/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 📝
 ---
 

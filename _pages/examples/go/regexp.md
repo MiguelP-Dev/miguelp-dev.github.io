@@ -3,8 +3,8 @@ layout: default
 title: "Expresiones Regulares en Go"
 description: "Guía detallada de expresiones regulares en GO"
 permalink: /examples/go/regexp/
-categories: examples
-subcategories: go
+category: examples
+subcategory: go
 icon: 📑
 ---
 

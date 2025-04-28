@@ -3,8 +3,8 @@ layout: default
 title: "Arquitectura de software"
 description: "Domina la arquitectura de software para ser un buen profesional con golang"
 permalink: /technologies/arquitecturas/
-categories: technologies
-subcategories: arquitecturas
+category: technologies
+subcategory: arquitecturas
 icon: 🏗️
 article: true
 ---

@@ -3,9 +3,9 @@ layout: default
 title: plugin
 description: Guía del paquete plugin de Go para carga dinámica de módulos
 permalink: /packages/plugin/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🔌
 ---
 

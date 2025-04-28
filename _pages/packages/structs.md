@@ -3,9 +3,9 @@ layout: default
 title: structs
 description: Guía del paquete structs de Fatih para manipulación de estructuras
 permalink: /packages/structs/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🧱
 ---
 

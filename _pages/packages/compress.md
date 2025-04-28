@@ -3,9 +3,9 @@ layout: default
 title: compress
 description: Guía del paquete compress de Go para compresión de datos
 permalink: /packages/compress/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🗜️
 ---
 

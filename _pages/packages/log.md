@@ -3,9 +3,9 @@ layout: default
 title: log
 description: Guía del paquete log de Go para registro de eventos
 permalink: /packages/log/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 📝
 ---
 

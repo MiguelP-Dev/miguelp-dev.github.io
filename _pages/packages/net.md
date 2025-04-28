@@ -3,9 +3,9 @@ layout: default
 title: net
 description: Guía del paquete net de Go para desarrollo de aplicaciones en red
 permalink: /packages/net/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🌐
 ---
 

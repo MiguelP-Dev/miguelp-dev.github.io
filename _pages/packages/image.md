@@ -3,9 +3,9 @@ layout: default
 title: image
 description: Guía del paquete image de Go para manipulación de imágenes
 permalink: /packages/image/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🖼️
 ---
 

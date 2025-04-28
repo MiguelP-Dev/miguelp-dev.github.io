@@ -3,9 +3,9 @@ layout: default
 title: hash
 description: Guía del paquete hash de Go para algoritmos de hashing
 permalink: /packages/hash/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🔐
 ---
 

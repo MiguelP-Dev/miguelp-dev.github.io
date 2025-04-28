@@ -7,7 +7,7 @@ layout: default
         <h2 class="section-title">{{ page.title }}</h2>
         <div class="cards-container">
             {% comment %} Filtra por categoría/subcategoría y excluye páginas con article:false {% endcomment %}
-            {% assign filtered_articles = site.pages | where: "categories", page.categories | where: "article", true %}
+            {% assign filtered_articles = site.pages | where: "category", page.category | where: "article", true %}
 
             {% for article in filtered_articles %}
                 {% include card.html article=article %}

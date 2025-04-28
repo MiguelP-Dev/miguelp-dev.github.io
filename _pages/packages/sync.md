@@ -3,9 +3,9 @@ layout: default
 title: sync
 description: Guía del paquete sync de Go para sincronización y concurrencia
 permalink: /packages/sync/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🔒
 ---
 

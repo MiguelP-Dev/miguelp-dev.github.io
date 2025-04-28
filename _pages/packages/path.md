@@ -3,9 +3,9 @@ layout: default
 title: path
 description: Guía del paquete path de Go para manipulación de rutas
 permalink: /packages/path/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🛣️
 ---
 

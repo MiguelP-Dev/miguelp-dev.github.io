@@ -3,9 +3,9 @@ layout: default
 title: crypto
 description: Guía del paquete crypto de Go para criptografía
 permalink: /packages/crypto/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🔐
 ---
 

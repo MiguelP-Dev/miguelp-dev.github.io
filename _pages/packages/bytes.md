@@ -3,9 +3,9 @@ layout: default
 title: bytes
 description: Guía del paquete bytes de Go para manipulación de datos binarios
 permalink: /packages/bytes/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🔠
 ---
 

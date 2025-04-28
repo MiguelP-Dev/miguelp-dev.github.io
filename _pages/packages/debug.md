@@ -3,9 +3,9 @@ layout: default
 title: debug
 description: Guía del paquete runtime/debug de Go para depuración
 permalink: /packages/debug/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🔍
 ---
 

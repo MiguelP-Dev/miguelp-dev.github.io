@@ -3,9 +3,9 @@ layout: default
 title: unicode
 description: Guía completa del paquete unicode de Go para manejo de caracteres internacionales
 permalink: /packages/unicode/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🔤
 ---
 

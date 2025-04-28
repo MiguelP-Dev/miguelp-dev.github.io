@@ -3,9 +3,9 @@ layout: default
 title: io
 description: Guía completa del paquete io de Go para entrada/salida
 permalink: /packages/io/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 📤
 ---
 

@@ -3,9 +3,9 @@ layout: default
 title: builtin
 description: Guía del paquete builtin de Go con funciones y tipos predefinidos
 permalink: /packages/builtin/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🧰
 ---
 

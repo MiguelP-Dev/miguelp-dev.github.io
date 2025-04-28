@@ -3,9 +3,9 @@ layout: default
 title: go
 description: Guía de los comandos del CLI de Go para desarrollo
 permalink: /packages/go/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🛠️
 ---
 

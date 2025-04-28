@@ -3,9 +3,9 @@ layout: default
 title: html
 description: Guía del paquete html de Go para manipulación segura de HTML
 permalink: /packages/html/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🌐
 ---
 

@@ -3,8 +3,8 @@ layout: default
 title: "Validación de Números de Teléfonos con regexp de golang"
 description: "Guía detallada de validación de números de teléfonos en Go con regexp"
 permalink: /examples/go/regexpnum/
-categories: examples
-subcategories: go
+category: examples
+subcategory: go
 icon: 📱
 article: true
 ---

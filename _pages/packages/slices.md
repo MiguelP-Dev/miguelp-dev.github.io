@@ -3,9 +3,9 @@ layout: default
 title: slices
 description: Guía del paquete slices de Go para manipulación eficiente de arreglos
 permalink: /packages/slices/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🔪
 ---
 

@@ -3,9 +3,9 @@ layout: default
 title: embed
 description: Guía del paquete embed de Go para incrustación de archivos
 permalink: /packages/embed/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 📦
 ---
 

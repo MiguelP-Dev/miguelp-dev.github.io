@@ -3,9 +3,9 @@ layout: default
 title: http
 description: Guía completa del paquete http de Go para aplicaciones web
 permalink: /packages/http/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🌐
 ---
 

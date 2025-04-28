@@ -3,9 +3,9 @@ layout: default
 title: json
 description: Guía completa del paquete encoding/json de Go
 permalink: /packages/json/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 📄
 ---
 

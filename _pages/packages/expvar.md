@@ -3,9 +3,9 @@ layout: default
 title: expvar
 description: Guía del paquete expvar de Go para exposición de variables
 permalink: /packages/expvar/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 📊
 ---
 

@@ -3,9 +3,9 @@ layout: default
 title: runtime
 description: Guía del paquete runtime de Go para interactuar con el entorno de ejecución
 permalink: /packages/runtime/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: ⚙️
 ---
 

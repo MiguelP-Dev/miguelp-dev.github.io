@@ -3,9 +3,9 @@ layout: default
 title: os
 description: Guía del paquete os de Go para interacción con el sistema operativo
 permalink: /packages/os/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 💻
 ---
 

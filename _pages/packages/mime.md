@@ -3,9 +3,9 @@ layout: default
 title: mime
 description: Guía del paquete mime de Go para manejo de tipos MIME
 permalink: /packages/mime/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 📋
 ---
 

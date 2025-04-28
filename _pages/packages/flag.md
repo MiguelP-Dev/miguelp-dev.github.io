@@ -3,9 +3,9 @@ layout: default
 title: flag
 description: Guía del paquete flag de Go para procesamiento de argumentos
 permalink: /packages/flag/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🚩
 ---
 

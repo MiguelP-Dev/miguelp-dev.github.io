@@ -3,9 +3,9 @@ layout: default
 title: time
 description: Guía completa del paquete time de Go para manejo de fechas y horas
 permalink: /packages/time/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🕒
 ---
 

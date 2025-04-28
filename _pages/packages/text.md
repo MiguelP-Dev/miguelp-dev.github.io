@@ -3,9 +3,9 @@ layout: default
 title: text
 description: Guía del paquete text de Go para manipulación avanzada de texto
 permalink: /packages/text/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 📝
 ---
 

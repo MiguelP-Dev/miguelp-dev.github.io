@@ -3,9 +3,9 @@ layout: default
 title: cmp
 description: Guía del paquete cmp de Go para comparación de valores
 permalink: /packages/cmp/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🔍
 ---
 

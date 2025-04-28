@@ -3,9 +3,9 @@ layout: default
 title: database/sql
 description: Guía del paquete database/sql de Go para bases de datos SQL
 permalink: /packages/database/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 📉
 ---
 

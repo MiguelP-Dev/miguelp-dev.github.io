@@ -3,8 +3,8 @@ layout: default
 title: "Resolución de laberinto"
 description: "Resolver un laberinto utilizando recursividad"
 permalink: /examples/pseudoCode/laberinto/
-categories: examples
-subcategories: pseudoCode
+category: examples
+subcategory: pseudoCode
 icon: 🌀
 article: true
 ---

@@ -3,8 +3,8 @@ layout: default
 title: "Tests Unitarios con Go"
 description: "Implementación de pruebas unitarias en Go usando el paquete testing"
 permalink: /examples/go/testing/
-categories: examples
-subcategories: go
+category: examples
+subcategory: go
 icon: 🧪
 article: true
 ---

@@ -3,9 +3,9 @@ layout: default
 title: math
 description: Guía del paquete math de Go para cálculos matemáticos
 permalink: /packages/math/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🧮
 ---
 

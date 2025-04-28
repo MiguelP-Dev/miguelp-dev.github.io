@@ -3,8 +3,8 @@ layout: default
 title: "Validación de URLs con regexp de golang"
 description: "Guía detallada de validación de URLs con Regex en Go"
 permalink: /examples/go/regexpurls/
-categories: examples
-subcategories: go
+category: examples
+subcategory: go
 icon: 🌐
 article: true
 ---

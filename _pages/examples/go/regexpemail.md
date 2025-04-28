@@ -3,8 +3,8 @@ layout: default
 title: "Validación de Emails con Expresiones Regulares"
 description: "Implementación profesional de validación de correos electrónicos usando Go y Regexp"
 permalink: /examples/go/regexpemail/
-categories: examples
-subcategories: go
+category: examples
+subcategory: go
 icon: ✉️
 article: true
 ---

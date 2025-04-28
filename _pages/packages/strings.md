@@ -3,9 +3,9 @@ layout: default
 title: strings
 description: Guía completa del paquete strings de Go para manipulación de cadenas
 permalink: /packages/strings/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 📝
 ---
 

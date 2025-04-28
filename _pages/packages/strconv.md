@@ -3,9 +3,9 @@ layout: default
 title: strconv
 description: Guía del paquete strconv de Go para conversión de tipos
 permalink: /packages/strconv/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🔢
 ---
 

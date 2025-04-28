@@ -3,9 +3,9 @@ layout: default
 title: "bufio"
 description: "Guía del paquete bufio de Go para operaciones de I/O optimizadas"
 permalink: /packages/bufio/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 📝
 ---
 

@@ -3,9 +3,9 @@ layout: default
 title: testing
 description: Guía completa del paquete testing de Go para pruebas unitarias
 permalink: /packages/testing/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🧪
 ---
 

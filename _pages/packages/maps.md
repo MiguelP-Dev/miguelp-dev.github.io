@@ -3,9 +3,9 @@ layout: default
 title: maps
 description: Guía del paquete maps de Go para manipulación de mapas
 permalink: /packages/maps/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: 🗺️
 ---
 

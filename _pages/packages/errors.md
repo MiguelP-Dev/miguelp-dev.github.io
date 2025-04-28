@@ -3,9 +3,9 @@ layout: default
 title: errors
 description: Guía del paquete errors de Go para manejo de errores
 permalink: /packages/errors/
-categories: packages
+category: packages
 article: true
-subcategories: go
+subcategory: go
 icon: ⚠️
 ---
 

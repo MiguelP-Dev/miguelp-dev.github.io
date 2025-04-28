@@ -3,7 +3,7 @@ layout: default
 title: "Mi Bitácora de Desarrollo"
 description: "Documentación personal de mi viaje de aprendizaje tecnológico - Recursos, guías y descubrimientos que me han ayudado a crecer como desarrollador"
 permalink: /about/
-categories: personal
+category: personal
 icon: 🧑‍💻
 article: false
 ---
