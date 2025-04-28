@@ -15,7 +15,7 @@ plugins:
   - jekyll-github-metadata
   - jekyll-sass-converter
   - kramdown-parser-gfm
-
+  
 markdown: kramdown
 kramdown:
   syntax_highlighter_opts:

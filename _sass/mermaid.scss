@@ -1,0 +1,169 @@
+/* ========== ESTILOS MERMAID PARA TEMA NORDIC ========== */
+
+/* Contenedor principal de Mermaid */
+.mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    overflow-x: auto;
+    max-width: 100%;
+    background-color: #2E3440; /* nord0 - fondo principal */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 2px rgba(136, 192, 208, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(136, 192, 208, 0.3);
+    font-family: 'Fira Code', 'Menlo', 'Consolas', monospace;
+  }
+  
+  /* Ajustes para los textos y elementos en diagramas */
+  .mermaid .label {
+    color: #ECEFF4 !important; /* nord6 - texto claro */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  
+  /* Estilos para nodos en flowcharts */
+  .mermaid .node rect,
+  .mermaid .node circle,
+  .mermaid .node ellipse,
+  .mermaid .node polygon,
+  .mermaid .node path {
+    fill: #3B4252 !important; /* nord1 - fondos secundarios */
+    stroke: #88C0D0 !important; /* nord8 - color de acento */
+    stroke-width: 1px;
+  }
+  
+  /* Estilo para nodos de decisión (rombos) */
+  .mermaid .nodeLabel {
+    color: #E5E9F0 !important; /* nord5 - texto para contraste */
+  }
+  
+  /* Líneas y flechas */
+  .mermaid .edgePath .path {
+    stroke: #81A1C1 !important; /* nord9 - color de iconos */
+    stroke-width: 1.5px;
+  }
+  
+  /* Texto en flechas */
+  .mermaid .edgeLabel {
+    background-color: rgba(46, 52, 64, 0.7) !important; /* nord0 semitransparente */
+    color: #D8DEE9 !important; /* nord4 - color de texto */
+    border-radius: 4px;
+    padding: 2px 4px;
+  }
+  
+  /* Secuencia de diagramas - actores */
+  .mermaid .actor {
+    fill: #434C5E !important; /* nord2 */
+    stroke: #88C0D0 !important; /* nord8 */
+    stroke-width: 1px;
+  }
+  
+  /* Líneas de vida en diagramas de secuencia */
+  .mermaid .messageLine0,
+  .mermaid .messageLine1 {
+    stroke: #81A1C1 !important; /* nord9 */
+    stroke-width: 1.5px;
+  }
+  
+  /* Activaciones en diagramas de secuencia */
+  .mermaid .activation0,
+  .mermaid .activation1,
+  .mermaid .activation2 {
+    fill: #4C566A !important; /* nord3 */
+    stroke: #88C0D0 !important; /* nord8 */
+  }
+  
+  /* Estilos para diagramas de clase */
+  .mermaid .classRect,
+  .mermaid .classLabel {
+    fill: #3B4252 !important; /* nord1 */
+    stroke: #88C0D0 !important; /* nord8 */
+    color: #E5E9F0 !important; /* nord5 */
+  }
+  
+  /* Diagramas de entidad-relación */
+  .mermaid .entityBox {
+    fill: #3B4252 !important; /* nord1 */
+    stroke: #88C0D0 !important; /* nord8 */
+  }
+  
+  /* Diagramas de estado */
+  .mermaid .stateGroup rect {
+    fill: #3B4252 !important; /* nord1 */
+    stroke: #81A1C1 !important; /* nord9 */
+  }
+  
+  .mermaid .stateLabel text {
+    fill: #E5E9F0 !important; /* nord5 */
+  }
+  
+  /* Diagramas de Gantt */
+  .mermaid .taskText {
+    fill: #E5E9F0 !important; /* nord5 */
+  }
+  
+  .mermaid .taskTextOutsideRight {
+    fill: #D8DEE9 !important; /* nord4 */
+  }
+  
+  .mermaid .task {
+    fill: #5E81AC !important; /* nord10 */
+    stroke: #81A1C1 !important; /* nord9 */
+  }
+  
+  /* Títulos y encabezados */
+  .mermaid .titleText {
+    fill: #88C0D0 !important; /* nord8 */
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  /* Fondos de diagramas */
+  .mermaid svg {
+    background-color: transparent !important;
+  }
+  
+  /* Ajustes para diagramas específicos */
+  .mermaid .pieTitleText {
+    fill: #88C0D0 !important; /* nord8 */
+    font-size: 1.2rem;
+  }
+  
+  .mermaid .pieCircle {
+    stroke: #4C566A !important; /* nord3 */
+    stroke-width: 1px;
+  }
+  
+  /* Transiciones animadas para hover en elementos interactivos */
+  .mermaid .node:hover rect,
+  .mermaid .node:hover circle,
+  .mermaid .node:hover ellipse,
+  .mermaid .node:hover polygon {
+    filter: brightness(1.1);
+    transition: all 0.3s ease;
+  }
+  
+  /* Ajuste de responsive para móviles */
+  @media (max-width: 600px) {
+    .mermaid {
+      padding: 1rem;
+      font-size: 90%;
+    }
+  }
+  
+  /* Mejora accesibilidad para lectores de pantalla */
+  .mermaid svg {
+    aria-label: "Diagrama generado con Mermaid";
+  }
+  
+  /* Script para habilitar el zoom con rueda de ratón en diagramas grandes */
+  .mermaid {
+    position: relative;
+  }
+  
+  /* Compatibilidad con prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .mermaid * {
+      transition: none !important;
+      animation: none !important;
+    }
+  }

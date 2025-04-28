@@ -1,41 +1,3 @@
-/* ========== PALETA NORDIC MEJORADA ========== */
-$nord0: #2E3440;
-$nord1: #3B4252;
-$nord2: #434C5E;
-$nord3: #4C566A;
-$nord4: #D8DEE9;
-$nord5: #E5E9F0;
-$nord6: #ECEFF4;
-$nord7: #8FBCBB;
-$nord8: #88C0D0;
-$nord9: #81A1C1;
-$nord10: #5E81AC;
-$nord11: #BF616A;
-$nord13: #EBCB8B;
-
-/* ========== VARIABLES ========== */
-$spacing-unit: 1rem;
-$background-color: $nord0;
-$secondary-background: $nord1;
-$text-color: $nord4;
-$heading-color: $nord6;
-$accent-color: $nord8;
-$icon-color: $nord9;
-$hover-accent: $nord7;
-
-/* ========== MIXINS ========== */
-@mixin respond-to($breakpoint) {
-    @if $breakpoint == phone {
-        @media (max-width: 600px) { @content; }
-    }
-    @else if $breakpoint == tablet {
-        @media (min-width: 601px) and (max-width: 1024px) { @content; }
-    }
-    @else if $breakpoint == desktop {
-        @media (min-width: 1025px) { @content; }
-    }
-}
-
 /* ========== ESTILOS GENERALES ========== */
 body {
     margin: 0;
@@ -339,3 +301,4 @@ body {
         transition: none !important;
     }
 }
+
