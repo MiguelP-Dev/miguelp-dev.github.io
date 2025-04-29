@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.querySelector('.sidebar-toggle');
     let resizeTimer;
 
-    // Mobile Toggle
+    // Mobile & Tablet Toggle
     const toggleSidebar = () => {
         sidebar.classList.toggle('mobile-open');
         overlay.classList.toggle('mobile-open');
@@ -13,10 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Comportamiento responsive
     const handleResponsiveBehavior = () => {
-        if (window.matchMedia('(max-width: 600px)').matches) {
-            // Mobile
-            toggleBtn.addEventListener('click', toggleSidebar);
-            overlay.addEventListener('click', toggleSidebar);
+        if (window.matchMedia('(max-width: 1024px)').matches) {
+            // Mobile & Tablet
+            if (!toggleBtn.classList.contains('js-listener')) {
+                toggleBtn.addEventListener('click', toggleSidebar);
+                overlay.addEventListener('click', toggleSidebar);
+                toggleBtn.classList.add('js-listener');
+            }
             sidebar.classList.remove('mobile-open');
             overlay.classList.remove('mobile-open');
         } else {
@@ -24,6 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
             sidebar.classList.remove('mobile-open');
             overlay.classList.remove('mobile-open');
             document.body.classList.remove('no-scroll');
+            if (toggleBtn.classList.contains('js-listener')) {
+                toggleBtn.removeEventListener('click', toggleSidebar);
+                overlay.removeEventListener('click', toggleSidebar);
+                toggleBtn.classList.remove('js-listener');
+            }
         }
     };
 
