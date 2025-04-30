@@ -84,6 +84,12 @@ defaults:
     values:
       layout: section
       category: cheatsheets
+  - scope:
+      path: "_lessons"
+      type: "lessons"
+    values:
+      layout: section
+      category: lessons
 
 # Sass settings
 sass:

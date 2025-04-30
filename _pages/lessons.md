@@ -1,7 +1,7 @@
 ---
 layout: section
 title: "Lecciones de desarrollo en varios lenguajes"
-description: "Catálogo completo de paquetes y soluciones preconfiguradas para desarrollo en Golang"
+description: "Catálogo completo de lecciones de desarrollo en varios lenguajes"
 permalink: /lessons/
 category: lessons
 icon: 👨‍💻

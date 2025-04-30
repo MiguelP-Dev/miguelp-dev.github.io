@@ -6,24 +6,29 @@
 - title: Sobre Mí
   url: /about/
   icon: 👥
-  description: Información sobre el proyecto
+  description: Documentación personal de mi viaje de aprendizaje tecnológico - Recursos, guías y descubrimientos que me han ayudado a crecer como desarrollador
 
-- title: Paquetes
-  url: /packages/
-  icon: 📦
-  description: Paquetes de Golang documentados
+- title: Lecciones
+  url: /lessons/
+  icon: 👨‍💻
+  description: Catálogo completo de lecciones de desarrollo en varios lenguajes
 
 - title: Ejemplos
   url: /examples/
   icon: 💡
-  description: Ejemplos prácticos
+  description: Colección de ejemplos prácticos y snippets de código listos para usar
 
 - title: Otras Tecnologías
   url: /technologies/
   icon: 🔧
-  description: Guías de tecnologías complementarias
+  description: Explora herramientas, frameworks y tecnologías que complementan nuestro stack principal de desarrollo
 
 - title: Hojas de Trucos
   url: /cheat_sheets/
   icon: 📋
   description: Colección de hojas detrucos en varios lenguajes y tecnologías
+
+- title: Paquetes
+  url: /packages/
+  icon: 📦
+  description: Catálogo completo de paquetes y soluciones preconfiguradas para desarrollo en Golang
