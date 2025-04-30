@@ -2,9 +2,10 @@
 layout: default
 title: "Expresiones Regulares en Go"
 description: "Uso del paquete regexp en Go para trabajar con expresiones regulares"
-permalink: /lessons/go/regexp/
+permalink: /lessons/regexp/
 category: lessons
 subcategory: go
+article: true
 icon: 📑
 ---
 
