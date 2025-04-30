@@ -4,7 +4,7 @@ title: "YAML desde cero"
 description: "Domina la cración de archívos '.yml' y '.yaml' para configurar contenedores, servicios, etc."
 permalink: /technologies/yaml/
 category: technologies
-subcategory: configuracion
+subcategory: configurations
 icon: 🔧
 article: true
 ---

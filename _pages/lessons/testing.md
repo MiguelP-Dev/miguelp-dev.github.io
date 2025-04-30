@@ -2,16 +2,12 @@
 layout: default
 title: "Tests Unitarios con Go"
 description: "Implementación de pruebas unitarias en Go usando el paquete testing"
-permalink: /examples/go/testing/
-category: examples
+permalink: /lessons/go/testing/
+category: lessons
 subcategory: go
 icon: 🧪
 article: true
 ---
-
-# Tests unitarios con Go
-
-El testing unitario en Go (Golang) es una práctica fundamental para asegurar la calidad del código.
 
 ## Introducción a los Testing Unitarios en Go
 

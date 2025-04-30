@@ -9,7 +9,7 @@ icon: 🌐
 article: true
 ---
 
-# Ejemplo de validación de Url usando Regexp
+## Implemetación de validación de direcciones de Url usando el paquete [Regexp](/packages/regexp/) de Go
 
 Para que una URL sea válida según un algoritmo sencillo, podemos considerar las siguientes características clave:
 

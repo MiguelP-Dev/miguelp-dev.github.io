@@ -9,7 +9,7 @@ icon: ✉️
 article: true
 ---
 
-# Ejemplo de validación de direcciones de email con Regex
+## Implementación de validación de direcciones de email usando el paquete [Regexp](/packages/regexp/) de Go
 
 Para validar una dirección de correo electrónico, podemos considerar varios criterios clave
 

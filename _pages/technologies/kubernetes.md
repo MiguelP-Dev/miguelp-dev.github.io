@@ -4,7 +4,7 @@ title: "Kubernetes desde cero"
 description: "Domina la Orquestación de contenedores con kubernetes"
 permalink: /technologies/kubernetes/
 category: technologies
-subcategory: orquestacion
+subcategory: orchestation
 icon: 🚀
 article: true
 ---

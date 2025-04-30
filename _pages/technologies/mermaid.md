@@ -4,7 +4,7 @@ title: "Mermaid desde cero"
 description: "Domina la creación de diagramas textuales"
 permalink: /technologies/mermaid/
 category: technologies
-subcategory: diagramas
+subcategory: diagrams
 icon: 🧜‍♀️
 article: true
 ---

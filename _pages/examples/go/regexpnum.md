@@ -9,7 +9,7 @@ icon: 📱
 article: true
 ---
 
-# Ejemplo de Validación de números de teléfonos con Regexp
+## Implementación de validación de números telefónicos usando el paquete [Regexp](/packages/regexp/) de Go
 
 Para validar números telefónicos, hay varios criterios que podemos considerar. Estos criterios pueden variar según el país y el formato específico de los números, pero aquí te dejo una guía general:
 

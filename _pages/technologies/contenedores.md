@@ -1,15 +1,13 @@
 ---
 layout: default
-title: "Guía Completa de Contenedores: Podman vs Docker"
-description: "Guía detallada de contenedores, incluyendo diferencia entre Docker y Podman"
+title: "Docker y Podman"
+description: "Aprende sobre contenedores, incluyendo diferencias entre Docker y Podman"
 permalink: /technologies/contenedores/
 category: technologies
-subcategory: contenedores
+subcategory: containers
 icon: 🐳
 article: true
 ---
-
-# **Guía Completa de Contenedores: Podman/Docker**
 
 ## **Introducción a los contenedores**
 

@@ -1,14 +1,12 @@
 ---
 layout: default
 title: "Expresiones Regulares en Go"
-description: "Guía detallada de expresiones regulares en GO"
-permalink: /examples/go/regexp/
-category: examples
+description: "Uso del paquete regexp en Go para trabajar con expresiones regulares"
+permalink: /lessons/go/regexp/
+category: lessons
 subcategory: go
 icon: 📑
 ---
-
-# Guía detallada de expresiones regulares en GO
 
 ## **¿Que son las expresiones regulares?**
 
@@ -160,3 +158,4 @@ En resumen, esta expresión regular valida que una cadena tenga el formato de un
 ### Conclusión
 
 Las expresiones regulares son una herramienta poderosa para mamipular texto. En GO(Golang), el paquete regexp facilita el trabajo con estas expresiones. Es importante entender los símbolos y cómo se combinan para formar patrones efectivos.
+

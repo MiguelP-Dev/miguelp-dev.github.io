@@ -2,43 +2,14 @@
 layout: default
 title: "GORM desde cero"
 description: "Aprende Gorm para manejar bases de datos de forma eficiente"
-permalink: /examples/go/gorm/
-category: examples
+permalink: /lessons/go/gorm/
+category: lessons
 subcategory: go
 icon: 🛠️
 article: true
 ---
 
-# GORM desde cero
-
-## Tabla de Contenidos
-
-- [Nivel Básico](#nivel-básico)
-  - [1. Instalación y Configuración Inicial](#1-instalación-y-configuración-inicial-de-gorm)
-  - [2. Modelos y CRUD Básico](#2-modelos-y-crud-básico)
-  - [3. Relaciones entre Modelos](#3-relaciones-entre-modelos)
-  - [4. Consultas Avanzadas](#4-consultas-avanzadas)
-  - [5. Integración con Fiber](#5-integración-con-fiber)
-
-- [Nivel Intermedio](#nivel-intermedio)
-  - [1. Manejo Avanzado de Errores](#1-manejo-avanzado-de-errores)
-  - [2. Validación de Datos](#2-validación-de-datos)
-  - [3. Paginación de Resultados](#3-paginación-de-resultados)
-  - [4. Optimización de Consultas](#4-optimización-de-consultas-select-indexes)
-  - [5. Transacciones y Operaciones Atómicas](#5-transacciones-y-operaciones-atómicas)
-  - [6. Hooks (Eventos de Modelos)](#6-hooks-eventos-de-modelos)
-  - [7. Uso de Raw SQL](#7-uso-de-raw-sql-cuando-gorm-no-es-suficiente)
-  - [8. Testing con Gorm](#8-testing-con-gorm-mock-y-suite-de-pruebas)
-
-- [Nivel Avanzado](#nivel-avanzado)
-  - [1. Despliegue en Docker con PostgreSQL + Gorm](#1-despliegue-en-docker-con-postgresql--gorm)
-  - [2. API Avanzada con Autenticación JWT](#2-api-avanzada-con-autenticación-jwt)
-  - [3. GraphQL con Gorm](#3-graphql-con-gorm)
-  - [4. Microservicios con Gorm y gRPC](#4-microservicios-con-gorm-y-grpc)
-
----
-
-# Nivel Básico
+# Nivel Básico de Gorm
 
 ## **1. Instalación y Configuración Inicial de GORM**  
 
@@ -264,7 +235,7 @@ func CreateUser(c *fiber.Ctx) error {
 
 ---
 
-# Nivel Intermedio
+# Nivel Intermedio de Gorm
 
 ## **1. Manejo Avanzado de Errores**
 
@@ -478,7 +449,7 @@ func TestCreateUser(t *testing.T) {
 
 ---
 
-# Nivel Avanzado
+# Nivel Avanzado de Gorm
 
 ## **1. Despliegue en Docker con PostgreSQL + Gorm**  
 
