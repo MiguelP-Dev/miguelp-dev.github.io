@@ -5,7 +5,7 @@ description: "Aprende a utilizar Jekyll para crear sitios web estáticos con fac
 category: cheatsheets
 permalink: /cheat_sheets/jekyllcs/
 subcategory: jekyll
-icon: 📋
+icon: 📚
 article: true
 ---
 
