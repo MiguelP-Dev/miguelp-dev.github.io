@@ -2,7 +2,7 @@
 layout: default
 title: "Introducción a http en Go"
 description: ""
-permalink: /lessons/go/httpGo/
+permalink: /lessons/httpGo/
 category: lessons
 subcategory: go
 icon: 🔌

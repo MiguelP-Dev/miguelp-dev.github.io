@@ -2,7 +2,7 @@
 layout: default
 title: "Tests Unitarios con Go"
 description: "Implementación de pruebas unitarias en Go usando el paquete testing"
-permalink: /lessons/go/testing/
+permalink: /lessons/testing/
 category: lessons
 subcategory: go
 icon: 🧪

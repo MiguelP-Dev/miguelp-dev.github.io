@@ -2,7 +2,7 @@
 layout: default
 title: "GORM desde cero"
 description: "Aprende Gorm para manejar bases de datos de forma eficiente"
-permalink: /lessons/go/gorm/
+permalink: /lessons/gorm/
 category: lessons
 subcategory: go
 icon: 🛠️

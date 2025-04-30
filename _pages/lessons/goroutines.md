@@ -2,7 +2,7 @@
 layout: default
 title: "Goroutines de Go"
 description: "Aprende el uso de goroutines y sus beneficios en la programación concurrente."
-permalink: /lessons/go/goroutines/
+permalink: /lessons/goroutines/
 category: lessons
 subcategory: go
 icon: ⚡
