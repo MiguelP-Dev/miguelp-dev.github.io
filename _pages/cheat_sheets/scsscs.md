@@ -9,8 +9,6 @@ icon: 💎
 article: true
 ---
 
-# 
-
 ## Introducción a SCSS
 
 SCSS (Sassy CSS) es una extensión de la sintaxis de CSS que añade características poderosas como variables, anidamiento, mixins, herencia y más. SCSS es procesado y compilado a CSS estándar que los navegadores pueden entender.
