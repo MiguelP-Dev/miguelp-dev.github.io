@@ -430,9 +430,13 @@ graph TD
     C --> F((F))
     E --> F
     
-    subgraph "Orden de Visita BFS"
-    BFS["1. Nivel 0: A<br>2. Nivel 1: B, C<br>3. Nivel 2: D, E, F<br><br>Recorrido BFS: A, B, C, D, E, F"]
-    end
+   subgraph "Orden de Visita BFS"
+    BFS["Nivel 0: A
+    Nivel 1: B, C
+    Nivel 2: D, E, F
+    
+    Recorrido BFS: A, B, C, D, E, F"]
+end
 ```
 
 ### DFS (Búsqueda en Profundidad)
