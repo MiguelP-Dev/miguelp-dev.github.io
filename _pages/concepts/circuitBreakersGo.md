@@ -110,17 +110,36 @@ import (
 
 func main() {
    // Configuración del circuit breaker
-   cb := gobreaker.NewCircuitBreaker(gobreaker.Settings{
-      Name:        "myService",
-      MaxRequests: 5,
-      Interval:    30 * time.Second,
-      Timeout:     10 * time.Second,
-      Readiness:   gobreaker.ReadinessFunc(func() bool { return true }),
-      OnStateChange: func(name string, from gobreaker.State, to gobreaker.State) {
-         fmt.Printf("Circuit Breaker: %s state changed from %s to %s\n",
-            name, from, to)
-      },
-   })
+   // Creamos una nueva instancia de Circuit Breaker y la asignamos a la variable cb
+cb := gobreaker.NewCircuitBreaker(gobreaker.Settings{
+    // Nombre del Circuit Breaker para identificarlo en logs o monitoreo
+    Name: "myService",
+    
+    // Número máximo de solicitudes permitidas en estado semi-abierto
+    // antes de cambiar al estado cerrado (normal)
+    MaxRequests: 5,
+    
+    // Período de tiempo sobre el cual se miden las solicitudes fallidas
+    // El contador de errores se reinicia después de este intervalo
+    Interval: 30 * time.Second,
+    
+    // Tiempo que debe pasar en estado abierto (bloqueando solicitudes)
+    // antes de cambiar a estado semi-abierto (permitiendo algunas solicitudes de prueba)
+    Timeout: 10 * time.Second,
+    
+    // Función que determina si el Circuit Breaker está listo para permitir solicitudes
+    // En este caso siempre devuelve true, lo que significa que siempre está dispuesto
+    // a aceptar solicitudes si el estado interno lo permite
+    Readiness: gobreaker.ReadinessFunc(func() bool { 
+        return true 
+    }),
+    
+    // Función callback que se ejecuta cada vez que el Circuit Breaker cambia de estado
+    // Imprime un mensaje con el nombre del Circuit Breaker y los estados anterior y nuevo
+    OnStateChange: func(name string, from gobreaker.State, to gobreaker.State) {
+        fmt.Printf("Circuit Breaker: %s state changed from %s to %s\n", name, from, to)
+    },
+})
 
    // Función para llamar al servicio
    callService := func() (string, error) {
