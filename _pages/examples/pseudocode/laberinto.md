@@ -4,7 +4,7 @@ title: "Resolución de laberinto"
 description: "Resolver un laberinto utilizando recursividad"
 permalink: /examples/pseudoCode/laberinto/
 category: examples
-subcategory: pseudoCode
+subcategory: algorithms
 icon: 🌀
 article: true
 ---

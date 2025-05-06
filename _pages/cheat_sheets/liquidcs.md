@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Liquid Cheat Sheet
-description: Lenguaje de plnatillas para cargar contenido dinámico en páginas web
+title: Liquid
+description: "Lenguaje de plantillas para cargar contenido dinámico en páginas web"
 category: cheatsheets
 permalink: /cheat_sheets/liquidcs/
-subcategory: liquid
+subcategory: frontend
 icon: 📋
 article: true
 ---

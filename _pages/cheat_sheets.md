@@ -1,7 +1,7 @@
 ---
 layout: section
-title: "Hojas de Trucos"
-description: "Colección de hojas detrucos en varios lenguajes y tecnologías"
+title: "Hojas de Referencia"
+description: "Colección de hojas de referencias en varios lenguajes y tecnologías"
 permalink: /cheat_sheets/
 category: cheatsheets
 icon: 📋

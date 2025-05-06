@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Jekyll Cheat Sheet
-description: "Aprende a utilizar Jekyll para crear sitios web estáticos con facilidad."
-category: cheatsheets
+title: Jekyll
+description: "Herramienta para crear sitios web estáticos con facilidad
+category: cheatsheets"
 permalink: /cheat_sheets/jekyllcs/
-subcategory: jekyll
+subcategory: static-sites
 icon: 📚
 article: true
 ---
@@ -747,6 +747,7 @@ title: Búsqueda
   }
 })();
 ```
+
 {% raw %}
 
 ```liquid

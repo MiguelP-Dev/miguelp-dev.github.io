@@ -1,22 +1,23 @@
 ---
 layout: default
 title: "Introducción a http en Go"
-description: ""
+description: "Aprende a crear clientes y servidores HTTP robustos con la biblioteca estándar de Go"
 permalink: /lessons/httpGo/
 category: lessons
 subcategory: go
-icon: 🔌
+icon: 🌐
 article: true
 ---
 
-## **1. ¿Qué es net/http?**
+## **1. ¿Qué es net/http?**  
+
 El paquete `net/http` de Go proporciona herramientas para crear servidores web y clientes HTTP. Es ideal para construir APIs, aplicaciones web, y manejar peticiones/rutas.
 
 ---
 
 ## **2. Creando un Servidor Web Básico**
 
-**Ejemplo 1: Hola Mundo en HTTP**
+**Ejemplo 1: Hola Mundo en HTTP**  
 
 ```go
 package main
@@ -47,7 +48,7 @@ func main() {
 
 ## **3. Manejo de Métodos HTTP (GET, POST)**
 
-**Ejemplo 2: Manejar GET y POST**
+**Ejemplo 2: Manejar GET y POST**  
 
 ```go
 // Manejador para GET
@@ -86,7 +87,7 @@ http.HandleFunc("/enviar", func(w http.ResponseWriter, r *http.Request) {
 
 ## **4. Trabajando con Rutas y Parámetros**
 
-**Ejemplo 3: Rutas con Parámetros Dinámicos**
+**Ejemplo 3: Rutas con Parámetros Dinámicos**  
 
 Go no tiene rutas dinámicas incorporadas, pero puedes lograrlo con bibliotecas como `gorilla/mux` o manualmente:
 
@@ -106,7 +107,7 @@ http.HandleFunc("/usuario/", func(w http.ResponseWriter, r *http.Request) {
 
 ## **5. Enviar Respuestas en JSON**
 
-**Ejemplo 4: API JSON**
+**Ejemplo 4: API JSON**  
 
 ```go
 type User struct {
@@ -131,7 +132,7 @@ http.HandleFunc("/api/user", func(w http.ResponseWriter, r *http.Request) {
 
 ## **6. Middlewares Básicos**
 
-**Ejemplo 5: Middleware de Registro (Logging)**
+**Ejemplo 5: Middleware de Registro (Logging)**  
 
 ```go
 // Middleware que registra cada petición
@@ -152,12 +153,16 @@ http.HandleFunc("/ruta-protegida", loggingMiddleware(func(w http.ResponseWriter,
 
 ## **7. Sirviendo Archivos Estáticos**
 
-**Ejemplo 6: Servir una carpeta "static"**
+**Ejemplo 6: Servir una carpeta "static"**  
+
+{% raw %}
 
 ```go
 // Sirve todos los archivos de la carpeta ./static
 http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 ```
+
+{% endraw %}
 
 - Crea una carpeta `static` con archivos (ej: `style.css`).
 - Accede a `http://localhost:8080/static/style.css`.
@@ -166,7 +171,7 @@ http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("s
 
 ## **8. Manejo de Errores**
 
-**Ejemplo 7: Página 404 Personalizada**
+**Ejemplo 7: Página 404 Personalizada**  
 
 ```go
 http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {

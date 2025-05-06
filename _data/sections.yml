@@ -8,6 +8,11 @@
   icon: 👥
   description: Documentación personal de mi viaje de aprendizaje tecnológico - Recursos, guías y descubrimientos que me han ayudado a crecer como desarrollador
 
+- title: Conceptos
+  url: /concepts/
+  icon: 🧠
+  description: Catálogo de conceptos importantes en el mundo del desarrollo de software
+
 - title: Lecciones
   url: /lessons/
   icon: 👨‍💻
@@ -18,17 +23,22 @@
   icon: 💡
   description: Colección de ejemplos prácticos y snippets de código listos para usar
 
-- title: Otras Tecnologías
-  url: /technologies/
-  icon: 🔧
-  description: Explora herramientas, frameworks y tecnologías que complementan nuestro stack principal de desarrollo
+- title: Cloud & DevOps
+  url: /cloudevops/
+  icon: 🌩
+  description: Tecnologías para despliegue, gestión de contenedores y automatización en entornos cloud
 
-- title: Hojas de Trucos
+- title: Hojas de Referencia
   url: /cheat_sheets/
   icon: 📋
-  description: Colección de hojas detrucos en varios lenguajes y tecnologías
+  description: Colección de hojas de referencias en varios lenguajes y tecnologías
 
 - title: Paquetes
   url: /packages/
   icon: 📦
-  description: Catálogo completo de paquetes y soluciones preconfiguradas para desarrollo en Golang
+  description: Catálogo completo de paquetes y soluciones preconfiguradas para desarrollo
+
+- title: Librerías
+  url: /libraries/
+  icon: 📚
+  description: Catálogo completo de librerías para desarrollo

@@ -31,24 +31,6 @@ lsi: false
 excerpt_separator: "\n\n"
 incremental: false
 
-# Collections configuration
-collections:
-  sections:
-    output: true
-    permalink: /:collection/:name/
-  packages:
-    output: true
-    permalink: /packages/:name/
-  examples:
-    output: true
-    permalink: /examples/:name/
-  technologies:
-    output: true
-    permalink: /technologies/:name/
-  cheatsheets:
-    output: true
-    permalink: /cheat_sheets/:name/
-
 # Default front matter
 defaults:
   - scope:
@@ -67,17 +49,17 @@ defaults:
       layout: section
       category: packages
   - scope:
+      path: "_libraries"
+      type: "libraries"
+    values:
+      layout: section
+      category: library
+  - scope:
       path: "_examples"
       type: "examples"
     values:
       layout: section
       category: examples
-  - scope:
-      path: "_technologies"
-      type: "technologies"
-    values:
-      layout: section
-      category: technologies
   - scope:
       path: "_cheat_sheets"
       type: "cheatsheets"
@@ -90,6 +72,18 @@ defaults:
     values:
       layout: section
       category: lessons
+  - scope:
+      path: "_concepts"
+      type: "concepts"
+    values:
+      layout: section
+      category: concepts
+  - scope:
+      path: "_cloudevops"
+      type: "cloudevops"
+    values:
+      layout: section
+      category: cloudevops
 
 # Sass settings
 sass:
@@ -97,11 +91,8 @@ sass:
   sass_dir: _sass
 
 include:
-#   - _data
-#   - _layouts
-#   - _includes
-- assets
-- _pages
+  - _pages
+  - assets
 
 # Exclude from processing.
 exclude:

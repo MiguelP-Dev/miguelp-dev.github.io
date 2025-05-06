@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "Sassy CSS - Cheat Sheet"
-description: "Sassy CSS: Una extensión de css que añade características poderosas a css."
+title: "Sassy CSS"
+description: "Una extensión de css que le añade características poderosas"
 permalink: /cheat_sheets/scsscs/
 category: cheatsheets
-subcategory: css
+subcategory: frontend
 icon: 💎
 article: true
 ---

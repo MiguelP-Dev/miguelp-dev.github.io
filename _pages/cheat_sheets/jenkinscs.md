@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Jenkins Cheat Sheet
-description: Hoja de trucos para Jenkins con ejemplos prácticos.
+title: Jenkins
+description: "Herramienta de automatización de integración y entrega continua (CI/CD) de software de código abierto"
 permalink: /cheat_sheets/jenkinscs/
 category: cheatsheets
-subcategory: devops
+subcategory: cloudevops
 icon: 🤖
 article: true
 ---

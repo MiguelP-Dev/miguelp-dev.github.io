@@ -1,10 +1,10 @@
 ---
 layout: default
-title: JavaScript Cheat Sheet
-description: Hoja de trucos para JavaScript, desde fundamentos hasta ejemplos prácticos.
+title: JavaScript
+description: "Hoja de referencias, desde fundamentos hasta ejemplos prácticos"
 permalink: /cheat_sheets/javascriptcs/
 category: cheatsheets
-subcategory: javascript
+subcategory: frontend
 icon: 📋
 article: true
 ---
