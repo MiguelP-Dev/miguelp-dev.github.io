@@ -159,7 +159,7 @@ templates/
 ```go
 func main() {
     tmpl := template.Must(template.ParseGlob("templates/*.html"))
-    data := map[string]interface{}{
+    data := map[string]any{
         "User": User{Name: "Carlos"},
     }
     tmpl.ExecuteTemplate(os.Stdout, "base", data)
@@ -175,7 +175,7 @@ func main() {
 tmpl := template.Must(template.New("").Parse(`
     <div>{{.SafeContent}}</div>
 `))
-tmpl.Execute(os.Stdout, map[string]interface{}{
+tmpl.Execute(os.Stdout, map[string]any{
     "SafeContent": template.HTML("<b>Texto seguro</b>"),
 })
 ```

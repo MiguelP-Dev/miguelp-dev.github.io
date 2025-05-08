@@ -208,7 +208,7 @@ func getValor(clave string) (string, bool) {
 }  
 
 // Iteración segura  
-cache.Range(func(k, v interface{}) bool {  
+cache.Range(func(k, v any) bool {  
     fmt.Printf("%s: %v\n", k, v)  
     return true  
 })  

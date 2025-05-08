@@ -277,7 +277,7 @@ mockDB.EXPECT().SomeMethod(gomock.Nil()).Return(true)
 
 ```go
 // Coincide con números positivos
-positiveID := gomock.NewMatcher(func(x interface{}) bool {
+positiveID := gomock.NewMatcher(func(x any) bool {
     id, ok := x.(int)
     return ok && id > 0
 })

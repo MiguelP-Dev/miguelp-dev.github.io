@@ -615,7 +615,7 @@ func AuthMiddleware(c *fiber.Ctx) error {
     return c.Status(401).JSON(fiber.Map{"error": "Unauthorized"})
   }
 
-  token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
+  token, err := jwt.Parse(tokenString, func(token *jwt.Token) (any, error) {
     return []byte("secret"), nil
   })
 

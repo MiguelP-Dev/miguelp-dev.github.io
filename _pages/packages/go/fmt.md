@@ -111,7 +111,7 @@ func main() {
 #### 5. **`Fprintf` - Escritura en Archivos**
 **Ejemplo Práctico**:
 ```go
-func writeConfig(filePath string, config map[string]interface{}) error {
+func writeConfig(filePath string, config map[string]any) error {
     file, err := os.Create(filePath)
     if err != nil {
         return fmt.Errorf("error creando archivo: %w", err)

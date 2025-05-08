@@ -254,11 +254,11 @@ func procesarMensajePolimórfico(jsonData string) {
 
 ### 5. Manejo de Estructuras Dinámicas
 
-#### 5.1 Map[string]interface{}
+#### 5.1 Map[string]any
 
 ```go
 func manejarJSONDinamico(jsonData string) {
-    var resultado map[string]interface{}
+    var resultado map[string]any
     if err := json.Unmarshal([]byte(jsonData), &resultado); err != nil {
         log.Fatal(err)
     }
@@ -267,14 +267,14 @@ func manejarJSONDinamico(jsonData string) {
         fmt.Printf("Clave: %s, Valor: %v (Tipo: %T)\n", k, v, v)
         
         // Manejar arrays
-        if array, ok := v.([]interface{}); ok {
+        if array, ok := v.([]any); ok {
             for i, item := range array {
                 fmt.Printf("  [%d]: %v\n", i, item)
             }
         }
         
         // Manejar objetos anidados
-        if obj, ok := v.(map[string]interface{}); ok {
+        if obj, ok := v.(map[string]any); ok {
             for ck, cv := range obj {
                 fmt.Printf("  %s: %v\n", ck, cv)
             }
@@ -335,7 +335,7 @@ func manejoErroresSerialization() {
 func optimizacionesRendimiento() {
     // Uso de sync.Pool para reducir asignaciones de memoria
     pool := sync.Pool{
-        New: func() interface{} {
+        New: func() any {
             return make([]byte, 0, 64*1024) // 64KB buffer inicial
         },
     }

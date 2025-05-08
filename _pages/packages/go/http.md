@@ -313,7 +313,7 @@ func (h *UsuarioHandler) Listar(w http.ResponseWriter, r *http.Request) {
 }
 
 // Función helper para respuestas JSON
-func writeJSON(w http.ResponseWriter, data interface{}) {
+func writeJSON(w http.ResponseWriter, data any) {
     w.Header().Set("Content-Type", "application/json")
     json.NewEncoder(w).Encode(data)
 }

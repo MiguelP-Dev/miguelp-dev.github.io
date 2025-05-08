@@ -36,7 +36,7 @@ func ejemplosAppend() {
     }
     
     // Append en slices de interfaces
-    var mixed []interface{}
+    var mixed []any
     mixed = append(mixed, 42, "hola", true)
 }
 ```
@@ -200,7 +200,7 @@ func ejemplosTiposCompuestos() {
     slice := []string{"a", "b", "c"}
     
     // Mapas
-    mapa := map[string]interface{}{
+    mapa := map[string]any{
         "nombre": "Juan",
         "edad":   30,
         "activo": true,

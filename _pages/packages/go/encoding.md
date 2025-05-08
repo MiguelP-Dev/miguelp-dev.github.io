@@ -33,7 +33,7 @@ type Usuario struct {
     Email     string   `json:"email"`
     Roles     []string `json:"roles,omitempty"`
     Activo    bool     `json:"activo"`
-    MetaData  map[string]interface{} `json:"metadata,omitempty"`
+    MetaData  map[string]any `json:"metadata,omitempty"`
 }
 
 func ejemploJSON() {
@@ -43,7 +43,7 @@ func ejemploJSON() {
         Email:  "juan@ejemplo.com",
         Roles:  []string{"admin", "user"},
         Activo: true,
-        MetaData: map[string]interface{}{
+        MetaData: map[string]any{
             "último_acceso": "2024-03-22",
             "preferencias": map[string]string{
                 "tema": "oscuro",
@@ -244,12 +244,12 @@ import (
 )
 
 type ConfigProcessor struct {
-    decoders map[string]func(io.Reader) (map[string]interface{}, error)
+    decoders map[string]func(io.Reader) (map[string]any, error)
 }
 
 func NewConfigProcessor() *ConfigProcessor {
     cp := &ConfigProcessor{
-        decoders: make(map[string]func(io.Reader) (map[string]interface{}, error)),
+        decoders: make(map[string]func(io.Reader) (map[string]any, error)),
     }
 
     // Registrar decodificadores por extensión
@@ -259,8 +259,8 @@ func NewConfigProcessor() *ConfigProcessor {
     return cp
 }
 
-func (cp *ConfigProcessor) decodeJSON(r io.Reader) (map[string]interface{}, error) {
-    var result map[string]interface{}
+func (cp *ConfigProcessor) decodeJSON(r io.Reader) (map[string]any, error) {
+    var result map[string]any
     decoder := json.NewDecoder(r)
     if err := decoder.Decode(&result); err != nil {
         return nil, err
@@ -268,8 +268,8 @@ func (cp *ConfigProcessor) decodeJSON(r io.Reader) (map[string]interface{}, erro
     return result, nil
 }
 
-func (cp *ConfigProcessor) decodeXML(r io.Reader) (map[string]interface{}, error) {
-    var result map[string]interface{}
+func (cp *ConfigProcessor) decodeXML(r io.Reader) (map[string]any, error) {
+    var result map[string]any
     decoder := xml.NewDecoder(r)
     if err := decoder.Decode(&result); err != nil {
         return nil, err

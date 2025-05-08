@@ -109,7 +109,7 @@ func llamarFuncion() {
 #### 3. **Validar Tipos en Tiempo de Ejecución**
 
 ```go
-func validarTipo(valor interface{}, esperado reflect.Kind) bool {
+func validarTipo(valor any, esperado reflect.Kind) bool {
     return reflect.TypeOf(valor).Kind() == esperado
 }
 
@@ -160,8 +160,8 @@ func main() {
 ### Ejemplo Integrado: Serialización Genérica
 
 ```go
-func serializar(valor interface{}) map[string]interface{} {
-    resultado := make(map[string]interface{})
+func serializar(valor any) map[string]any {
+    resultado := make(map[string]any)
     v := reflect.ValueOf(valor)
     t := reflect.TypeOf(valor)
 

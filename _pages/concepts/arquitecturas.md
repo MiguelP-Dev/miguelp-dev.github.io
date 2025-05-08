@@ -100,11 +100,11 @@ Capas:
 
 ```go
 type CommandHandler interface {
-    Handle(command interface{}) error
+    Handle(command any) error
 }
 
 type QueryHandler interface {
-    Handle(query interface{}) (interface{}, error)
+    Handle(query any) (any, error)
 }
 ```
 
@@ -112,10 +112,10 @@ type QueryHandler interface {
 
 ```go
 type EventBus struct {
-    subscribers map[string][]chan interface{}
+    subscribers map[string][]chan any
 }
 
-func (eb *EventBus) Publish(eventName string, data interface{}) {
+func (eb *EventBus) Publish(eventName string, data any) {
     // Notificar a todos los suscriptores
 }
 ```
@@ -269,7 +269,7 @@ var mu sync.Mutex
 var rwMu sync.RWMutex
 var once sync.Once
 var pool = sync.Pool{
-    New: func() interface{} {
+    New: func() any {
         return &Buffer{}
     },
 }

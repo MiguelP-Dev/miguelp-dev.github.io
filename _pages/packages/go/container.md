@@ -25,11 +25,11 @@ func (h IntHeap) Len() int           { return len(h) }
 func (h IntHeap) Less(i, j int) bool { return h[i] < h[j] }
 func (h IntHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 
-func (h *IntHeap) Push(x interface{}) {
+func (h *IntHeap) Push(x any) {
     *h = append(*h, x.(int))
 }
 
-func (h *IntHeap) Pop() interface{} {
+func (h *IntHeap) Pop() any {
     old := *h
     n := len(old)
     x := old[n-1]
@@ -78,14 +78,14 @@ func (pq PriorityQueue) Swap(i, j int) {
     pq[j].index = j
 }
 
-func (pq *PriorityQueue) Push(x interface{}) {
+func (pq *PriorityQueue) Push(x any) {
     n := len(*pq)
     item := x.(*Item)
     item.index = n
     *pq = append(*pq, item)
 }
 
-func (pq *PriorityQueue) Pop() interface{} {
+func (pq *PriorityQueue) Pop() any {
     old := *pq
     n := len(old)
     item := old[n-1]
@@ -127,7 +127,7 @@ type LRUCache struct {
 
 type par struct {
     clave string
-    valor interface{}
+    valor any
 }
 
 func NuevoLRUCache(capacidad int) *LRUCache {
@@ -138,7 +138,7 @@ func NuevoLRUCache(capacidad int) *LRUCache {
     }
 }
 
-func (c *LRUCache) Obtener(clave string) (interface{}, bool) {
+func (c *LRUCache) Obtener(clave string) (any, bool) {
     if elem, existe := c.items[clave]; existe {
         c.lista.MoveToFront(elem)
         return elem.Value.(*par).valor, true
@@ -146,7 +146,7 @@ func (c *LRUCache) Obtener(clave string) (interface{}, bool) {
     return nil, false
 }
 
-func (c *LRUCache) Poner(clave string, valor interface{}) {
+func (c *LRUCache) Poner(clave string, valor any) {
     if elem, existe := c.items[clave]; existe {
         c.lista.MoveToFront(elem)
         elem.Value.(*par).valor = valor
@@ -218,14 +218,14 @@ func NuevoBufferCircular(capacidad int) *BufferCircular {
     }
 }
 
-func (b *BufferCircular) Agregar(valor interface{}) {
+func (b *BufferCircular) Agregar(valor any) {
     b.datos.Value = valor
     b.datos = b.datos.Next()
 }
 
-func (b *BufferCircular) ObtenerTodos() []interface{} {
-    valores := make([]interface{}, 0, b.capacidad)
-    b.datos.Do(func(x interface{}) {
+func (b *BufferCircular) ObtenerTodos() []any {
+    valores := make([]any, 0, b.capacidad)
+    b.datos.Do(func(x any) {
         if x != nil {
             valores = append(valores, x)
         }
@@ -279,7 +279,7 @@ type Evento struct {
     ID        int
     Tipo      string
     Prioridad int
-    Datos     interface{}
+    Datos     any
 }
 
 type ProcesadorEventos struct {

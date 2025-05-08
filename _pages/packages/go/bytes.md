@@ -164,10 +164,10 @@ func ejemplosBuffer() {
     // Ejemplo práctico: Constructor de consultas SQL
     type SQLBuilder struct {
         buffer bytes.Buffer
-        args   []interface{}
+        args   []any
     }
     
-    func (sb *SQLBuilder) Where(condicion string, args ...interface{}) *SQLBuilder {
+    func (sb *SQLBuilder) Where(condicion string, args ...any) *SQLBuilder {
         if sb.buffer.Len() > 0 {
             sb.buffer.WriteString(" AND ")
         }
@@ -206,7 +206,7 @@ func ejemploBufferAvanzado() {
         mu     sync.Mutex
     }
     
-    func (l *Logger) Log(formato string, args ...interface{}) {
+    func (l *Logger) Log(formato string, args ...any) {
         l.mu.Lock()
         defer l.mu.Unlock()
         
@@ -295,7 +295,7 @@ func ejemplosOptimizacion() {
     
     // Reutilizar buffers
     pool := sync.Pool{
-        New: func() interface{} {
+        New: func() any {
             return bytes.NewBuffer(make([]byte, 0, 4096))
         },
     }

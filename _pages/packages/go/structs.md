@@ -106,7 +106,7 @@ func main() {
 
 #### 4. **`(*Struct) Map`**
 
-**Descripción**: Convierte la estructura a un `map[string]interface{}`, ideal para serialización.  
+**Descripción**: Convierte la estructura a un `map[string]any`, ideal para serialización.  
 
 **Ejemplo con Conversión a JSON**:
 
@@ -170,7 +170,7 @@ func main() {
 #### 1. **Generación Dinámica de Formularios**
 
 ```go  
-func generarCamposFormulario(s interface{}) []string {  
+func generarCamposFormulario(s any) []string {  
     st := structs.New(s)  
     var campos []string  
     for _, f := range st.Fields() {  
@@ -185,7 +185,7 @@ func generarCamposFormulario(s interface{}) []string {
 #### 2. **Comparación de Estructuras**
 
 ```go  
-func compararStructs(a, b interface{}) bool {  
+func compararStructs(a, b any) bool {  
     s1 := structs.New(a).Map()  
     s2 := structs.New(b).Map()  
 
