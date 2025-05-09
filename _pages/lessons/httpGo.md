@@ -192,7 +192,7 @@ http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
 **Próximos Pasos:**
 
-1. Explorar el paquete [html/template](/packages/html) para renderizar HTML.
+1. Explorar el paquete [html/template](/packages/go/html) para renderizar HTML.
 2. Aprender sobre conexiones a bases de datos.
-3. Profundizar en autenticación JWT.
+3. Profundizar en autenticación [JWT](/lessons/jwtgo/).
 4. Aprender sobre GraphQL.
