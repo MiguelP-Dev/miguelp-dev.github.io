@@ -1,11 +1,11 @@
 ---
 layout: default
-title: image
-description: Guía del paquete image de Go para manipulación de imágenes
+title: "Image en Go"
+description: "Guía del paquete image de Go para manipulación de imágenes"
 permalink: /packages/go/image/
 category: packages
 article: true
-subcategory: go
+subcategory: "Images and Multimedia"
 icon: 🖼️
 ---
 
@@ -18,6 +18,7 @@ El paquete `image` en Go proporciona herramientas fundamentales para crear, mani
 ### 1. Tipos de Imágenes y Casos de Uso
 
 #### Tabla Comparativa de Formatos
+
 | Tipo de Imagen       | Profundidad | Transparencia | Uso Típico                 | Almacenamiento por Pixel |
 |----------------------|-------------|---------------|----------------------------|--------------------------|
 | `image.RGBA`         | 8 bits/canal | Sí (alpha)    | Gráficos generales         | 4 bytes (R, G, B, A)     |
@@ -31,6 +32,7 @@ El paquete `image` en Go proporciona herramientas fundamentales para crear, mani
 ### 2. Creación de Imágenes Avanzadas
 
 #### 2.1 Generación de Gradiente Radial
+
 ```go
 package main
 
@@ -75,6 +77,7 @@ func main() {
 ```
 
 #### 2.2 Conversión a Escala de Grises
+
 ```go
 func convertToGray(src image.Image) *image.Gray {
     bounds := src.Bounds()
@@ -95,6 +98,7 @@ func convertToGray(src image.Image) *image.Gray {
 ### 3. Manipulación de Imágenes
 
 #### 3.1 Aplicación de Filtro de Desenfoque
+
 ```go
 func applyBlur(src *image.RGBA, radius int) *image.RGBA {
     bounds := src.Bounds()
@@ -134,6 +138,7 @@ func applyBlur(src *image.RGBA, radius int) *image.RGBA {
 ```
 
 #### 3.2 Recorte de Imágenes con `Inset`
+
 ```go
 func cropImage(src image.Image, margin int) image.Image {
     bounds := src.Bounds()
@@ -154,6 +159,7 @@ func cropImage(src image.Image, margin int) image.Image {
 ### 4. Animaciones y Formatos Especiales
 
 #### 4.1 Creación de GIF Animado
+
 ```go
 func createAnimatedGif() {
     var frames []*image.Paletted
@@ -178,6 +184,7 @@ func createAnimatedGif() {
 ```
 
 #### 4.2 Codificación en JPEG con Calidad Ajustable
+
 ```go
 import "image/jpeg"
 
@@ -197,6 +204,7 @@ func saveJpeg(img image.Image, path string, quality int) error {
 ### 5. Mejores Prácticas y Optimización
 
 #### 5.1 Acceso Eficiente a Píxeles
+
 ```go
 // Método óptimo para procesamiento por bloques
 func processImageFast(img *image.RGBA) {
@@ -218,6 +226,7 @@ func processImageFast(img *image.RGBA) {
 ```
 
 #### 5.2 Manejo de Errores Robusto
+
 ```go
 func loadImage(path string) (image.Image, error) {
     f, err := os.Open(path)
@@ -239,6 +248,7 @@ func loadImage(path string) (image.Image, error) {
 ### 6. Integración con Paquetes Externos
 
 #### 6.1 Uso de WebP con `github.com/chai2010/webp`
+
 ```go
 import "github.com/chai2010/webp"
 
@@ -254,6 +264,7 @@ func saveWebP(img image.Image, path string) error {
 ```
 
 #### 6.2 Procesamiento con Paralelismo
+
 ```go
 func parallelProcess(img *image.RGBA) {
     bounds := img.Bounds()
@@ -334,6 +345,6 @@ func applySepia() Filter {
 }
 ```
 
----
+### Conclusión
 
-Esta guía ampliada proporciona técnicas avanzadas para el manejo de imágenes en Go, incluyendo procesamiento de píxeles, optimización de rendimiento y formatos especiales. Los ejemplos muestran aplicaciones prácticas desde filtros básicos hasta animaciones, siguiendo mejores prácticas de programación y eficiencia.
+Esta guía proporciona técnicas avanzadas para el manejo de imágenes en Go, incluyendo procesamiento de píxeles, optimización de rendimiento y formatos especiales. Los ejemplos muestran aplicaciones prácticas desde filtros básicos hasta animaciones, siguiendo mejores prácticas de programación y eficiencia.

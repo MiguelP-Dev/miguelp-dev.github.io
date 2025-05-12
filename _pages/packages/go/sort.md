@@ -1,11 +1,11 @@
 ---
 layout: default
-title: sort
-description: Guía del paquete sort de Go para ordenamiento y búsqueda
+title: "Sort en Go"
+description: "Guía del paquete sort de Go para ordenamiento y búsqueda en colecciones"
 permalink: /packages/go/sort/
 category: packages
 article: true
-subcategory: go
+subcategory: Containers and Collections
 icon: 📊
 ---
 

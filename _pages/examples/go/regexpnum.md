@@ -4,7 +4,7 @@ title: "Validación de Números de Teléfonos con regexp de golang"
 description: "Guía detallada de validación de números de teléfonos en Go con regexp"
 permalink: /examples/go/regexpnum/
 category: examples
-subcategory: go
+subcategory: "regular expressions"
 icon: 📱
 article: true
 ---

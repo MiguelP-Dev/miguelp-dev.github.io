@@ -4,7 +4,7 @@ title: Liquid
 description: "Lenguaje de plantillas para cargar contenido dinámico en páginas web"
 category: cheatsheets
 permalink: /cheat_sheets/liquidcs/
-subcategory: frontend
+subcategory: "frontend"
 icon: 📋
 article: true
 ---

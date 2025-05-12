@@ -1,11 +1,11 @@
 ---
 layout: default
-title: time
-description: Guía completa del paquete time de Go para manejo de fechas y horas
+title: "Time en Go"
+description: "Guía completa del paquete time de Go para manejo de fechas y horas"
 permalink: /packages/go/time/
 category: packages
 article: true
-subcategory: go
+subcategory: "System Utilities"
 icon: 🕒
 ---
 

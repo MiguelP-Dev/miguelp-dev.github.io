@@ -1,11 +1,11 @@
 ---
 layout: default
-title: math
-description: Guía del paquete math de Go para cálculos matemáticos
+title: "Math en Go"
+description: "Guía del paquete math de Go para cálculos matemáticos"
 permalink: /packages/go/math/
 category: packages
 article: true
-subcategory: go
+subcategory: "Mathematics"
 icon: 🧮
 ---
 

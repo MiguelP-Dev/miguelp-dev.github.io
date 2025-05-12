@@ -2,18 +2,18 @@
 layout: default
 title: "GORM desde cero"
 description: "Aprende Gorm para manejar bases de datos de forma eficiente"
-permalink: /lessons/gorm/
+permalink: /lessons/go/gorm/
 category: lessons
-subcategory: go
+subcategory: "object relational mapper"
 icon: 🛠️
 article: true
 ---
 
-# Nivel Básico de Gorm
+## Nivel Básico de Gorm
 
-## **1. Instalación y Configuración Inicial de GORM**  
+### **1. Instalación y Configuración Inicial de GORM**  
 
-### **Instalar Gorm**
+#### **Instalar Gorm**
 
 Primero, necesitas instalar Gorm y el driver de la base de datos que uses (en este caso, usaremos **PostgreSQL**):  
 
@@ -22,7 +22,7 @@ go get -u gorm.io/gorm
 go get -u gorm.io/driver/postgres
 ```
 
-### **Conexión a la Base de Datos**
+#### **Conexión a la Base de Datos**
 
 Creamos una conexión básica:  
 
@@ -48,9 +48,9 @@ func main() {
 }
 ```
 
-## **2. Modelos y CRUD Básico**
+### **2. Modelos y CRUD Básico**
 
-### **Definición de un Modelo**
+#### **Definición de un Modelo**
 
 Supongamos que queremos manejar **usuarios**:  
 
@@ -63,7 +63,7 @@ type User struct {
 }
 ```
 
-### **Migración Automática**
+#### **Migración Automática**
 
 Gorm puede crear las tablas automáticamente:  
 
@@ -74,9 +74,9 @@ if err != nil {
 }
 ```
 
-### **Operaciones CRUD**  
+#### **Operaciones CRUD**  
 
-#### **Create (Insertar)**
+##### **Create (Insertar)**
 
 ```go
 user := User{Name: "Juan", Email: "juan@example.com", Age: 25}
@@ -87,7 +87,7 @@ if result.Error != nil {
 log.Println("Usuario creado con ID:", user.ID)
 ```
 
-#### **Read (Consultar)**
+##### **Read (Consultar)**
 
 ```go
 var foundUser User
@@ -98,21 +98,21 @@ var users []User
 db.Find(&users) // SELECT * FROM users
 ```
 
-#### **Update (Actualizar)**
+##### **Update (Actualizar)**
 
 ```go
 db.Model(&foundUser).Update("Age", 30) // UPDATE users SET age = 30 WHERE id = ...;
 ```
 
-#### **Delete (Eliminar)**
+##### **Delete (Eliminar)**
 
 ```go
 db.Delete(&foundUser) // DELETE FROM users WHERE id = ...;
 ```
 
-## **3. Relaciones entre Modelos**
+### **3. Relaciones entre Modelos**
 
-### **Ejemplo: Usuario tiene muchos Artículos**
+#### **Ejemplo: Usuario tiene muchos Artículos**
 
 ```go
 type Article struct {
@@ -134,7 +134,7 @@ type User struct {
 db.AutoMigrate(&User{}, &Article{})
 ```
 
-### **Crear un artículo asociado a un usuario**
+#### **Crear un artículo asociado a un usuario**
 
 ```go
 user := User{Name: "Ana", Email: "ana@example.com"}
@@ -144,7 +144,7 @@ article := Article{Title: "Mi primer post", Content: "Hola mundo", UserID: user.
 db.Create(&article)
 ```
 
-### **Consultar con Preloading (cargar relaciones)**
+#### **Consultar con Preloading (cargar relaciones)**
 
 ```go
 var userWithArticles User
@@ -152,9 +152,9 @@ db.Preload("Articles").First(&userWithArticles, 1)
 // Esto carga el usuario y sus artículos en una sola consulta (JOIN implícito)
 ```
 
-## **4. Consultas Avanzadas**
+### **4. Consultas Avanzadas**
 
-### **Scopes (reutilizar lógica de consultas)**
+#### **Scopes (reutilizar lógica de consultas)**
 
 ```go
 func AdultUsers(db *gorm.DB) *gorm.DB {
@@ -165,7 +165,7 @@ var adults []User
 db.Scopes(AdultUsers).Find(&adults) // SELECT * FROM users WHERE age >= 18;
 ```
 
-### **Transacciones**
+#### **Transacciones**
 
 ```go
 tx := db.Begin()
@@ -176,9 +176,9 @@ if err := tx.Create(&user).Error; err != nil {
 tx.Commit()
 ```
 
-## **5. Integración con Fiber**
+### **5. Integración con Fiber**
 
-### **Ejemplo de API REST con Fiber + Gorm**
+#### **Ejemplo de API REST con Fiber + Gorm**
 
 ```go
 package main
@@ -235,13 +235,13 @@ func CreateUser(c *fiber.Ctx) error {
 
 ---
 
-# Nivel Intermedio de Gorm
+## Nivel Intermedio de Gorm
 
-## **1. Manejo Avanzado de Errores**
+### **1. Manejo Avanzado de Errores**
 
 Gorm devuelve errores que debemos manejar adecuadamente para evitar problemas en producción.  
 
-### **Ejemplo: Validar errores comunes**
+#### **Ejemplo: Validar errores comunes**
 
 ```go
 // Crear usuario con manejo de errores
@@ -253,23 +253,23 @@ if err := db.Create(&user).Error; err != nil {
 }
 ```
 
-### **Errores comunes en Gorm:**
+#### **Errores comunes en Gorm:**
 
 - `gorm.ErrRecordNotFound`: Cuando un `First()` o `Find()` no encuentra registros.  
 - `gorm.ErrDuplicatedKey`: Violación de clave única.  
 - `gorm.ErrInvalidData`: Datos inválidos al insertar.  
 
-## **2. Validación de Datos**
+### **2. Validación de Datos**
 
 Podemos combinar **Gorm** con librerías como `validator` para validar campos.  
 
-### **Instalar validator:**
+#### **Instalar validator:**
 
 ```bash
 go get github.com/go-playground/validator/v10
 ```
 
-### **Ejemplo:**
+#### **Ejemplo:**
 
 ```go
 type User struct {
@@ -297,11 +297,11 @@ func CreateUser(c *fiber.Ctx) error {
 }
 ```
 
-## **3. Paginación de Resultados**
+### **3. Paginación de Resultados**
 
 Para evitar devolver miles de registros, implementamos paginación.  
 
-### **Ejemplo con Fiber y Gorm:**
+#### **Ejemplo con Fiber y Gorm:**
 
 ```go
 func GetUsers(c *fiber.Ctx) error {
@@ -323,7 +323,7 @@ func GetUsers(c *fiber.Ctx) error {
 }
 ```
 
-### **Consulta con `Scopes` (reutilizable):**
+#### **Consulta con `Scopes` (reutilizable):**
 
 ```go
 func Paginate(page, limit int) func(db *gorm.DB) *gorm.DB {
@@ -337,15 +337,15 @@ func Paginate(page, limit int) func(db *gorm.DB) *gorm.DB {
 db.Scopes(Paginate(1, 10)).Find(&users)
 ```
 
-## **4. Optimización de Consultas (Select, Indexes)**  
+### **4. Optimización de Consultas (Select, Indexes)**  
 
-### **Evitar `SELECT *`**
+#### **Evitar `SELECT *`**
 
 ```go
 db.Select("name", "email").Find(&users) // Solo trae name y email
 ```
 
-### **Índices para mejorar búsquedas:**
+#### **Índices para mejorar búsquedas:**
 
 ```go
 type User struct {
@@ -355,11 +355,11 @@ type User struct {
 }
 ```
 
-## **5. Transacciones y Operaciones Atómicas**
+### **5. Transacciones y Operaciones Atómicas**
 
 Útil para operaciones críticas (ej: transferencias bancarias).  
 
-### **Ejemplo:**
+#### **Ejemplo:**
 
 ```go
 err := db.Transaction(func(tx *gorm.DB) error {
@@ -381,11 +381,11 @@ if err != nil {
 }
 ```
 
-## **6. Hooks (Eventos de Modelos)**
+### **6. Hooks (Eventos de Modelos)**
 
 Gorm permite ejecutar código antes/después de operaciones.  
 
-### **Ejemplo: Hash de contraseña antes de guardar**
+#### **Ejemplo: Hash de contraseña antes de guardar**
 
 ```go
 type User struct {
@@ -403,18 +403,18 @@ func (u *User) BeforeSave(tx *gorm.DB) error {
 }
 ```
 
-### **Hooks comunes:**
+#### **Hooks comunes:**
 
 - `BeforeSave`, `AfterSave`
 - `BeforeCreate`, `AfterCreate`
 - `BeforeUpdate`, `AfterUpdate`
 - `BeforeDelete`, `AfterDelete`
 
-## **7. Uso de Raw SQL (Cuando Gorm no es suficiente)**
+### **7. Uso de Raw SQL (Cuando Gorm no es suficiente)**
 
 Para consultas complejas, podemos usar SQL nativo.  
 
-### **Ejemplo:**
+#### **Ejemplo:**
 
 ```go
 type Result struct {
@@ -426,11 +426,11 @@ var results []Result
 db.Raw("SELECT name, COUNT(*) as total FROM users GROUP BY name").Scan(&results)
 ```
 
-## **8. Testing con Gorm (Mock y Suite de Pruebas)**
+### **8. Testing con Gorm (Mock y Suite de Pruebas)**
 
 Pruebas unitarias para repositorios.  
 
-### **Ejemplo con `testify`:**
+#### **Ejemplo con `testify`:**
 
 ```go
 func TestCreateUser(t *testing.T) {
@@ -449,15 +449,15 @@ func TestCreateUser(t *testing.T) {
 
 ---
 
-# Nivel Avanzado de Gorm
+## Nivel Avanzado de Gorm
 
-## **1. Despliegue en Docker con PostgreSQL + Gorm**  
+### **1. Despliegue en Docker con PostgreSQL + Gorm**  
 
-### **Objetivo**: Crear un contenedor Docker con PostgreSQL y conectarlo desde una app Go usando Gorm.
+#### **Objetivo**: Crear un contenedor Docker con PostgreSQL y conectarlo desde una app Go usando Gorm.
 
-### **Pasos**:
+#### **Pasos**
 
-#### **1.1. Crear un `Dockerfile` para la app Go**
+##### **1.1. Crear un `Dockerfile` para la app Go**
 
 ```dockerfile
 FROM golang:1.21 as builder
@@ -475,7 +475,7 @@ EXPOSE 3000
 CMD ["./gorm-app"]
 ```
 
-#### **1.2. Crear un `docker-compose.yml`** (PostgreSQL + App)
+##### **1.2. Crear un `docker-compose.yml`** (PostgreSQL + App)
 
 ```yaml
 version: '3.8'
@@ -508,7 +508,7 @@ volumes:
   postgres_data:
 ```
 
-#### **1.3. Configurar Gorm para usar variables de entorno**
+##### **1.3. Configurar Gorm para usar variables de entorno**
 
 ```go
 import (
@@ -530,7 +530,7 @@ func ConnectDB() (*gorm.DB, error) {
 }
 ```
 
-#### **1.4. Ejecutar el stack**
+##### **1.4. Ejecutar el stack**
 
 ```bash
 docker-compose up --build
@@ -540,7 +540,7 @@ docker-compose up --build
 
 ### **Objetivo**: Implementar login/registro usando JWT con Fiber y Gorm.
 
-### **Pasos**
+#### **Pasos**
 
 #### **2.1. Estructura de User + Password Hash**
 
@@ -562,7 +562,7 @@ func (u *User) BeforeSave(tx *gorm.DB) error {
 }
 ```
 
-#### **2.2. Endpoints con Fiber**
+##### **2.2. Endpoints con Fiber**
 
 ```go
 app.Post("/register", func(c *fiber.Ctx) error {
@@ -606,7 +606,7 @@ app.Post("/login", func(c *fiber.Ctx) error {
 })
 ```
 
-#### **2.3. Middleware de Autenticación**
+##### **2.3. Middleware de Autenticación**
 
 ```go
 func AuthMiddleware(c *fiber.Ctx) error {
@@ -629,11 +629,11 @@ func AuthMiddleware(c *fiber.Ctx) error {
 }
 ```
 
-## **3. GraphQL con Gorm**  
+### **3. GraphQL con Gorm**  
 
-### **Objetivo**: Usar `gqlgen` para crear un servidor GraphQL que consuma datos con Gorm.
+#### **Objetivo**: Usar `gqlgen` para crear un servidor GraphQL que consuma datos con Gorm.
 
-### **Pasos**
+#### **Pasos**
 
 #### **3.1. Instalar gqlgen**
 
@@ -642,7 +642,7 @@ go get github.com/99designs/gqlgen
 go run github.com/99designs/gqlgen init
 ```
 
-#### **3.2. Definir el Schema (`schema.graphql`)**
+##### **3.2. Definir el Schema (`schema.graphql`)**
 
 ```graphql
 type User {
@@ -655,13 +655,13 @@ type Query {
 }
 ```
 
-#### **3.3. Generar resolvers**
+##### **3.3. Generar resolvers**
 
 ```bash
 go run github.com/99designs/gqlgen generate
 ```
 
-#### **3.4. Implementar el Resolver con Gorm**
+##### **3.4. Implementar el Resolver con Gorm**
 
 ```go
 func (r *queryResolver) Users(ctx context.Context) ([]*model.User, error) {
@@ -681,13 +681,13 @@ func (r *queryResolver) Users(ctx context.Context) ([]*model.User, error) {
 }
 ```
 
-## **4. Microservicios con Gorm y gRPC**
+### **4. Microservicios con Gorm y gRPC**
 
-### **Objetivo**: Crear un servicio gRPC que use Gorm para manejar datos.
+#### **Objetivo**: Crear un servicio gRPC que use Gorm para manejar datos.
 
-### **Pasos**
+#### **Pasos**
 
-#### **4.1. Definir el Proto (`user.proto`)**
+##### **4.1. Definir el Proto (`user.proto`)**
 
 ```proto
 syntax = "proto3";
@@ -706,13 +706,13 @@ message UserResponse {
 }
 ```
 
-#### **4.2. Generar código Go**
+##### **4.2. Generar código Go**
 
 ```bash
 protoc --go_out=. --go-grpc_out=. user.proto
 ```
 
-#### **4.3. Implementar el Servidor gRPC**
+##### **4.3. Implementar el Servidor gRPC**
 
 ```go
 type server struct {
@@ -731,7 +731,7 @@ func (s *server) GetUser(ctx context.Context, req *pb.UserRequest) (*pb.UserResp
 }
 ```
 
-#### **4.4. Iniciar el servidor**
+##### **4.4. Iniciar el servidor**
 
 ```go
 lis, err := net.Listen("tcp", ":50051")

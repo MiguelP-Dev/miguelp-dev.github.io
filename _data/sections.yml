@@ -23,11 +23,6 @@
   icon: 💡
   description: Colección de ejemplos prácticos y snippets de código listos para usar
 
-- title: Cloud & DevOps
-  url: /cloudevops/
-  icon: 🌩
-  description: Tecnologías para despliegue, gestión de contenedores y automatización en entornos cloud
-
 - title: Hojas de Referencia
   url: /cheat_sheets/
   icon: 📋
@@ -39,6 +34,6 @@
   description: Catálogo completo de paquetes y soluciones preconfiguradas para desarrollo
 
 - title: Librerías
-  url: /libraries/
+  url: /library/
   icon: 📚
   description: Catálogo completo de librerías para desarrollo

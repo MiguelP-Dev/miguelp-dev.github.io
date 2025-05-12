@@ -1,11 +1,11 @@
 ---
 layout: default
-title: maps
-description: Guía del paquete maps de Go para manipulación de mapas
+title: "Maps en Go"
+description: "Guía del paquete maps de Go para manipulación de mapas"
 permalink: /packages/go/maps/
 category: packages
 article: true
-subcategory: go
+subcategory: "Containers and Collections"
 icon: 🗺️
 ---
 

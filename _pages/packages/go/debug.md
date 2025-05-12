@@ -1,11 +1,11 @@
 ---
 layout: default
-title: debug
-description: Guía del paquete runtime/debug de Go para depuración
+title: "Debug en Go"
+description: "Guía del paquete runtime/debug de Go para depuración y control del runtime"
 permalink: /packages/go/debug/
 category: packages
 article: true
-subcategory: go
+subcategory: "Testing and Debugging"
 icon: 🔍
 ---
 

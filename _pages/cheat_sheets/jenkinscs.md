@@ -4,7 +4,7 @@ title: Jenkins
 description: "Herramienta de automatización de integración y entrega continua (CI/CD) de software de código abierto"
 permalink: /cheat_sheets/jenkinscs/
 category: cheatsheets
-subcategory: cloudevops
+subcategory: "Cloud and DevOps"
 icon: 🤖
 article: true
 ---

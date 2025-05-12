@@ -1,11 +1,11 @@
 ---
 layout: default
-title: builtin
-description: Guía del paquete builtin de Go con funciones y tipos predefinidos
+title: "Builtin en Go"
+description: "Guía del paquete builtin de Go con funciones y tipos predefinidos"
 permalink: /packages/go/builtin/
 category: packages
 article: true
-subcategory: go
+subcategory: "Core Utilities"
 icon: 🧰
 ---
 

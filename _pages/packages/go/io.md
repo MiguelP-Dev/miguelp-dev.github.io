@@ -1,11 +1,11 @@
 ---
 layout: default
-title: io
-description: Guía completa del paquete io de Go para entrada/salida
+title: "IO en Go"
+description: "Guía completa del paquete io de Go para entrada/salida y manejo de datos"
 permalink: /packages/go/io/
 category: packages
 article: true
-subcategory: go
+subcategory: "Data Storage and Management"
 icon: 📤
 ---
 
@@ -18,8 +18,10 @@ El paquete `io` en Go es fundamental para operaciones de entrada/salida (E/S), o
 ### Funciones Principales y Casos de Uso
 
 #### 1. **`io.Copy`**
+
 **Propósito**: Copiar datos desde un `Reader` a un `Writer`.  
 **Ejemplo**: Copiar un archivo.
+
 ```go
 srcFile, _ := os.Open("origen.txt")
 defer srcFile.Close()
@@ -32,16 +34,20 @@ fmt.Printf("Se copiaron %d bytes\n", bytesCopiados)
 ```
 
 #### 2. **`io.CopyBuffer`**
+
 **Propósito**: Optimizar copias con un búfer personalizado.  
 **Ejemplo**: Copia con búfer de 4 KB.
+
 ```go
 buf := make([]byte, 4096)
 bytesCopiados, err := io.CopyBuffer(dstFile, srcFile, buf)
 ```
 
 #### 3. **`io.CopyN`**
+
 **Propósito**: Copiar una cantidad específica de bytes.  
 **Ejemplo**: Copiar los primeros 100 bytes de un archivo.
+
 ```go
 bytesCopiados, err := io.CopyN(dstFile, srcFile, 100)
 if err == io.EOF {
@@ -50,8 +56,10 @@ if err == io.EOF {
 ```
 
 #### 4. **`io.ReadAtLeast`**
+
 **Propósito**: Leer un mínimo de bytes.  
 **Ejemplo**: Validar encabezados.
+
 ```go
 header := make([]byte, 16)
 n, err := io.ReadAtLeast(reader, header, 16)
@@ -61,8 +69,10 @@ if err != nil {
 ```
 
 #### 5. **`io.ReadFull`**
+
 **Propósito**: Leer exactamente el tamaño del búfer.  
 **Ejemplo**: Leer un bloque de datos fijo.
+
 ```go
 dataBlock := make([]byte, 512)
 n, err := io.ReadFull(reader, dataBlock)
@@ -72,8 +82,10 @@ if err != nil {
 ```
 
 #### 6. **`io.WriteString`**
+
 **Propósito**: Escribir cadenas eficientemente.  
 **Ejemplo**: Escribir en un archivo de log.
+
 ```go
 n, err := io.WriteString(logFile, "Error: conexión fallida\n")
 ```
@@ -83,16 +95,20 @@ n, err := io.WriteString(logFile, "Error: conexión fallida\n")
 ### Funciones de Composición
 
 #### 7. **`io.LimitReader`**
+
 **Propósito**: Limitar la lectura a `n` bytes.  
 **Ejemplo**: Procesar solo los primeros 1 MB de un archivo.
+
 ```go
 limitedReader := io.LimitReader(srcFile, 1<<20) // 1 MB
 io.Copy(dstFile, limitedReader)
 ```
 
 #### 8. **`io.MultiReader`**
+
 **Propósito**: Concatenar múltiples `Reader`s.  
 **Ejemplo**: Combinar datos de dos archivos.
+
 ```go
 reader1 := strings.NewReader("Parte 1\n")
 reader2 := strings.NewReader("Parte 2\n")
@@ -101,8 +117,10 @@ io.Copy(os.Stdout, combined) // Imprime "Parte 1\nParte 2\n"
 ```
 
 #### 9. **`io.MultiWriter`**
+
 **Propósito**: Escribir en múltiples `Writer`s.  
 **Ejemplo**: Logging en consola y archivo.
+
 ```go
 logFile, _ := os.Create("app.log")
 logger := io.MultiWriter(os.Stdout, logFile)
@@ -110,8 +128,10 @@ fmt.Fprintf(logger, "Inicio: %s\n", time.Now())
 ```
 
 #### 10. **`io.TeeReader`**
+
 **Propósito**: Leer y escribir simultáneamente.  
 **Ejemplo**: Registrar datos mientras se procesan.
+
 ```go
 src := strings.NewReader("Datos importantes")
 var buffer bytes.Buffer
@@ -122,8 +142,10 @@ fmt.Println(buffer.String())     // Muestra "Datos importantes"
 ```
 
 #### 11. **`io.Pipe`**
+
 **Propósito**: Comunicación síncrona entre goroutines.  
 **Ejemplo**: Procesamiento en paralelo.
+
 ```go
 reader, writer := io.Pipe()
 
@@ -141,6 +163,8 @@ fmt.Println(string(data)) // "Datos desde la goroutine"
 ### Mejores Prácticas
 
 1. **Manejo de Errores**:
+   - Utilizar `io.Copy` para manejar errores en la copia.
+
    ```go
    n, err := io.Copy(dst, src)
    if err != nil {
@@ -169,6 +193,6 @@ fmt.Println(string(data)) // "Datos desde la goroutine"
 | `MultiWriter`     | Escritura múltiple                     | Redundancia en logging            |
 | `Pipe`            | Comunicación entre goroutines          | Sincronización sin intermediarios |
 
----
+### Conclusión
 
 Esta guía proporciona una comprensión práctica del paquete `io` en Go, demostrando cómo utilizar sus funciones para manejar eficientemente operaciones de E/S en diversos escenarios. Desde copias simples hasta composición compleja de flujos, estas herramientas son esenciales para desarrollar aplicaciones robustas y eficientes.

@@ -1,11 +1,11 @@
 ---
 layout: default
-title: strings
+title: "Strings en Go"
 description: Guía completa del paquete strings de Go para manipulación de cadenas
 permalink: /packages/go/strings/
 category: packages
 article: true
-subcategory: go
+subcategory: "Text Processing"
 icon: 📝
 ---
 

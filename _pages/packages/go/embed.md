@@ -1,11 +1,11 @@
 ---
 layout: default
-title: embed
-description: Guía del paquete embed de Go para incrustación de archivos
+title: "Embed en Go"
+description: "Guía del paquete embed de Go para incrustación de archivos y directorios en un binario Go"
 permalink: /packages/go/embed/
 category: packages
 article: true
-subcategory: go
+subcategory: "Embedding and Compilation"
 icon: 📦
 ---
 

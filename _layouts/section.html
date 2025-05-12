@@ -13,12 +13,6 @@ layout: default
         {% assign all_articles = site.pages | where: "category", page.category | where: "article", true %}
         {% assign subcategories = all_articles | map: "subcategory" | uniq | sort %}
 
-        {% if subcategories.size == 0 %}
-            <div class="no-results">
-                <p>📭 No hay documentos en esta categoría todavía.</p>
-                <a href="{{ '/' | relative_url }}" class="button">Ver todas las categorías</a>
-            </div>
-        {% else %}
             {% comment %} Iteramos por cada subcategoría {% endcomment %}
             {% for subcat in subcategories %}
                 <div class="subcategory-section">
@@ -33,7 +27,6 @@ layout: default
                     </div>
                 </div>
             {% endfor %}
-        {% endif %}
     </section>
 </div>
 
@@ -49,12 +42,6 @@ layout: default
                 {% include card.html article=article %}
             {% endfor %}
             
-            {% if filtered_articles.size == 0 %}
-                <div class="no-results">
-                    <p>📭 No hay documentos en esta categoría todavía.</p>
-                    <a href="{{ '/' | relative_url }}" class="button">Ver todas las categorías</a>
-                </div>
-            {% endif %}
         </div>
     </section>
 </div> -->

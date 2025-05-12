@@ -4,7 +4,7 @@ title: Jekyll
 description: "Herramienta para crear sitios web estáticos con facilidad
 category: cheatsheets"
 permalink: /cheat_sheets/jekyllcs/
-subcategory: static-sites
+subcategory: "static sites"
 icon: 📚
 article: true
 ---

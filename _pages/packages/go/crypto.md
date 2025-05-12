@@ -1,11 +1,11 @@
 ---
 layout: default
-title: crypto
-description: Guía del paquete crypto de Go para criptografía
+title: "Crypto en Go"
+description: "Guía del paquete crypto de Go para criptografía y seguridad"
 permalink: /packages/go/crypto/
 category: packages
 article: true
-subcategory: go
+subcategory: "Cryptography"
 icon: 🔐
 ---
 

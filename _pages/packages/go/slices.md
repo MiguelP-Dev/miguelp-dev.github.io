@@ -1,11 +1,11 @@
 ---
 layout: default
-title: slices
-description: Guía del paquete slices de Go para manipulación eficiente de arreglos
+title: "Slices en Go"
+description: "Guía del paquete slices de Go para manipulación eficiente de arreglos y slices"
 permalink: /packages/go/slices/
 category: packages
 article: true
-subcategory: go
+subcategory: "Containers and Collections"
 icon: 🔪
 ---
 

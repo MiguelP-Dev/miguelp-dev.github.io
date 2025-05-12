@@ -4,7 +4,7 @@ title: "Sassy CSS"
 description: "Una extensión de css que le añade características poderosas"
 permalink: /cheat_sheets/scsscs/
 category: cheatsheets
-subcategory: frontend
+subcategory: "frontend"
 icon: 💎
 article: true
 ---

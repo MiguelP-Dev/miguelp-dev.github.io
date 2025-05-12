@@ -2,7 +2,7 @@
 layout: default
 title: "Algoritmos"
 description: "Algoritmos para principiantes: De lo simple a lo complejo"
-permalink: /concepts/algoritmia/
+permalink: /concepts/algorithms/
 category: concepts
 subcategory: algorithms
 icon: 🧠

@@ -1,12 +1,12 @@
 ---
 layout: default
-title: expvar
-description: Guía del paquete expvar de Go para exposición de variables
+title: "Expvar en Go"
+description: "Guía del paquete expvar de Go para exposición de variables en tiempo de ejecución"
 permalink: /packages/go/expvar/
 category: packages
 article: true
-subcategory: go
-icon: 📊
+subcategory: "Testing and Debugging"
+icon: 🔍
 ---
 
 ## Paquete expvar en Go

@@ -1,11 +1,11 @@
 ---
 layout: default
-title: http
-description: Guía completa del paquete http de Go para aplicaciones web
+title: "HTTP en Go"
+description: "Guía completa del paquete http de Go para aplicaciones web"
 permalink: /packages/go/http/
 category: packages
 article: true
-subcategory: go
+subcategory: "Networking and Communication"
 icon: 🌐
 ---
 

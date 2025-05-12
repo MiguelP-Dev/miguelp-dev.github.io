@@ -1,11 +1,11 @@
 ---
 layout: default
-title: unsafe
-description: Guía del paquete unsafe de Go para manipulación de memoria de bajo nivel
+title: "Unsafe en Go"
+description: "Guía del paquete unsafe de Go para manipulación de memoria de bajo nivel"
 permalink: /packages/go/unsafe/
 category: packages
 article: true
-subcategory: go
+subcategory: "Embedding and Compilation"
 icon: ⚠️
 ---
 

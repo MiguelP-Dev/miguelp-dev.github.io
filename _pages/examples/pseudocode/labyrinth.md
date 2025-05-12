@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "Resolución de laberinto"
+title: "Laberinto con Recursividad"
 description: "Resolver un laberinto utilizando recursividad"
-permalink: /examples/pseudoCode/laberinto/
+permalink: /examples/pseudocode/labyrinth/
 category: examples
-subcategory: algorithms
+subcategory: "algorithms and data structures"
 icon: 🌀
 article: true
 ---

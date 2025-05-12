@@ -43,19 +43,6 @@ title: Inicio
                 <a href="/examples" class="section-link">Ver todos los ejemplos →</a>
             {% endif %}
         </section>
-        
-        <section class="section">
-            <h2 class="section-title">Cloud y DevOps</h2>
-            <div class="cards-container">
-                {% assign cloudevops = site.pages | where: "category", "cloudevops" | where: "article", true | sort: "title" %}
-                {% for article in cloudevops limit: 3 %}
-                    {% include card.html article=article %}
-                {% endfor %}
-            </div>
-            {% if cloudevops.size >= 4 %}
-                <a href="/cloudevops" class="section-link">Ver todas las Cloud y DevOps →</a>
-            {% endif %}
-        </section>
 
         <section class="section">
             <h2 class="section-title">Hojas de Referencia</h2>

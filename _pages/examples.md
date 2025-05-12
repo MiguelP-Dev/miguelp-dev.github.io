@@ -1,6 +1,6 @@
 ---
 layout: section
-title: "Ejemplos de Implementación"
+title: "Ejemplos"
 description: "Colección de ejemplos prácticos y snippets de código listos para usar"
 permalink: /examples/
 category: examples

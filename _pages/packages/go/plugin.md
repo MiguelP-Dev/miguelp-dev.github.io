@@ -1,11 +1,11 @@
 ---
 layout: default
-title: plugin
-description: Guía del paquete plugin de Go para carga dinámica de módulos
+title: "Plugin en Go"
+description: "Guía del paquete plugin de Go para carga dinámica de módulos"
 permalink: /packages/go/plugin/
 category: packages
 article: true
-subcategory: go
+subcategory: "Embedding and Compilation"
 icon: 🔌
 ---
 

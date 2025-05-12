@@ -2,10 +2,10 @@
 layout: default
 title: "GoMock"
 description: "Framework de mocking para pruebas unitarias avanzadas en Go"
-permalink: /libraries/go/gomock/
+permalink: /library/go/gomock/
 category: library
 article: true
-subcategory: go
+subcategory: testing
 icon: 🧩
 ---
 

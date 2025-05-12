@@ -2,9 +2,9 @@
 layout: default
 title: "Contenedores con Docker y Podman"
 description: "Domina la gestión de contenedores con Docker y Podman"
-permalink: /cloudevops/contenedores/
-category: cloudevops
-subcategory: devops-cloud
+permalink: /lessons/containers/
+category: lessons
+subcategory: "cloud and devops"
 icon: 🐳
 article: true
 ---

@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "Introducción a http en Go"
+title: "HTTP con Go"
 description: "Aprende a crear clientes y servidores HTTP robustos con la biblioteca estándar de Go"
-permalink: /lessons/httpGo/
+permalink: /lessons/go/http/
 category: lessons
-subcategory: go
+subcategory: "servers & clients HTTP"
 icon: 🌐
 article: true
 ---

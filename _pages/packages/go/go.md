@@ -1,11 +1,11 @@
 ---
 layout: default
-title: go
-description: Guía de los comandos del CLI de Go para desarrollo
+title: "Go en Golang"
+description: "Guía de los comandos del CLI de Go para desarrollo"
 permalink: /packages/go/go/
 category: packages
 article: true
-subcategory: go
+subcategory: "Embedding and Compilation"
 icon: 🛠️
 ---
 
@@ -18,17 +18,24 @@ El ecosistema de Go incluye una amplia variedad de comandos para gestionar el ci
 ### Comandos Esenciales
 
 #### 1. **`go run`**
+
 **Descripción**: Compila y ejecuta código temporalmente sin generar binarios.  
 **Casos de Uso Avanzados**:
+
 - Ejecutar múltiples archivos:
+
   ```sh
   go run main.go utils.go config.go
   ```
+
 - Pasar argumentos al programa:
+
   ```sh
   go run main.go -port=8080 -env=prod
   ```
+
 - Usar tags de compilación:
+
   ```sh
   go run -tags=jsoniter main.go  # Usa una implementación alternativa de JSON
   ```
@@ -38,23 +45,31 @@ El ecosistema de Go incluye una amplia variedad de comandos para gestionar el ci
 ---
 
 #### 2. **`go build`**
+
 **Descripción**: Genera binarios optimizados.  
 **Opciones Clave**:
+
 - Compilación cruzada:
+
   ```sh
   GOOS=linux GOARCH=amd64 go build -o app-linux main.go
   GOOS=windows GOARCH=amd64 go build -o app.exe main.go
   ```
+
 - Incluir metadatos:
+
   ```sh
   go build -ldflags "-X main.Version=1.2.3 -X main.BuildTime=$(date +%s)"
   ```
+
 - Reducir tamaño con `-trimpath`:
+
   ```sh
   go build -trimpath -o minimal-app
   ```
 
 **Ejemplo Completo**:
+
 ```sh
 CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -ldflags "-s -w" -tags=prod -o release/app ./cmd/server
 ```
@@ -62,9 +77,12 @@ CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -ldflags "-s -w" -tags=prod -o r
 ---
 
 #### 3. **`go install`**
+
 **Descripción**: Instala herramientas en `$GOPATH/bin`.  
 **Flujo de Trabajo**:
+
 1. Crear herramienta CLI:
+
    ```go
    // tools/version/main.go
    package main
@@ -72,11 +90,15 @@ CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -ldflags "-s -w" -tags=prod -o r
        fmt.Println("Versión 1.4.2")
    }
    ```
+
 2. Instalar globalmente:
+
    ```sh
    go install ./tools/version
    ```
+
 3. Ejecutar desde cualquier lugar:
+
    ```sh
    version  # Output: Versión 1.4.2
    ```
@@ -88,22 +110,30 @@ CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -ldflags "-s -w" -tags=prod -o r
 ### Gestión de Dependencias
 
 #### 4. **`go get`**
+
 **Funcionalidades Avanzadas**:
+
 - Instalar versión específica:
+
   ```sh
   go get github.com/gorilla/mux@v1.8.0
   ```
+
 - Actualizar a última versión:
+
   ```sh
   go get -u github.com/gin-gonic/gin
   ```
+
 - Reemplazar dependencias (para forks):
+
   ```go
   // go.mod
   replace github.com/original/repo => ../local/fork
   ```
 
 **Ejemplo de Workflow**:
+
 ```sh
 go get github.com/spf13/cobra@latest  # Última versión
 go mod tidy                          # Limpiar dependencias no usadas
@@ -112,7 +142,9 @@ go mod tidy                          # Limpiar dependencias no usadas
 ---
 
 #### 5. **`go mod`**
+
 **Comandos Clave**:
+
 | Comando           | Descripción                          |
 |-------------------|--------------------------------------|
 | `go mod init`     | Inicializa nuevo módulo              |
@@ -121,6 +153,7 @@ go mod tidy                          # Limpiar dependencias no usadas
 | `go mod verify`   | Verifica integridad de dependencias  |
 
 **Ejemplo de Módulo Privado**:
+
 ```sh
 GOPRIVATE=github.com/mi-empresa go mod download  # Ignora proxy para repos privados
 ```
@@ -130,28 +163,38 @@ GOPRIVATE=github.com/mi-empresa go mod download  # Ignora proxy para repos priva
 ### Calidad de Código
 
 #### 6. **`go test`**
+
 **Técnicas Avanzadas**:
+
 - Pruebas paralelas:
+
   ```go
   func TestFetch(t *testing.T) {
       t.Parallel()
       // ... código ...
   }
   ```
+
 - Generar cobertura:
+
   ```sh
   go test -coverprofile=coverage.out && go tool cover -html=coverage.out
   ```
+
 - Detección de race conditions:
+
   ```sh
   go test -race ./...
   ```
+
 - Pruebas de integración:
+
   ```sh
   go test -tags=integration
   ```
 
 **Ejemplo de Subtests**:
+
 ```go
 func TestMath(t *testing.T) {
     t.Run("Suma", func(t *testing.T) {
@@ -168,7 +211,9 @@ func TestMath(t *testing.T) {
 ---
 
 #### 7. **`go vet` y `go fmt`**
+
 **Integración con CI/CD**:
+
 ```yaml
 # Ejemplo de GitHub Actions
 jobs:
@@ -181,6 +226,7 @@ jobs:
 ```
 
 **Configuración Personalizada**:
+
 - Crear `.gofmt` para reglas personalizadas
 - Usar [staticcheck](https://staticcheck.io/) para análisis más profundo
 
@@ -189,12 +235,17 @@ jobs:
 ### Herramientas de Desarrollo
 
 #### 8. **`go doc`**
+
 **Usos Avanzados**:
+
 - Servir documentación web:
+
   ```sh
   godoc -http=:6060
   ```
+
 - Documentar paquetes:
+
   ```go
   // Package math provee operaciones matemáticas avanzadas.
   package math
@@ -204,6 +255,7 @@ jobs:
   ```
 
 **Consulta Rápida**:
+
 ```sh
 go doc -all bytes.Buffer  # Ver todos los métodos
 ```
@@ -211,8 +263,11 @@ go doc -all bytes.Buffer  # Ver todos los métodos
 ---
 
 #### 9. **`go generate`**
+
 **Automatización de Código**:
+
 1. Crear directiva:
+
    ```go
    //go:generate stringer -type=Estado
    type Estado int
@@ -222,7 +277,9 @@ go doc -all bytes.Buffer  # Ver todos los métodos
        Inactivo
    )
    ```
+
 2. Ejecutar generación:
+
    ```sh
    go generate ./...
    ```
@@ -234,12 +291,17 @@ go doc -all bytes.Buffer  # Ver todos los métodos
 ### Comandos de Mantenimiento
 
 #### 10. **`go clean`**
+
 **Escenarios Comunes**:
+
 - Limpiar cache completo:
+
   ```sh
   go clean -cache -testcache -modcache
   ```
+
 - Eliminar binarios específicos:
+
   ```sh
   go clean -i ./pkg/...  # Elimina instalaciones anteriores
   ```
@@ -249,13 +311,16 @@ go doc -all bytes.Buffer  # Ver todos los métodos
 ### Comandos de Depuración
 
 #### 11. **`go env`**
+
 **Configuración del Entorno**:
+
 ```sh
 go env -w GOPRIVATE=github.com/mi-empresa/*  # Configuración persistente
 go env GOMODCACHE  # Ver ubicación de cache
 ```
 
 **Listado Completo**:
+
 ```sh
 go env | grep -E 'GOOS|GOARCH|GOPATH'  # Filtra variables clave
 ```
@@ -265,7 +330,8 @@ go env | grep -E 'GOOS|GOARCH|GOPATH'  # Filtra variables clave
 ### Mejores Prácticas
 
 1. **Estructura de Proyectos**:
-   ```sh
+
+   ```plaintext
    mi-proyecto/
    ├── cmd/
    │   └── server/
@@ -278,6 +344,7 @@ go env | grep -E 'GOOS|GOARCH|GOPATH'  # Filtra variables clave
    ```
 
 2. **Versionado Semántico**:
+
    ```sh
    git tag v1.2.3
    git push origin v1.2.3
@@ -288,6 +355,7 @@ go env | grep -E 'GOOS|GOARCH|GOPATH'  # Filtra variables clave
    - Compilar con `CGO_ENABLED=0` para binarios estáticos
 
 4. **Manejo de Errores**:
+
    ```go
    if _, err := os.Open("file.txt"); err != nil {
        return fmt.Errorf("error abriendo archivo: %w", err)
@@ -299,26 +367,31 @@ go env | grep -E 'GOOS|GOARCH|GOPATH'  # Filtra variables clave
 ### Flujo de Trabajo Completo
 
 1. Inicializar proyecto:
+
    ```sh
    go mod init github.com/usuario/proyecto
    ```
 
 2. Desarrollar con hot-reload:
+
    ```sh
    air -c .air.toml  # Usar herramienta externa
    ```
 
 3. Lanzar pruebas:
+
    ```sh
    go test -cover -race ./...
    ```
 
 4. Construir release:
+
    ```sh
    GOOS=linux GOARCH=amd64 go build -ldflags "-s -w" -o dist/app-linux
    ```
 
 5. Desplegar:
+
    ```sh
    scp dist/app-linux usuario@servidor:/app
    ```

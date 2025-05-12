@@ -1,11 +1,11 @@
 ---
 layout: default
-title: context
-description: Guía del paquete context de Go para manejo de contextos y cancelación
+title: "Context en Go"
+description: "Guía del paquete context de Go para manejo de contextos y cancelaciones"
 permalink: /packages/go/context/
 category: packages
 article: true
-subcategory: go
+subcategory: "Networking and Communication"
 icon: 🔄
 ---
 

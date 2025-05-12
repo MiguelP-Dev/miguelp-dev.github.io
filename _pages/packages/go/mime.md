@@ -1,11 +1,11 @@
 ---
 layout: default
-title: mime
-description: Guía del paquete mime de Go para manejo de tipos MIME
+title: "Mime en Go"
+description: "Guía del paquete mime de Go para manejo de tipos MIME"
 permalink: /packages/go/mime/
 category: packages
 article: true
-subcategory: go
+subcategory: "Serialization & Deserialization"
 icon: 📋
 ---
 

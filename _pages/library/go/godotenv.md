@@ -2,10 +2,10 @@
 layout: default
 title: "GoDotEnv"
 description: "Gestión de variables de entorno en Go de forma simple y eficiente"
-permalink: /libraries/go/godotenv/
+permalink: /library/go/godotenv/
 category: library
 article: true
-subcategory: go
+subcategory: configurations
 icon: 🔐
 ---
 
@@ -14,6 +14,7 @@ icon: 🔐
 GoDotEnv es una implementación Go de la librería original [dotenv](https://github.com/bkeepers/dotenv) de Ruby. Permite separar la configuración del código, siguiendo los principios de las [aplicaciones de doce factores](https://12factor.net/), que recomiendan almacenar la configuración en el entorno.
 
 Al utilizar archivos `.env`, los desarrolladores pueden:
+
 - Mantener información sensible fuera del control de versiones
 - Gestionar diferentes configuraciones para entornos distintos (desarrollo, pruebas, producción)
 - Compartir configuraciones de forma segura entre miembros del equipo
@@ -32,7 +33,7 @@ Primero, crea un archivo llamado `.env` en la raíz de tu proyecto. Este archivo
 
 Ejemplo de archivo `.env`:
 
-```
+```bash
 # Configuración de la base de datos
 DB_HOST=localhost
 DB_PORT=5432
@@ -156,7 +157,8 @@ for key, value := range envMap {
 ## Mejores prácticas
 
 1. **No incluyas archivos .env en el control de versiones**:
-   ```
+
+   ```plaintext
    # Añade a tu .gitignore
    .env
    .env.local
@@ -167,6 +169,7 @@ for key, value := range envMap {
 
 3. **Establece variables por defecto**:
    Proporciona valores por defecto cuando sea apropiado.
+
    ```go
    port := os.Getenv("APP_PORT")
    if port == "" {
@@ -176,6 +179,7 @@ for key, value := range envMap {
 
 4. **Validación de variables requeridas**:
    Verifica que todas las variables requeridas estén presentes.
+
    ```go
    requiredEnvs := []string{"DB_HOST", "API_KEY"}
    for _, env := range requiredEnvs {
@@ -299,24 +303,24 @@ Para ejecutar este ejemplo, asegúrate de tener un archivo `.env` en el mismo di
 
 ### El archivo .env no se carga
 
-* Verifica que el archivo `.env` esté en el directorio correcto. Por defecto, godotenv busca en el directorio de trabajo actual.
-* Asegúrate de que el archivo tenga los permisos adecuados.
+- Verifica que el archivo `.env` esté en el directorio correcto. Por defecto, godotenv busca en el directorio de trabajo actual.
+- Asegúrate de que el archivo tenga los permisos adecuados.
 
 ### Variable no encontrada
 
-* Revisa que la variable esté correctamente definida en el archivo `.env` (sin espacios alrededor del `=`).
-* Verifica que la carga del archivo haya sido exitosa (comprueba el error devuelto por `godotenv.Load()`).
-* Asegúrate de que estés usando el mismo nombre de variable (las variables de entorno son sensibles a mayúsculas y minúsculas).
+- Revisa que la variable esté correctamente definida en el archivo `.env` (sin espacios alrededor del `=`).
+- Verifica que la carga del archivo haya sido exitosa (comprueba el error devuelto por `godotenv.Load()`).
+- Asegúrate de que estés usando el mismo nombre de variable (las variables de entorno son sensibles a mayúsculas y minúsculas).
 
 ### Valor incorrecto cargado
 
-* Las variables de entorno son siempre strings. Asegúrate de convertirlas al tipo adecuado antes de usarlas.
-* Verifica que no haya comillas innecesarias en el archivo `.env`.
+- Las variables de entorno son siempre strings. Asegúrate de convertirlas al tipo adecuado antes de usarlas.
+- Verifica que no haya comillas innecesarias en el archivo `.env`.
 
 ### Variables duplicadas
 
-* Recuerda que si cargas múltiples archivos, las variables del último archivo sobrescribirán las anteriores.
-* Las variables de entorno ya definidas en el sistema no serán sobrescritas por godotenv a menos que uses `godotenv.Overload()`.
+- Recuerda que si cargas múltiples archivos, las variables del último archivo sobrescribirán las anteriores.
+- Las variables de entorno ya definidas en el sistema no serán sobrescritas por godotenv a menos que uses `godotenv.Overload()`.
 
 ---
 

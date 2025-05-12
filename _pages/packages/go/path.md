@@ -1,11 +1,11 @@
 ---
 layout: default
-title: path
-description: Guía del paquete path de Go para manipulación de rutas
+title: "Path en Go"
+description: "Guía del paquete path de Go para manipulación de rutas seguras"
 permalink: /packages/go/path/
 category: packages
 article: true
-subcategory: go
+subcategory: "File System Navigation"
 icon: 🛣️
 ---
 

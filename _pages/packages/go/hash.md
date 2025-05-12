@@ -1,33 +1,22 @@
 ---
 layout: default
-title: hash
-description: Guía del paquete hash de Go para algoritmos de hashing
+title: "Hash en Go"
+description: "Guía del paquete hash de Go para algoritmos de hashing y resumenes criptográficos"
 permalink: /packages/go/hash/
 category: packages
 article: true
-subcategory: go
-icon: 🔐
+subcategory: "Cryptography"
+icon: 🔑
 ---
 
 ## Paquete `hash` en Go: Guía Completa con Ejemplos y Mejores Prácticas
 
 El paquete `hash` en Go proporciona interfaces y algoritmos para calcular resúmenes criptográficos y de integridad. Esta guía cubre su uso avanzado, comparativas de algoritmos y aplicaciones realistas.
 
----
-
-### Tabla de Contenidos
-1. [Interfaz `hash.Hash`](#interfaz-hashhash)
-2. [Algoritmos de Hash](#algoritmos-de-hash)
-3. [Casos de Uso Avanzados](#casos-de-uso-avanzados)
-4. [Seguridad y Mejores Prácticas](#seguridad-y-mejores-prácticas)
-5. [HMAC y Autenticación de Mensajes](#hmac-y-autenticación-de-mensajes)
-
----
-
-<a name="interfaz-hashhash"></a>
 ### 1. Interfaz `hash.Hash`
 
 #### Métodos Clave
+
 ```go
 type Hash interface {
     Write(p []byte) (n int, err error)  // Añade datos al hash
@@ -39,6 +28,7 @@ type Hash interface {
 ```
 
 #### Ejemplo Detallado
+
 ```go
 package main
 
@@ -74,12 +64,10 @@ func main() {
 }
 ```
 
----
-
-<a name="algoritmos-de-hash"></a>
 ### 2. Algoritmos de Hash
 
 #### Comparativa de Algoritmos
+
 | Algoritmo  | Seguridad   | Tamaño Hash | Velocidad | Uso Recomendado              |
 |------------|-------------|-------------|-----------|------------------------------|
 | MD5        | Obsoleto    | 128 bits    | Rápido    | Verificación no crítica      |
@@ -90,6 +78,7 @@ func main() {
 | CRC64      | No seguro   | 64 bits     | Rápido    | Integridad de archivos       |
 
 #### Ejemplo: Benchmark de Hashes
+
 ```go
 func benchmarkHash(b *testing.B, h hash.Hash) {
     data := []byte("datos de prueba")
@@ -107,12 +96,10 @@ func benchmarkHash(b *testing.B, h hash.Hash) {
 // SHA-512:  3789 ns/op
 ```
 
----
-
-<a name="casos-de-uso-avanzados"></a>
 ### 3. Casos de Uso Avanzados
 
 #### 3.1 Verificación de Integridad en Descargas
+
 ```go
 func verifyDownload(filePath, expectedHash string) error {
     actualHash, err := fileHash(filePath)
@@ -132,6 +119,7 @@ func verifyDownload(filePath, expectedHash string) error {
 ```
 
 #### 3.2 Almacenamiento Seguro de Contraseñas
+
 ```go
 import "golang.org/x/crypto/bcrypt"
 
@@ -148,12 +136,10 @@ func checkPassword(password, hash string) bool {
 }
 ```
 
----
-
-<a name="seguridad-y-mejores-prácticas"></a>
 ### 4. Seguridad y Mejores Prácticas
 
 #### Recomendaciones Clave
+
 1. **Evitar MD5/SHA-1** para seguridad crítica (vulnerables a colisiones)
 2. **Usar salts aleatorios** con funciones como `bcrypt` o `scrypt`
 3. **Iteraciones múltiples** para contraseñas (PBKDF2)
@@ -161,6 +147,7 @@ func checkPassword(password, hash string) bool {
 5. **Usar HMAC** para autenticación de mensajes
 
 #### Ejemplo de Salt Manual
+
 ```go
 func secureHash(data []byte) (string, error) {
     salt := make([]byte, 32)
@@ -175,12 +162,10 @@ func secureHash(data []byte) (string, error) {
 }
 ```
 
----
-
-<a name="hmac-y-autenticación-de-mensajes"></a>
 ### 5. HMAC y Autenticación de Mensajes
 
 #### Implementación de HMAC-SHA256
+
 ```go
 package main
 
@@ -219,13 +204,10 @@ func main() {
 ### Conclusión
 
 El paquete `hash` y sus extensiones en Go ofrecen herramientas poderosas para:
+
 - Garantizar integridad de datos
 - Almacenar credenciales de forma segura
 - Autenticar mensajes
 - Generar identificadores únicos
 
-**Recursos Adicionales**:
-- [OWASP Cheat Sheet for Password Storage](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
-- [NIST Guidelines for Hash Functions](https://csrc.nist.gov/projects/hash-functions)
-
-Este contenido ampliado combina fundamentos técnicos, ejemplos aplicables a escenarios reales y prácticas de seguridad actualizadas, proporcionando una guía completa para el uso profesional de funciones hash en Go.
+Este contenido combina fundamentos técnicos, ejemplos aplicables a escenarios reales y prácticas de seguridad actualizadas, proporcionando una guía completa para el uso profesional de funciones hash en Go.

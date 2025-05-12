@@ -1,10 +1,10 @@
 ---
 layout: default
-title: HTML Cheat Sheet
+title: HTML
 description: "Hoja de referencias HTML, incluyendo etiquetas, atributos y ejemplos prácticos"
 permalink: /cheat_sheets/htmlcs/
 category: cheatsheets
-subcategory: frontend
+subcategory: "frontend"
 icon: 🌐
 article: true
 ---

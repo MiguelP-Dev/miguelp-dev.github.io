@@ -2,7 +2,7 @@
 layout: default
 title: "Arquitecturas en Go"
 description: "Domina la arquitectura de software para ser un buen profesional con golang"
-permalink: /concepts/arquitecturas/
+permalink: /concepts/architectures/
 category: concepts
 subcategory: architectures
 icon: 🏗️

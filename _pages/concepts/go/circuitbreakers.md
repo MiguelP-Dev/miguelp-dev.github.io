@@ -2,7 +2,7 @@
 layout: default
 title: "Circuit Breakers en Go"
 description: "Patron de diseño para el manejo de fallos en sistemas distribuidos"
-permalink: /concepts/circuitBreakersGo/
+permalink: /concepts/go/circuitbreakers/
 category: concepts
 subcategory: architectures
 icon: 🔌

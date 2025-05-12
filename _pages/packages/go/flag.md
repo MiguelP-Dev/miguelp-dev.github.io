@@ -1,11 +1,11 @@
 ---
 layout: default
-title: flag
-description: Guía del paquete flag de Go para procesamiento de argumentos
+title: "Flag en Go"
+description: "Guía del paquete flag de Go para procesamiento de argumentos de línea de comandos"
 permalink: /packages/go/flag/
 category: packages
 article: true
-subcategory: go
+subcategory: "System Utilities"
 icon: 🚩
 ---
 

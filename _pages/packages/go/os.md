@@ -1,11 +1,11 @@
 ---
 layout: default
-title: os
-description: Guía del paquete os de Go para interacción con el sistema operativo
+title: "OS en Go"
+description: "Guía del paquete os de Go para interacción con el sistema operativo"
 permalink: /packages/go/os/
 category: packages
 article: true
-subcategory: go
+subcategory: "System Utilities"
 icon: 💻
 ---
 

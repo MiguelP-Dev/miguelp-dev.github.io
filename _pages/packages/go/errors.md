@@ -1,17 +1,18 @@
 ---
 layout: default
-title: errors
-description: Guía del paquete errors de Go para manejo de errores
+title: "Errors en Go"
+description: "Guía del paquete errors de Go para manejo de errores"
 permalink: /packages/go/errors/
 category: packages
 article: true
-subcategory: go
+subcategory: "Core Utilities"
 icon: ⚠️
 ---
 
 ## Paquete errors en Go
 
-El paquete `errors` proporciona funcionalidades para crear y manipular errores en Go. Este documento explora en detalle sus características y casos de uso prácticos.
+El paquete `errors` proporciona funcionalidades para crear y manipular errores en Go. Este documento explora en 
+detalle sus características y casos de uso prácticos.
 
 ### 1. Conceptos Básicos
 

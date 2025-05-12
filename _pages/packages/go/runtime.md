@@ -1,11 +1,11 @@
 ---
 layout: default
-title: runtime
-description: Guía del paquete runtime de Go para interactuar con el entorno de ejecución
+title: "Runtime en Go"
+description: "Guía del paquete runtime de Go para interactuar con el entorno de ejecución"
 permalink: /packages/go/runtime/
 category: packages
 article: true
-subcategory: go
+subcategory: "Concurrency and Synchronization"
 icon: ⚙️
 ---
 

@@ -1,19 +1,17 @@
 ---
 layout: default
-title: syscall
-description: Guía del paquete syscall de Go para acceso a llamadas del sistema
+title: "Syscall en Go"
+description: "Guía del paquete syscall de Go para acceso a llamadas del sistema"
 permalink: /packages/go/syscall/
 category: packages
 article: true
-subcategory: go
+subcategory: "Networking and Communication"
 icon: 🖥️
 ---
 
 ## Paquete `syscall` en Go
 
 El paquete `syscall` proporciona acceso directo a las llamadas del sistema en Go. Esta guía ampliada profundiza en su uso con ejemplos avanzados, mejores prácticas y consideraciones de portabilidad.  
-
----
 
 ### Funciones Clave  
 

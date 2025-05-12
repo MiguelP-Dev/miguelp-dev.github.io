@@ -1,11 +1,11 @@
 ---
 layout: default
-title: unicode
-description: Guía completa del paquete unicode de Go para manejo de caracteres internacionales
+title: "Unicode en Go"
+description: "Guía completa del paquete unicode de Go para manejo de caracteres internacionales"
 permalink: /packages/go/unicode/
 category: packages
 article: true
-subcategory: go
+subcategory: "Text Processing"
 icon: 🔤
 ---
 

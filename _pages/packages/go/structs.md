@@ -1,11 +1,11 @@
 ---
 layout: default
-title: structs
-description: Guía del paquete structs de Fatih para manipulación de estructuras
+title: "Structs en Go"
+description: "Guía del paquete structs de Fatih para manipulación de estructuras"
 permalink: /packages/go/structs/
 category: packages
 article: true
-subcategory: go
+subcategory: "Containers and Collections"
 icon: 🧱
 ---
 

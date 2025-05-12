@@ -2,9 +2,9 @@
 layout: default
 title: "JSON Web Token con Go"
 description: "Aprende los conceptos básicos de JWT y su implementación práctica en Golang."
-permalink: /lessons/jwtgo/
+permalink: /lessons/go/jwt/
 category: lessons
-subcategory: go
+subcategory: "authentication and authorization"
 icon: 🔗
 article: true
 ---

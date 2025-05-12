@@ -2,9 +2,9 @@
 layout: default
 title: "Kubernetes"
 description: "Domina la gestión de contenedores con Kubernetes"
-permalink: /clodevops/kubernetes/
-category: clodevops
-subcategory: devops-cloud
+permalink: /lessons/kubernetes/
+category: lessons
+subcategory: "cloud and devops"
 icon: 🚀
 article: true
 ---

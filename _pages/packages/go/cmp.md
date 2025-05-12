@@ -1,11 +1,11 @@
 ---
 layout: default
-title: cmp
-description: Guía del paquete cmp de Go para comparación de valores
+title: "CMP en Go"
+description: "Guía del paquete cmp de Go para comparación de valores"
 permalink: /packages/go/cmp/
 category: packages
 article: true
-subcategory: go
+subcategory: "Mathematics"
 icon: 🔍
 ---
 

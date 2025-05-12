@@ -4,7 +4,7 @@ title: "Validación de Emails con Expresiones Regulares"
 description: "Implementación profesional de validación de correos electrónicos usando Go y Regexp"
 permalink: /examples/go/regexpemail/
 category: examples
-subcategory: go
+subcategory: "regular expressions"
 icon: ✉️
 article: true
 ---

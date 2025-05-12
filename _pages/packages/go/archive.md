@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "Paquete Archive en Go"
-description: "Guía para el paquete archive en Go, incluyendo ejemplos prácticos y mejores prácticas."
+title: "Archive en Go"
+description: "Guía para el paquete archive en Go, incluyendo ejemplos prácticos y mejores prácticas"
 permalink: /packages/go/archive
 category: packages
 article: true
-subcategory: go
+subcategory: "Compression and Archiving"
 icon: 🗃️
 ---
 

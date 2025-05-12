@@ -1,11 +1,11 @@
 ---
 layout: default
-title: database/sql
-description: Guía del paquete database/sql de Go para bases de datos SQL
+title: "Database/sql en Go"
+description: "Guía del paquete database/sql de Go para bases de datos SQL"
 permalink: /packages/go/database/
 category: packages
 article: true
-subcategory: go
+subcategory: "Data Storage and Management"
 icon: 📉
 ---
 

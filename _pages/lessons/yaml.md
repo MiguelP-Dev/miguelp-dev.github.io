@@ -2,9 +2,9 @@
 layout: default
 title: "YAML"
 description: "Domina la cración de archívos '.yml' y '.yaml' para configurar contenedores, servicios, etc."
-permalink: /cloudevops/yaml/
-category: cloudevops
-subcategory: devops-cloud
+permalink: /lessons/yaml/
+category: lessons
+subcategory: configurations
 icon: 🔧
 article: true
 ---

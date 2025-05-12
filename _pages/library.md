@@ -1,9 +1,9 @@
 ---
-layout: default
+layout: section
 title: "Librerías"
 description: "Catálogo completo de librerías para desarrollo"
-permalink: /libraries/
+permalink: /library/
 category: library
 article: false
-icon: 📦
+icon: 📚
 ---

@@ -4,7 +4,7 @@ title: JavaScript
 description: "Hoja de referencias, desde fundamentos hasta ejemplos prácticos"
 permalink: /cheat_sheets/javascriptcs/
 category: cheatsheets
-subcategory: frontend
+subcategory: "frontend"
 icon: 📋
 article: true
 ---

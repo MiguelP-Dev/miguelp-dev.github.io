@@ -4,7 +4,7 @@ title: "Validación de URLs con regexp de golang"
 description: "Guía detallada de validación de URLs con Regex en Go"
 permalink: /examples/go/regexpurls/
 category: examples
-subcategory: go
+subcategory: "regular expressions"
 icon: 🌐
 article: true
 ---

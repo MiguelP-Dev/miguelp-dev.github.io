@@ -1,11 +1,11 @@
 ---
 layout: default
-title: strconv
-description: Guía del paquete strconv de Go para conversión de tipos
+title: "Strconv en Go"
+description: "Guía del paquete strconv de Go para conversión de tipos primitivos y cadenas"
 permalink: /packages/go/strconv/
 category: packages
 article: true
-subcategory: go
+subcategory: "Text Processing"
 icon: 🔢
 ---
 

@@ -1,11 +1,11 @@
 ---
 layout: default
-title: html
-description: Guía del paquete html de Go para manipulación segura de HTML
+title: "HTML en Go"
+description: "Guía del paquete html de Go para manipulación segura de HTML"
 permalink: /packages/go/html/
 category: packages
 article: true
-subcategory: go
+subcategory: "Networking and Communication"
 icon: 🌐
 ---
 
@@ -18,8 +18,10 @@ El paquete `html` en Go proporciona herramientas esenciales para trabajar con co
 ### 1. Funciones Principales del Paquete `html`
 
 #### 1.1 **`html.EscapeString`**
+
 **Propósito**: Convertir caracteres especiales en entidades HTML para prevenir inyección de código.  
 **Caracteres Escapados**:
+
 - `<` → `&lt;`
 - `>` → `&gt;`
 - `&` → `&amp;`
@@ -27,6 +29,7 @@ El paquete `html` en Go proporciona herramientas esenciales para trabajar con co
 - `'` → `&#39;`
 
 **Ejemplo Detallado**:
+
 ```go
 package main
 
@@ -44,12 +47,15 @@ func main() {
 ```
 
 #### 1.2 **`html.UnescapeString`**
+
 **Propósito**: Revertir entidades HTML a sus caracteres originales.  
 **Casos de Uso**:
+
 - Procesar contenido almacenado previamente escapado
 - Mostrar texto original en editores HTML
 
 **Ejemplo con Entidades Complejas**:
+
 ```go
 func main() {
     escaped := "&lt;div class=&quot;alert&quot;&gt;&amp;Atención&lt;/div&gt;"
@@ -64,13 +70,17 @@ func main() {
 ### 2. Subpaquete `html/template`: Plantillas Seguras
 
 #### 2.1 **Creación de Plantillas**
+
 **Flujo Básico**:
+
 1. Definir plantillas
 2. Parsear contenido
 3. Ejecutar con datos
 
 **Ejemplo de Plantilla con Estructuras**:
+
 {% raw %}
+
 ```go
 type User struct {
     Name    string
@@ -96,11 +106,15 @@ func main() {
     tmpl.Execute(os.Stdout, user)
 }
 ```
+
 {% endraw %}
 
 #### 2.2 **Funciones de Plantilla Personalizadas**
+
 **Registro de Funciones**:
+
 {% raw %}
+
 ```go
 func formatDate(t time.Time) string {
     return t.Format("2006-01-02")
@@ -114,6 +128,7 @@ func main() {
     tmpl.Execute(os.Stdout, time.Now())
 }
 ```
+
 {% endraw %}
 
 ---
@@ -121,15 +136,19 @@ func main() {
 ### 3. Características Avanzadas de `html/template`
 
 #### 3.1 **Herencia de Plantillas**
+
 **Estructura de Archivos**:
-```
+
+```plaintext
 templates/
 ├── base.html
 └── home.html
 ```
 
 **base.html**:
+
 {% raw %}
+
 ```html
 {{define "base"}}
 <!DOCTYPE html>
@@ -143,19 +162,24 @@ templates/
 </html>
 {{end}}
 ```
+
 {% endraw %}
 
 **home.html**:
+
 {% raw %}
+
 ```html
 {{define "title"}}Inicio{{end}}
 {{define "content"}}
     <h1>Bienvenido, {{.User.Name}}</h1>
 {{end}}
 ```
+
 {% endraw %}
 
 **Código Go**:
+
 ```go
 func main() {
     tmpl := template.Must(template.ParseGlob("templates/*.html"))
@@ -167,9 +191,12 @@ func main() {
 ```
 
 #### 3.2 **Protección Automática contra XSS**
+
 **Característica Clave**: Todas las variables insertadas se escapan automáticamente.  
 **Excepciones Controladas**:
+
 {% raw %}
+
 ```go
 // Usar tipo template.HTML para contenido confiable
 tmpl := template.Must(template.New("").Parse(`
@@ -179,6 +206,7 @@ tmpl.Execute(os.Stdout, map[string]any{
     "SafeContent": template.HTML("<b>Texto seguro</b>"),
 })
 ```
+
 {% endraw %}
 
 ---
@@ -186,12 +214,15 @@ tmpl.Execute(os.Stdout, map[string]any{
 ### 4. Mejores Prácticas y Seguridad
 
 #### 4.1 **Reglas de Escape Contextual**
+
 - **Atributos HTML**: Escape automático de `"` y espacios
 - **URLs**: Validación de esquemas (`javascript:` bloqueado)
 - **CSS/JS**: Requiere tratamiento especial
 
 #### 4.2 **Validación de Datos**
+
 {% raw %}
+
 ```go
 func sanitizeInput(input string) string {
     // Eliminar etiquetas HTML
@@ -201,9 +232,11 @@ func sanitizeInput(input string) string {
 // Uso en plantillas:
 tmpl.Parse(`<p>{{. | sanitizeInput}}</p>`)
 ```
+
 {% endraw %}
 
 #### 4.3 **Manejo de Errores**
+
 ```go
 tmpl, err := template.ParseFiles("plantilla.html")
 if err != nil {
@@ -231,6 +264,7 @@ if err != nil {
 ### 6. Ejemplo Completo: Sistema de Comentarios
 
 **Estructura de Datos**:
+
 ```go
 type Comment struct {
     Author  string
@@ -240,7 +274,9 @@ type Comment struct {
 ```
 
 **Plantilla** (`comments.html`):
+
 {% raw %}
+
 ```html
 {{define "comment"}}
 <div class="comment">
@@ -250,9 +286,11 @@ type Comment struct {
 </div>
 {{end}}
 ```
+
 {% endraw %}
 
 **Código**:
+
 ```go
 func main() {
     comments := []Comment{
@@ -271,6 +309,4 @@ func main() {
 }
 ```
 
----
-
-Esta guía ampliada proporciona un entendimiento profundo del paquete `html` en Go, incluyendo técnicas avanzadas de plantillas y prácticas esenciales de seguridad. Los ejemplos prácticos demuestran cómo implementar funcionalidades reales manteniendo la protección contra vulnerabilidades comunes.
+Esta guía proporciona un entendimiento profundo del paquete `html` en Go, incluyendo técnicas avanzadas de plantillas y prácticas esenciales de seguridad. Los ejemplos prácticos demuestran cómo implementar funcionalidades reales manteniendo la protección contra vulnerabilidades comunes.

@@ -1,11 +1,11 @@
 ---
 layout: default
-title: testing
-description: Guía completa del paquete testing de Go para pruebas unitarias
+title: "Testing en Go"
+description: "Guía completa del paquete testing de Go para pruebas unitarias y de integración."
 permalink: /packages/go/testing/
 category: packages
 article: true
-subcategory: go
+subcategory: "Testing and Debugging"
 icon: 🧪
 ---
 

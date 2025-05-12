@@ -1,15 +1,15 @@
 ---
 layout: default
-title: regexp
-description: Guía completa del paquete regexp de Go para expresiones regulares
+title: "RegExp en Go"
+description: "Guía completa del paquete regexp de Go para expresiones regulares"
 permalink: /packages/go/regexp/
 category: packages
 article: true
-subcategory: go
+subcategory: "Text Processing"
 icon: 🔍
 ---
 
-## Paquete `regexp` en Go: Guía Completa con Ejemplos
+## Paquete `regexp` en Go
 
 El paquete `regexp` en Go permite trabajar con expresiones regulares para buscar, validar y manipular texto. Aquí tienes una guía detallada con ejemplos prácticos:
 

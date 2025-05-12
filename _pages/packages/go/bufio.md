@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "bufio"
+title: "Bufio en Go"
 description: "Guía del paquete bufio de Go para operaciones de I/O optimizadas"
 permalink: /packages/go/bufio/
 category: packages
 article: true
-subcategory: go
+subcategory: "Data Storage and Management"
 icon: 📝
 ---
 

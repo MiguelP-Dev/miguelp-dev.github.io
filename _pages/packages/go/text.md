@@ -1,11 +1,11 @@
 ---
 layout: default
-title: text
-description: Guía del paquete text de Go para manipulación avanzada de texto
+title: "Text en Go"
+description: "Guía del paquete text de Go para manipulación avanzada de texto"
 permalink: /packages/go/text/
 category: packages
 article: true
-subcategory: go
+subcategory: "Text Processing"
 icon: 📝
 ---
 

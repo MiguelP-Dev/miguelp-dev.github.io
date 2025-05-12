@@ -1,11 +1,11 @@
 ---
 layout: default
-title: fmt
+title: "Fmt en Go"
 description: Guía completa del paquete fmt de Go para formateo e I/O
 permalink: /packages/go/fmt/
 category: packages
 article: true
-subcategory: go
+subcategory: "Text Processing"
 icon: 📝
 ---
 

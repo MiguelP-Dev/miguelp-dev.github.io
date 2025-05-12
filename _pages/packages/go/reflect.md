@@ -1,11 +1,11 @@
 ---
 layout: default
-title: reflect
-description: Guía del paquete reflect de Go para introspección y metaprogramación
+title: "Reflect en Go"
+description: "Guía del paquete reflect de Go para introspección y metaprogramación"
 permalink: /packages/go/reflect/
 category: packages
 article: true
-subcategory: go
+subcategory: "Reflection and Metaprogramming"
 icon: 🔍
 ---
 

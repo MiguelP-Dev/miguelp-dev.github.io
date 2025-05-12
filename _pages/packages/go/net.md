@@ -1,11 +1,11 @@
 ---
 layout: default
-title: net
-description: Guía del paquete net de Go para desarrollo de aplicaciones en red
+title: "Net en Go"
+description: "Guía del paquete net de Go para desarrollo de aplicaciones en red"
 permalink: /packages/go/net/
 category: packages
 article: true
-subcategory: go
+subcategory: "Networking and Communication"
 icon: 🌐
 ---
 

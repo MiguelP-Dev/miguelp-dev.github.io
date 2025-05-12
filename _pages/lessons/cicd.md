@@ -4,7 +4,7 @@ title: "CI/CD"
 description: "Introducción al Ciclo de Vida de un Proyecto de Software y herramientas de GitHub para CI/CD"
 permalink: /lessons/cicd/
 category: lessons
-subcategory: ci-cd
+subcategory: "cloud and devops"
 icon: 🚀
 article: true
 ---

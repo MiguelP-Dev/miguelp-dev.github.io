@@ -1,15 +1,15 @@
 ---
 layout: default
-title: bytes
-description: Guía del paquete bytes de Go para manipulación de datos binarios
+title: "Bytes en Go"
+description: "Guía del paquete bytes de Go para manipulación de datos binarios"
 permalink: /packages/go/bytes/
 category: packages
 article: true
-subcategory: go
+subcategory: "Text Processing"
 icon: 🔠
 ---
 
-# Paquete bytes en Go
+## Paquete bytes en Go
 
 El paquete `bytes` en Go proporciona implementaciones eficientes para la manipulación de slices de bytes. Es fundamental para el procesamiento de datos binarios y texto en forma de bytes.
 

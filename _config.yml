@@ -7,6 +7,7 @@ baseurl: ""
 url: "https://miguelp-dev.github.io"
 github_username: Miguelp-Dev
 logo: /assets/images/logo.png
+github_repo: https://github.com/Miguelp-Dev/miguelp-dev.github.io
 
 # Build settings
 plugins:
@@ -49,8 +50,8 @@ defaults:
       layout: section
       category: packages
   - scope:
-      path: "_libraries"
-      type: "libraries"
+      path: "_library"
+      type: "library"
     values:
       layout: section
       category: library
@@ -78,12 +79,7 @@ defaults:
     values:
       layout: section
       category: concepts
-  - scope:
-      path: "_cloudevops"
-      type: "cloudevops"
-    values:
-      layout: section
-      category: cloudevops
+
 
 # Sass settings
 sass:

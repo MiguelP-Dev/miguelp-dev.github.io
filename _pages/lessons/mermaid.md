@@ -2,9 +2,9 @@
 layout: default
 title: "Mermaid"
 description: "Domina la creación de diagramas textuales"
-permalink: /cloudevops/mermaid/
-category: cloudevops
-subcategory: devops-cloud
+permalink: /lessons/mermaid/
+category: lessons
+subcategory: diagramming
 icon: 🧜‍♀️
 article: true
 ---
