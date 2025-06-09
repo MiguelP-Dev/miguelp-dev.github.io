@@ -1,8 +1,8 @@
 ---
 layout: default
 title: "HTTPS con Go y JavaScript"
-description: "Guía paso a paso sobre HTTPS y protección de contraseñas"
-permalink: /lessons/go/httpspasswordsec
+description: "Lección paso a paso sobre HTTPS y protección de contraseñas para principiantes usando Go(Backend) y JavaScript(Frontend)"
+permalink: /lessons/go/httpspasswordsec/
 category: lessons
 article: true
 subcategory: "servers & clients HTTP"
