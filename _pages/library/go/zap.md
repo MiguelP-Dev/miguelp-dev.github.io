@@ -61,13 +61,13 @@ logger.Warn("Conexión lenta detectada")
 ---
 
 #### **3. Partes Clave Explicadas**  
-| Función/Método             | Explicación                                                                 |
-|----------------------------|-----------------------------------------------------------------------------|
-| `zap.NewProduction()`      | Crea un logger configurado para producción (formato JSON).                  |
-| `zap.NewDevelopment()`     | Logger con salida legible (colores, texto plano).                          |
-| `defer logger.Sync()`      | **Obligatorio:** Vacía los buffers de escritura al finalizar el programa.   |
-| `logger.Info()`, `.Debug()`| Métodos por nivel de log. Aceptan un mensaje y campos estructurados.        |
-| `zap.String()`, `zap.Int()`| Funciones para añadir **campos estructurados** (clave-valor) al log.       |
+| Función/Método | Explicación |
+| --- | --- |
+| `zap.NewProduction()` | Crea un logger configurado para producción (formato JSON). |
+| `zap.NewDevelopment()` | Logger con salida legible (colores, texto plano). |
+| `defer logger.Sync()`  | **Obligatorio:** Vacía los buffers de escritura al finalizar el programa. |
+| `logger.Info()`, `.Debug()` | Métodos por nivel de log. Aceptan un mensaje y campos estructurados. |
+| `zap.String()`, `zap.Int()` | Funciones para añadir **campos estructurados** (clave-valor) al log. |
 
 ---
 
