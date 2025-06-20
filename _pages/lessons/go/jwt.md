@@ -9,113 +9,115 @@ icon: 🔗
 article: true
 ---
 
-## 1. ¿Qué es JSON Web Token (JWT)?
+## JSON Web Token (JWT) con Go
 
-Un JSON Web Token (JWT) es un estándar abierto (RFC 7519) que define una forma compacta y autónoma para transmitir información de forma segura entre partes como un objeto JSON. Esta información puede ser verificada y confiable porque está firmada digitalmente.
+¿Estás construyendo una API en Go y necesitas proteger tus rutas? JWT es la solución perfecta para autenticación. Vamos a explorar cómo implementarlo paso a paso, explicando cada concepto para que entiendas perfectamente lo que estás haciendo.
 
-Los JWT son útiles especialmente para:
+## ¿Qué es JWT y por qué usarlo?
 
-- **Autenticación**: El caso de uso más común es para manejar la autenticación de usuarios.
-- **Intercambio de información**: Transmitir datos de manera segura entre partes.
+Imagina que JWT es como un **pase de acceso temporal** para un evento. Cuando un usuario inicia sesión correctamente, tu servidor le entrega este "pase" (token). En cada solicitud posterior, el usuario muestra este pase para acceder a rutas protegidas.
 
-## 2. Estructura de un JWT
+**Ventajas clave:**
+- ✅ Sin estado: El servidor no necesita almacenar sesiones
+- ✅ Seguro: Firmado digitalmente para prevenir alteraciones
+- ✅ Portable: Contiene toda la información necesaria en el token
+- ✅ Flexible: Puede almacenar datos personalizados (roles, permisos)
 
-Un JWT consta de tres partes separadas por puntos:
+## Anatomía de un JWT (Explicación Visual)
 
-```plaintext
-xxxxx.yyyyy.zzzzz
+Un token JWT típico se ve así:
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMjMsImV4cCI6MTYxNTY3ODkyMH0.2Q3h4xCrC5Y5t6W7Q9yVbBcDdEeFfGgHhIiJjKk
 ```
 
-Estas partes son:
+Está compuesto por tres partes separadas por puntos:
 
-1. **Header (Cabecera)**: Contiene el tipo de token y el algoritmo de firma utilizado.
-2. **Payload (Carga útil)**: Contiene las afirmaciones o claims. Estos son datos sobre una entidad (como el usuario) y datos adicionales.
-3. **Signature (Firma)**: Es usado para verificar que el mensaje no ha sido alterado durante la transmisión.
+### 1. Header (Encabezado)
+```json
+{
+  "alg": "HS256",  // Algoritmo de firma (HMAC-SHA256)
+  "typ": "JWT"     // Tipo de token
+}
+```
 
-## 3. ¿Cómo funciona JWT?
+### 2. Payload (Datos)
+```json
+{
+  "user_id": 123,         // Datos personalizados
+  "exp": 1615678920,      // Tiempo de expiración (timestamp)
+  "role": "admin"         // Rol del usuario (personalizable)
+}
+```
 
-El proceso general funciona así:
+### 3. Signature (Firma)
+```
+HMACSHA256(
+  base64UrlEncode(header) + "." + base64UrlEncode(payload),
+  clave_secreta
+)
+```
 
-1. El usuario se autentica con sus credenciales (usuario/contraseña).
-2. El servidor verifica las credenciales y genera un JWT.
-3. El servidor envía el JWT al cliente.
-4. En solicitudes posteriores, el cliente incluye el JWT (generalmente en el encabezado Authorization).
-5. El servidor verifica la firma del JWT y procesa la solicitud si es válido.
+**Importante:** Aunque los datos parecen legibles, están codificados en Base64URL. ¡Nunca almacenes información sensible como contraseñas!
 
-## 4. Ventajas de JWT
+## Flujo completo de autenticación
 
-- **Independencia**: Son completamente autónomos, toda la información necesaria está contenida en el token.
-- **Facilidad de transmisión**: Pueden ser enviados a través de URL, POST, o en encabezados HTTP.
-- **Seguridad**: Están firmados digitalmente, lo que garantiza que no han sido alterados.
-- **Escalabilidad**: Reducen la necesidad de consultar la base de datos para verificar la autenticidad del usuario.
+```mermaid
+sequenceDiagram
+    participant Cliente
+    participant Servidor
 
-## 5. Implementación de JWT en Golang
+    Cliente->>Servidor: POST /login (credenciales)
+    Servidor->>Servidor: Verifica usuario/contraseña
+    Servidor->>Servidor: Genera JWT con datos de usuario
+    Servidor-->>Cliente: Devuelve JWT
+    
+    loop Solicitudes protegidas
+        Cliente->>Servidor: GET /protegido (con JWT en Authorization header)
+        Servidor->>Servidor: Verifica firma y expiración
+        Servidor-->>Cliente: Devuelve datos solicitados
+    end
+```
 
-Vamos a implementar JWT en Golang paso a paso. Primero, necesitamos instalar las dependencias necesarias.
+## Implementación completa en Go
 
+### 1. Configuración inicial (paquetes necesarios)
 ```bash
-# Crear un nuevo módulo
-mkdir jwt-tutorial
-cd jwt-tutorial
-go mod init github.com/yourusername/jwt-tutorial
-
-# Instalar las dependencias necesarias
-go get -u github.com/golang-jwt/jwt/v5
-go get -u github.com/gorilla/mux
+go get github.com/golang-jwt/jwt/v5
 ```
 
-Ahora vamos a crear una aplicación básica con JWT en Golang. Empezaremos con una estructura sencilla.
-
-```plaintext
-jwt-tutorial/
-├── main.go          # Punto de entrada principal
+### 2. Estructura de archivos recomendada
+```
+mi-proyecto/
+├── main.go
 ├── auth/
-│   └── jwt.go       # Funciones para manejar JWT
+│   └── jwt.go       # Lógica de tokens
 ├── handlers/
-│   ├── auth.go      # Manejadores para autenticación
-│   └── protected.go # Manejadores para rutas protegidas
+│   ├── auth.go      # Login y rutas protegidas
+│   └── middleware.go # Middleware de autenticación
 └── models/
     └── user.go      # Modelo de usuario
 ```
 
-### 6. Implementación detallada
-
-Ahora, vamos a crear nuestros archivos con el código necesario. Comenzaré con los modelos, luego las funciones de JWT, y finalmente los controladores y el archivo principal.
-
-#### Archivo models/user.go
-
+### 3. Modelo de usuario (models/user.go)
 ```go
 package models
 
-// User representa la estructura de datos de un usuario en el sistema
 type User struct {
     ID       uint   `json:"id"`
     Username string `json:"username"`
-    Password string `json:"password,omitempty"` // omitempty evita enviar la contraseña en respuestas JSON
+    Password string `json:"-"`  // El "-" omite la contraseña en JSON
     Role     string `json:"role"`
 }
 
-// Para un ejemplo simple, usaremos una lista estática de usuarios
-// En una aplicación real, estos datos vendrían de una base de datos
+// Simulamos una base de datos en memoria
 var Users = []User{
-    {
-        ID:       1,
-        Username: "admin",
-        Password: "admin123", // En una aplicación real, esto estaría encriptado
-        Role:     "admin",
-    },
-    {
-        ID:       2,
-        Username: "user",
-        Password: "user123", // En una aplicación real, esto estaría encriptado
-        Role:     "user",
-    },
+    {ID: 1, Username: "admin", Password: "admin123", Role: "admin"},
+    {ID: 2, Username: "user", Password: "user123", Role: "user"},
 }
 
-// FindUserByUsername busca un usuario por su nombre de usuario
-func FindUserByUsername(username string) *User {
+func FindUser(username, password string) *User {
     for _, user := range Users {
-        if user.Username == username {
+        if user.Username == username && user.Password == password {
             return &user
         }
     }
@@ -123,470 +125,276 @@ func FindUserByUsername(username string) *User {
 }
 ```
 
-#### Archivo auth/jwt.go
-
+### 4. Gestión de JWT (auth/jwt.go) - Explicación detallada
 ```go
 package auth
 
 import (
-    "errors"
     "time"
-
     "github.com/golang-jwt/jwt/v5"
-    "github.com/yourusername/jwt-tutorial/models"
 )
 
-// Clave secreta para firmar los tokens
-// En una aplicación real, esta clave debería estar en variables de entorno
-// y ser mucho más segura (larga y aleatoria)
-var jwtKey = []byte("mi_clave_super_secreta_y_segura")
+// Clave secreta (¡usa una variable de entorno en producción!)
+var secretKey = []byte("clave_super_secreta")
 
-// Claims define la estructura de los datos que se almacenarán en el token
-type Claims struct {
-    UserID   uint   `json:"user_id"`
-    Username string `json:"username"`
-    Role     string `json:"role"`
-    jwt.RegisteredClaims
+// CustomClaims almacena nuestros datos personalizados
+type CustomClaims struct {
+    UserID uint   `json:"user_id"`
+    Role   string `json:"role"`
+    jwt.RegisteredClaims  // Claims estándar (exp, iat, etc)
 }
 
-// GenerateToken crea un nuevo token JWT para un usuario
-func GenerateToken(user *models.User) (string, error) {
-    // Definir el tiempo de expiración del token (15 minutos en este ejemplo)
-    expirationTime := time.Now().Add(15 * time.Minute)
-        
-    // Crear los claims (reclamaciones/datos) que irán en el token
-    claims := &Claims{
-        UserID:   user.ID,
-        Username: user.Username,
-        Role:     user.Role,
+// GenerarToken crea un nuevo JWT para un usuario
+func GenerateToken(userID uint, role string) (string, error) {
+    // 1. Definir tiempo de expiración (1 hora)
+    expiration := time.Now().Add(1 * time.Hour)
+    
+    // 2. Crear claims (datos del token)
+    claims := CustomClaims{
+        UserID: userID,
+        Role:   role,
         RegisteredClaims: jwt.RegisteredClaims{
-            // En JWT, el tiempo de expiración se guarda en el claim "exp"
-            ExpiresAt: jwt.NewNumericDate(expirationTime),
-            // El tiempo en que fue emitido el token
+            ExpiresAt: jwt.NewNumericDate(expiration),
             IssuedAt:  jwt.NewNumericDate(time.Now()),
-            // Quien emitió el token
-            Issuer:    "jwt-tutorial",
+            Issuer:    "my-go-app",
         },
     }
-        
-    // Crear un nuevo token con el algoritmo de firma HS256 y los claims
+    
+    // 3. Crear token con algoritmo HS256
     token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-        
-    // Firmar el token con nuestra clave secreta
-    tokenString, err := token.SignedString(jwtKey)
-    if err != nil {
-        return "", err
-    }
-        
-    return tokenString, nil
+    
+    // 4. Firmar token con clave secreta
+    return token.SignedString(secretKey)
 }
 
-// ValidateToken verifica si un token es válido y devuelve los claims si lo es
-func ValidateToken(tokenString string) (*Claims, error) {
-    // Inicializar un puntero para almacenar los claims
-    claims := &Claims{}
-        
-    // Parsear el token JWT
+// VerificarToken valida un token y devuelve sus claims
+func VerifyToken(tokenString string) (*CustomClaims, error) {
+    // 1. Parsear el token
     token, err := jwt.ParseWithClaims(
-        tokenString, 
-        claims, 
+        tokenString,
+        &CustomClaims{},
         func(token *jwt.Token) (interface{}, error) {
-            // Verificar que el método de firma sea el esperado
+            // Verificar algoritmo
             if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-                return nil, errors.New("método de firma inesperado")
+                return nil, jwt.ErrSignatureInvalid
             }
-            return jwtKey, nil
+            return secretKey, nil
         },
     )
-        
-    // Manejar errores de parseo
+    
+    // 2. Verificar errores
     if err != nil {
         return nil, err
     }
-        
-    // Verificar si el token es válido
-    if !token.Valid {
-        return nil, errors.New("token inválido")
+    
+    // 3. Extraer y devolver claims
+    if claims, ok := token.Claims.(*CustomClaims); ok && token.Valid {
+        return claims, nil
     }
-        
-    return claims, nil
+    
+    return nil, jwt.ErrTokenInvalidClaims
 }
 ```
 
-#### Archivo handlers/auth.go
-
+### 5. Handlers y Middleware (handlers/auth.go)
 ```go
 package handlers
 
 import (
     "encoding/json"
     "net/http"
-
-    "github.com/yourusername/jwt-tutorial/auth"
-    "github.com/yourusername/jwt-tutorial/models"
+    
+    "tu-proyecto/auth"
+    "tu-proyecto/models"
 )
 
-// Estructura para recibir las credenciales del usuario
-type Credentials struct {
-    Username string `json:"username"`
-    Password string `json:"password"`
+// LoginHandler maneja la autenticación
+func LoginHandler(w http.ResponseWriter, r *http.Request) {
+    // 1. Decodificar credenciales
+    var creds struct {
+        Username string `json:"username"`
+        Password string `json:"password"`
+    }
+    if err := json.NewDecoder(r.Body).Decode(&creds); err != nil {
+        http.Error(w, "Formato inválido", http.StatusBadRequest)
+        return
+    }
+    
+    // 2. Buscar usuario
+    user := models.FindUser(creds.Username, creds.Password)
+    if user == nil {
+        http.Error(w, "Credenciales incorrectas", http.StatusUnauthorized)
+        return
+    }
+    
+    // 3. Generar token
+    token, err := auth.GenerateToken(user.ID, user.Role)
+    if err != nil {
+        http.Error(w, "Error generando token", http.StatusInternalServerError)
+        return
+    }
+    
+    // 4. Devolver token
+    w.Header().Set("Content-Type", "application/json")
+    json.NewEncoder(w).Encode(map[string]string{"token": token})
 }
 
-// LoginHandler maneja la autenticación de usuarios y genera un token JWT
-func LoginHandler(w http.ResponseWriter, r *http.Request) {
-    // Configurar cabeceras para JSON
+// AuthMiddleware protege rutas
+func AuthMiddleware(next http.Handler) http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        // 1. Extraer token del header
+        authHeader := r.Header.Get("Authorization")
+        if len(authHeader) < 8 || authHeader[:7] != "Bearer " {
+            http.Error(w, "Token no proporcionado", http.StatusUnauthorized)
+            return
+        }
+        token := authHeader[7:]
+        
+        // 2. Verificar token
+        claims, err := auth.VerifyToken(token)
+        if err != nil {
+            http.Error(w, "Token inválido: "+err.Error(), http.StatusUnauthorized)
+            return
+        }
+        
+        // 3. Añadir datos de usuario al contexto (disponible en handlers)
+        ctx := context.WithValue(r.Context(), "user_claims", claims)
+        next.ServeHTTP(w, r.WithContext(ctx))
+    })
+}
+
+// ProtectedHandler ejemplo de ruta protegida
+func ProtectedHandler(w http.ResponseWriter, r *http.Request) {
+    // Obtener claims del contexto
+    claims, ok := r.Context().Value("user_claims").(*auth.CustomClaims)
+    if !ok {
+        http.Error(w, "Error obteniendo datos de usuario", http.StatusInternalServerError)
+        return
+    }
+    
     w.Header().Set("Content-Type", "application/json")
-        
-    // Decodificar las credenciales enviadas en el cuerpo de la petición
-    var creds Credentials
-    err := json.NewDecoder(r.Body).Decode(&creds)
-    if err != nil {
-        // Si hay un error al decodificar las credenciales
-        w.WriteHeader(http.StatusBadRequest)
-        json.NewEncoder(w).Encode(map[string]string{
-            "error": "Credenciales inválidas",
-        })
-        return
-    }
-        
-    // Buscar el usuario por nombre de usuario
-    user := models.FindUserByUsername(creds.Username)
-        
-    // Verificar si el usuario existe y la contraseña es correcta
-    // En una aplicación real, la contraseña estaría hasheada
-    if user == nil || user.Password != creds.Password {
-        w.WriteHeader(http.StatusUnauthorized)
-        json.NewEncoder(w).Encode(map[string]string{
-            "error": "Usuario o contraseña incorrectos",
-        })
-        return
-    }
-        
-    // Generar el token JWT
-    tokenString, err := auth.GenerateToken(user)
-    if err != nil {
-        w.WriteHeader(http.StatusInternalServerError)
-        json.NewEncoder(w).Encode(map[string]string{
-            "error": "Error al generar el token",
-        })
-        return
-    }
-        
-    // Devolver el token JWT generado
-    json.NewEncoder(w).Encode(map[string]string{
-        "token": tokenString,
+    json.NewEncoder(w).Encode(map[string]interface{}{
+        "message": "¡Acceso concedido!",
+        "user_id": claims.UserID,
+        "role":    claims.Role,
     })
 }
 ```
 
-#### Archivo handlers/protected.go
-
-```go
-package handlers
-
-import (
-    "encoding/json"
-    "net/http"
-    "strings"
-
-    "github.com/yourusername/jwt-tutorial/auth"
-)
-
-// Middleware para verificar la autenticación mediante JWT
-func JWTMiddleware(next http.HandlerFunc) http.HandlerFunc {
-    return func(w http.ResponseWriter, r *http.Request) {
-        // Configurar cabeceras para JSON
-        w.Header().Set("Content-Type", "application/json")
-        
-        // Obtener el token del encabezado Authorization
-        authHeader := r.Header.Get("Authorization")
-        if authHeader == "" {
-            w.WriteHeader(http.StatusUnauthorized)
-            json.NewEncoder(w).Encode(map[string]string{
-                "error": "Token no proporcionado",
-            })
-            return
-        }
-        
-        // El token suele venir en formato "Bearer {token}"
-        // así que dividimos la cadena para obtener solo el token
-        tokenParts := strings.Split(authHeader, " ")
-        if len(tokenParts) != 2 || tokenParts[0] != "Bearer" {
-            w.WriteHeader(http.StatusUnauthorized)
-            json.NewEncoder(w).Encode(map[string]string{
-                "error": "Formato de token inválido",
-            })
-            return
-        }
-        
-        // Validar el token
-        claims, err := auth.ValidateToken(tokenParts[1])
-        if err != nil {
-            w.WriteHeader(http.StatusUnauthorized)
-            json.NewEncoder(w).Encode(map[string]string{
-                "error": "Token inválido: " + err.Error(),
-            })
-            return
-        }
-        
-        // Almacenar los claims en el contexto de la petición para uso posterior
-        // En una aplicación real, usaríamos el contexto de Go para esto
-        // Por simplificidad, aquí solo añadimos un header personalizado
-        r.Header.Set("X-User-ID", string(claims.UserID))
-        r.Header.Set("X-Username", claims.Username)
-        r.Header.Set("X-User-Role", claims.Role)
-        
-        // Continuar con el siguiente handler
-        next(w, r)
-    }
-}
-
-// ProtectedHandler es un ejemplo de endpoint protegido que requiere autenticación
-func ProtectedHandler(w http.ResponseWriter, r *http.Request) {
-    // Obtener información del usuario del header (en una app real usaríamos el contexto)
-    username := r.Header.Get("X-Username")
-    role := r.Header.Get("X-User-Role")
-        
-    // Crear una respuesta personalizada
-    response := map[string]string{
-        "message": "¡Has accedido a una ruta protegida!",
-        "username": username,
-        "role": role,
-    }
-        
-    // Devolver la respuesta
-    json.NewEncoder(w).Encode(response)
-}
-
-// AdminOnlyHandler es un ejemplo de endpoint que requiere rol de administrador
-func AdminOnlyHandler(w http.ResponseWriter, r *http.Request) {
-    // Obtener el rol del usuario
-    role := r.Header.Get("X-User-Role")
-        
-    // Verificar si el usuario tiene rol de administrador
-    if role != "admin" {
-        w.WriteHeader(http.StatusForbidden)
-        json.NewEncoder(w).Encode(map[string]string{
-            "error": "Acceso denegado: se requiere rol de administrador",
-        })
-        return
-    }
-        
-    // Si tiene rol de administrador, devolver una respuesta
-    response := map[string]string{
-        "message": "¡Bienvenido, administrador! Tienes acceso a esta ruta restringida.",
-    }
-        
-    json.NewEncoder(w).Encode(response)
-}
-```
-
-#### Archivo main.go
-
+### 6. Archivo principal (main.go) con rutas
 ```go
 package main
 
 import (
-    "fmt"
     "log"
     "net/http"
-
+    
+    "tu-proyecto/handlers"
     "github.com/gorilla/mux"
-    "github.com/yourusername/jwt-tutorial/handlers"
 )
 
 func main() {
-    // Crear un nuevo router
     r := mux.NewRouter()
-
-    // Rutas de autenticación (públicas)
-    r.HandleFunc("/api/login", handlers.LoginHandler).Methods("POST")
-
-    // Rutas protegidas (requieren autenticación)
-    r.HandleFunc("/api/protected", handlers.JWTMiddleware(handlers.ProtectedHandler)).Methods("GET")
-    r.HandleFunc("/api/admin", handlers.JWTMiddleware(handlers.AdminOnlyHandler)).Methods("GET")
-
-    // Iniciar el servidor
-    port := ":8080"
-    fmt.Printf("Servidor iniciado en http://localhost%s\n", port)
-    log.Fatal(http.ListenAndServe(port, r))
+    
+    // Rutas públicas
+    r.HandleFunc("/login", handlers.LoginHandler).Methods("POST")
+    
+    // Rutas protegidas
+    protected := r.PathPrefix("/api").Subrouter()
+    protected.Use(handlers.AuthMiddleware)
+    protected.HandleFunc("/protegido", handlers.ProtectedHandler)
+    
+    log.Println("Servidor iniciado en :8080")
+    log.Fatal(http.ListenAndServe(":8080", r))
 }
 ```
 
-## 7. Comprendiendo nuestra implementación
+## Probando nuestra implementación
 
-Hasta aquí se ha creado una API completa con autenticación JWT en Go, pero vamos a analizar los componentes clave para entender cómo funciona todo.
-
-### La estructura de un token JWT en detalle
-
-Primero, veamos más de cerca la estructura del token JWT que estamos generando:
-
-1. **Header (Cabecera)**:
-
-   ```json
-   {
-     "alg": "HS256",
-     "typ": "JWT"
-   }
-   ```
-
-   Este encabezado especifica que estamos utilizando el algoritmo HMAC-SHA256 para firmar nuestro token.
-
-2. **Payload (Carga útil)**:
-
-   ```json
-   {
-     "user_id": 1,
-     "username": "admin",
-     "role": "admin",
-     "exp": 1715288400,
-     "iat": 1715287500,
-     "iss": "jwt-tutorial"
-   }
-   ```
-
-   Este payload contiene tanto nuestros datos personalizados (`user_id`, `username`, `role`) como los claims estándar:
-   - `exp`: tiempo de expiración
-   - `iat`: tiempo de emisión
-   - `iss`: emisor del token
-
-3. **Firma**:
-   La firma se genera tomando el header codificado, el payload codificado, un secreto y el algoritmo especificado:
-
-   ```plaintext
-   HMACSHA256(
-     base64UrlEncode(header) + "." + base64UrlEncode(payload),
-     secret
-   )
-   ```
-
-### Flujo de autenticación
-
-El proceso completo que implementamos funciona así:
-
-1. **Login**: El usuario envía sus credenciales a `/api/login`
-2. **Verificación**: El servidor verifica las credenciales contra la "base de datos"
-3. **Generación del token**: Si las credenciales son correctas, el servidor genera un JWT
-4. **Envío del token**: El servidor envía el JWT al cliente
-5. **Almacenamiento**: El cliente almacena el JWT (típicamente en localStorage o sessionStorage)
-6. **Acceso a rutas protegidas**: Para acceder a rutas protegidas, el cliente incluye el JWT en el encabezado Authorization
-7. **Validación**: El middleware JWTMiddleware valida el token antes de permitir el acceso
-
-## 8. Probando nuestra aplicación
-
+### 1. Iniciar el servidor
 ```bash
-# 1. Iniciar el servidor
 go run main.go
-
-# En otra terminal, ejecutar los siguientes comandos:
-
-# 2. Login como usuario normal
-curl -X POST http://localhost:8080/api/login \
-  -H "Content-Type: application/json" \
-  -d '{"username":"user","password":"user123"}'
-# Deberías recibir un token JWT
-
-# 3. Acceder a una ruta protegida usando el token
-# Reemplaza <TOKEN> con el token recibido en el paso anterior
-curl -X GET http://localhost:8080/api/protected \
-  -H "Authorization: Bearer <TOKEN>"
-# Deberías recibir un mensaje de bienvenida con tu nombre de usuario
-
-# 4. Intentar acceder a una ruta de administrador (debería fallar con un 403)
-curl -X GET http://localhost:8080/api/admin \
-  -H "Authorization: Bearer <TOKEN>"
-
-# 5. Login como administrador
-curl -X POST http://localhost:8080/api/login \
-  -H "Content-Type: application/json" \
-  -d '{"username":"admin","password":"admin123"}'
-# Deberías recibir un nuevo token JWT
-
-# 6. Acceder a la ruta de administrador con el token de administrador
-# Reemplaza <ADMIN_TOKEN> con el token recibido en el paso anterior
-curl -X GET http://localhost:8080/api/admin \
-  -H "Authorization: Bearer <ADMIN_TOKEN>"
-# Ahora deberías poder acceder sin problemas
 ```
 
-Para probar nuestra aplicación, necesitamos ejecutarla y hacer algunas solicitudes HTTP. Vamos a utilizar `curl` para esto, pero podrías usar cualquier cliente HTTP como Postman o Insomnia.
+### 2. Obtener token (Login)
+```bash
+curl -X POST http://localhost:8080/login \
+  -H "Content-Type: application/json" \
+  -d '{"username":"admin","password":"admin123"}'
+```
 
-## 9. Mejores prácticas de seguridad con JWT
+**Respuesta esperada:**
+```json
+{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."}
+```
 
-Al implementar JWT en aplicaciones reales, hay algunas mejores prácticas que debes seguir:
+### 3. Acceder a ruta protegida
+```bash
+curl -X GET http://localhost:8080/api/protegido \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+```
 
-### Secretos seguros
+**Respuesta esperada:**
+```json
+{
+  "message": "¡Acceso concedido!",
+  "user_id": 1,
+  "role": "admin"
+}
+```
 
-En nuestro ejemplo, usamos una clave secreta codificada directamente en el código. Esto no es seguro para un entorno de producción. En su lugar, deberías:
+## Mejores prácticas de seguridad
 
-- Utilizar una clave secreta larga y aleatoria (al menos 256 bits)
-- Almacenar la clave en variables de entorno o en un sistema de gestión de secretos
-- Rotar las claves periódicamente
+### 1. Manejo de secretos
+```go
+// En producción usa variables de entorno
+secretKey = []byte(os.Getenv("JWT_SECRET_KEY"))
+```
 
-### Tiempo de expiración adecuado
+### 2. Configuración segura
+```go
+// Al crear el token
+claims := CustomClaims{
+    // ...
+    RegisteredClaims: jwt.RegisteredClaims{
+        ExpiresAt: jwt.NewNumericDate(time.Now().Add(15 * time.Minute)), // Token de acceso corto
+        // ...
+    },
+}
+```
 
-Los tokens JWT deben tener un tiempo de expiración adecuado:
+### 3. Protección contra ataques
+- Usa siempre HTTPS
+- Implementa protección contra CSRF
+- Considera almacenar tokens en cookies HttpOnly
+- Usa refresh tokens para renovación automática
 
-- Tokens de acceso: Vida corta (15-60 minutos)
-- Tokens de refresco: Vida más larga (días o semanas)
+## Errores comunes y solución
 
-Nuestro ejemplo usa un tiempo de expiración de 15 minutos, lo cual es razonable para un token de acceso.
+### "signature is invalid"
+- Verifica que usas la misma clave para firmar y verificar
+- Asegúrate que no haya espacios en el token
 
-### Manejo de tokens expirados y refresh tokens
+### "token is expired"
+- Verifica la hora del servidor
+- Implementa un sistema de refresh tokens
 
-En una aplicación real, necesitarás implementar un sistema de refresh tokens para renovar tokens expirados sin obligar al usuario a iniciar sesión nuevamente. Esto implica:
+### "claims invalid"
+- Revisa la estructura de tus CustomClaims
+- Verifica los tipos de datos (ej: UserID debe ser uint)
 
-1. Emitir un token de acceso (corta duración) y un token de refresco (larga duración) durante el login
-2. Cuando el token de acceso expira, el cliente puede usar el token de refresco para obtener un nuevo token de acceso
+## ¿Qué sigue? Mejoras recomendadas
 
-### Almacenamiento seguro en el cliente
+1. **Refresh Tokens**: Implementa tokens de larga duración para renovación automática
+2. **Revocación**: Añade sistema para invalidar tokens antes de expiración
+3. **Blacklist**: Almacena tokens inválidos después de logout
+4. **Encriptación**: Usa JWE para datos sensibles
+5. **OAuth 2.0**: Implementa flujos de autorización avanzados
 
-Es importante almacenar los tokens de manera segura en el cliente:
+## Recursos adicionales
 
-- **NO** almacenar tokens en localStorage o sessionStorage si contienen información sensible (son vulnerables a ataques XSS)
-- Preferiblemente usar cookies HttpOnly para los tokens de acceso
-- Si usas cookies, asegúrate de establecer los atributos Secure y SameSite
+- [JWT Debugger](https://jwt.io/) - Herramienta para inspeccionar tokens
+- [RFC 7519](https://tools.ietf.org/html/rfc7519) - Estándar oficial JWT
+- [OWASP JWT Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_Cheat_Sheet.html) - Guía de seguridad
 
-## 10. Ejercicios prácticos para mejorar la implementación
-
-Para consolidar tu aprendizaje, aquí hay algunos ejercicios que puedes intentar:
-
-1. **Implementar refresh tokens**: Añade un endpoint para renovar tokens expirados usando refresh tokens.
-2. **Añadir revocación de tokens**: Implementa una "lista negra" para tokens que han sido revocados.
-3. **Mejorar la seguridad de contraseñas**: Utiliza bcrypt o argon2 para hashear las contraseñas.
-4. **Implementar diferentes niveles de permisos**: Añade un sistema más granular de permisos en lugar de solo roles.
-5. **Configurar CORS**: Configura correctamente CORS para permitir solicitudes desde orígenes específicos.
-
-## 11. Depuración común y solución de problemas
-
-Cuando trabajas con JWT, podrías encontrarte con estos problemas comunes:
-
-### El token es rechazado aunque parece válido
-
-- Verifica que el reloj del servidor esté sincronizado (los tokens JWT son sensibles al tiempo)
-- Asegúrate de que estás utilizando la misma clave secreta para firmar y verificar
-- Comprueba si el token ha expirado
-
-### El payload contiene caracteres extraños
-
-- Asegúrate de que estás codificando y decodificando correctamente el token
-- Recuerda que JWT utiliza Base64Url, no Base64 estándar
-
-### Problemas de CORS al enviar el token
-
-- Configura correctamente los headers CORS en tu servidor para permitir el header Authorization
-- Asegúrate de enviar el token en el formato correcto: `Bearer <token>`
-
-## 12. Conclusión
-
-En esta lección has aprendido:
-
-1. Qué es JWT y por qué es útil para autenticación y autorización
-2. La estructura detallada de un token JWT
-3. Cómo implementar un sistema completo de autenticación con JWT en Golang
-4. Mejores prácticas de seguridad para implementaciones en producción
-5. Cómo probar y depurar problemas comunes con JWT
-
-JWT es una herramienta poderosa para la autenticación moderna en aplicaciones web y APIs. La implementación que hemos creado, aunque simple, incluye los conceptos fundamentales que necesitarás para crear sistemas de autenticación robustos y seguros en tus propias aplicaciones Golang.
-
-Recuerda siempre priorizar la seguridad al implementar sistemas de autenticación en entornos de producción. La estructura y claridad de nuestra implementación te dan una base sólida para seguir construyendo y mejorando según las necesidades específicas de tus proyectos.
+Con esta implementación tienes una base sólida para sistemas de autenticación en Go. Recuerda siempre adaptar las medidas de seguridad según los requerimientos de tu aplicación.
