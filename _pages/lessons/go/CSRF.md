@@ -90,7 +90,7 @@ func CSRFProtect(next http.Handler) http.Handler {
 
 ### 2. Uso en formularios HTML
 
-{% RAW %}
+{% raw %}
 
 ```html
 <!-- En tu template de formulario -->
@@ -100,7 +100,7 @@ func CSRFProtect(next http.Handler) http.Handler {
     <button type="submit">Transferir</button>
 </form>
 ```
-{% ENDRAW %}
+{% endraw %}
 
 ## Configuración avanzada
 
