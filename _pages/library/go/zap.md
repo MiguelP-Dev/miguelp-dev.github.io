@@ -9,193 +9,191 @@ subcategory: logging
 icon: 🐛
 ---
 
-## ¿Qué es Zap?
 
-Zap es un sistema de logging rápido y estructurado para Go desarrollado por Uber. Es una de las librerías de logging más populares en el ecosistema Go debido a su alto rendimiento y facilidad de uso.
+**¿Qué es Zap?**
 
-## Ventajas de Zap
+Zap es una librería de *logging* (registro de eventos) para Go creada por Uber. Destaca por:  
+- ⚡ **Altísimo rendimiento** (el más rápido del ecosistema Go).  
+- 📊 **Logs estructurados** (especialmente en JSON).  
+- 🔍 **Soporte para niveles de log** (Debug, Info, Error, etc.).  
+- 🛠 **Flexibilidad** para personalizar salidas, formatos y más.  
 
-- **Muy rápido**: Más rápido que la mayoría de alternativas
-- **Estructurado**: Los logs se generan en formato estructurado (como JSON)
-- **Niveles de log**: Soporta diferentes niveles (Debug, Info, Warn, Error, etc.)
-- **Configurable**: Puedes personalizar muchos aspectos del logging
+---
 
-## Instalación
-
-Primero, necesitas instalar el paquete zap:
-
+#### **1. Instalación**  
 ```bash
 go get -u go.uber.org/zap
 ```
 
-## Configuración Básica
+---
 
-### Logger Sencillo
-
+#### **2. Configuración Básica**  
+**Opción A: Logger para Producción**  
+*(Logs en JSON, ideal para sistemas en producción)*  
 ```go
 package main
 
-import (
-    "go.uber.org/zap"
-)
+import "go.uber.org/zap"
 
 func main() {
-    // Configuración básica del logger
+    // Inicializa el logger
     logger, _ := zap.NewProduction()
-    defer logger.Sync() // Importante para liberar buffers
+    defer logger.Sync()  // ¡IMPORTANTE! Libera recursos al terminar
 
-    // Ejemplos de logging
-    logger.Info("Este es un mensaje de información",
-        zap.String("clave", "valor"),
-        zap.Int("número", 42),
-    )
-
-    logger.Error("Este es un mensaje de error",
-        zap.String("clave", "valor"),
-        zap.Error(errors.New("error de ejemplo")),
+    // Ejemplo de uso
+    logger.Info("Usuario creado",
+        zap.String("username", "Ana"),
+        zap.Int("id", 789),
     )
 }
 ```
 
-### Logger de Desarrollo (más legible)
-
+**Opción B: Logger para Desarrollo**  
+*(Logs legibles para humanos durante el desarrollo)*  
 ```go
-func main() {
-    // Logger en modo desarrollo (más legible para humanos)
-    logger, _ := zap.NewDevelopment()
-    defer logger.Sync()
+logger, _ := zap.NewDevelopment()
+defer logger.Sync()
 
-    logger.Debug("Este es un mensaje de depuración")
-    logger.Warn("Este es un mensaje de advertencia")
-}
+logger.Debug("Depurando conexión a BD...")
+logger.Warn("Conexión lenta detectada")
 ```
 
-## Configuración Personalizada
+---
 
+#### **3. Partes Clave Explicadas**  
+| Función/Método | Explicación |
+| --- | --- |
+| `zap.NewProduction()` | Crea un logger configurado para producción (formato JSON). |
+| `zap.NewDevelopment()` | Logger con salida legible (colores, texto plano). |
+| `defer logger.Sync()`  | **Obligatorio:** Vacía los buffers de escritura al finalizar el programa. |
+| `logger.Info()`, `.Debug()` | Métodos por nivel de log. Aceptan un mensaje y campos estructurados. |
+| `zap.String()`, `zap.Int()` | Funciones para añadir **campos estructurados** (clave-valor) al log. |
+
+---
+
+#### **4. Configuración Avanzada (Personalizada)**  
 ```go
-func main() {
-    // Configuración personalizada
-    config := zap.Config{
-        Level:       zap.NewAtomicLevelAt(zap.DebugLevel),
-        Development: false,
-        Encoding:    "json",
-        EncoderConfig: zapcore.EncoderConfig{
-            TimeKey:        "ts",
-            LevelKey:      "level",
-            NameKey:       "logger",
-            CallerKey:     "caller",
-            FunctionKey:   zapcore.OmitKey,
-            MessageKey:    "msg",
-            StacktraceKey: "stacktrace",
-            LineEnding:    zapcore.DefaultLineEnding,
-            EncodeLevel:   zapcore.LowercaseLevelEncoder,
-            EncodeTime:    zapcore.ISO8601TimeEncoder,
-            EncodeDuration: zapcore.StringDurationEncoder,
-            EncodeCaller:  zapcore.ShortCallerEncoder,
-        },
-        OutputPaths:      []string{"stdout", "/tmp/logs.log"},
-        ErrorOutputPaths: []string{"stderr"},
-    }
-
-    logger, _ := config.Build()
-    defer logger.Sync()
-
-    logger.Info("Logger configurado personalizadamente",
-        zap.String("aplicación", "mi app"),
-    )
+config := zap.Config{
+    Level: zap.NewAtomicLevelAt(zap.DebugLevel), // Nivel mínimo: Debug
+    Encoding: "json",  // Formato: "json" o "console"
+    OutputPaths: []string{"stdout", "logs/app.log"}, // Salidas: consola + archivo
+    EncoderConfig: zapcore.EncoderConfig{
+        TimeKey:    "timestamp",
+        MessageKey: "mensaje",
+        LevelKey:   "severidad",
+        EncodeTime: zapcore.ISO8601TimeEncoder, // Formato de tiempo
+    },
 }
+
+logger, _ := config.Build()
+defer logger.Sync()
 ```
 
-## SugaredLogger vs. Logger
+**Campos clave de la configuración:**  
+- `Level`: Nivel mínimo de logs a registrar (ej: `zap.InfoLevel` ignora Debug).  
+- `OutputPaths`: Destinos de salida (`stdout`, archivos, etc.).  
+- `EncoderConfig`: Personaliza nombres de campos en el JSON.  
 
-Zap ofrece dos tipos de logger:
+---
 
-1. **Logger**: Más rápido pero menos flexible
-2. **SugaredLogger**: Más flexible pero un poco más lento
+#### **5. Logger vs. SugaredLogger**  
+- **Logger (rápido):**  
+  ```go
+  logger.Warn("Espacio insuficiente", zap.Int("disponible_MB", 120))
+  ```  
+  - Ideal cuando el rendimiento es crítico (microservicios).  
 
-```go
-func main() {
-    logger, _ := zap.NewProduction()
-    defer logger.Sync()
+- **SugaredLogger (flexible):**  
+  ```go
+  sugar := logger.Sugar()
+  sugar.Infof("Usuario %s actualizado (ID: %d)", "Carlos", 456)
+  sugar.Warnw("Error en BD", 
+      "error", err.Error(), 
+      "query", "SELECT * FROM users",
+  )
+  ```  
+  - Permite formato estilo `printf` y campos sin especificar tipo (`warnw`).  
 
-    // Logger básico (más rápido)
-    logger.Info("Mensaje estructurado",
-        zap.String("clave", "valor"),
-    )
+---
 
-    // SugaredLogger (más flexible)
-    sugar := logger.Sugar()
-    sugar.Infow("Mensaje con estructura flexible",
-        "clave", "valor",
-        "número", 42,
-    )
-    sugar.Infof("Mensaje formateado: %s", "hola mundo")
-}
-```
-
-## Ejemplo Completo: API Web con Zap
-
+#### **6. Ejemplo: Middleware en API Web**  
 ```go
 package main
 
 import (
     "net/http"
     "time"
-
     "go.uber.org/zap"
 )
 
 func main() {
-    // Configurar logger
     logger, _ := zap.NewProduction()
-    defer logger.Sync()
     sugar := logger.Sugar()
 
-    // Configurar servidor HTTP
-    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        start := time.Now()
-        
-        // Procesar petición
-        w.Write([]byte("Hola Mundo!"))
-        
-        // Registrar petición
-        duration := time.Since(start)
-        sugar.Infow("Petición recibida",
-            "path", r.URL.Path,
-            "method", r.Method,
-            "duration", duration,
-        )
+    // Middleware de logging
+    loggingMiddleware := func(next http.Handler) http.Handler {
+        return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+            start := time.Now()
+            next.ServeHTTP(w, r)
+            duration := time.Since(start)
+            sugar.Info("Petición HTTP",
+                zap.String("ruta", r.URL.Path),
+                zap.String("método", r.Method),
+                zap.Duration("duración", duration),
+            )
+        })
+    }
+
+    // Configuración del servidor
+    mux := http.NewServeMux()
+    mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        w.Write([]byte("Hola Mundo"))
     })
 
-    // Registrar inicio del servidor
     sugar.Info("Iniciando servidor en :8080")
-    if err := http.ListenAndServe(":8080", nil); err != nil {
-        sugar.Fatalw("Error al iniciar servidor",
-            "error", err,
-        )
-    }
+    http.ListenAndServe(":8080", loggingMiddleware(mux))
 }
 ```
 
-## Mejores Prácticas
+---
 
-1. **Usa defer logger.Sync()**: Asegúrate de liberar los buffers al salir
-2. **Elige el nivel adecuado**:
-    - Debug: Información detallada para desarrollo
-    - Info: Eventos importantes de la aplicación
-    - Warn: Situaciones anormales pero no críticas
-    - Error: Errores que deben ser revisados
-    - Fatal: Errores críticos que hacen que la aplicación termine
-3. **Proporciona contexto**: Usa campos estructurados para dar contexto a los logs
-4. **No abuses del SugaredLogger**: Usa el Logger básico cuando la performance sea crítica
+#### **7. Mejores Prácticas**  
+- **Niveles de log:**  
+  - `Debug`: Detalles técnicos (solo desarrollo).  
+  - `Info`: Eventos normales (usuario creado, petición recibida).  
+  - `Warn`: Problemas recuperables (conexión lenta, disco al 90%).  
+  - `Error`: Fallos graves (BD inaccesible, archivo no encontrado).  
+  - `Fatal`: Errores irrecuperables (detiene la aplicación).  
 
-## Conclusión
+- **Regla de oro:**  
+  ```go
+  // ❌ Evitar
+  logger.Info(fmt.Sprintf("Error: %v", err))
 
-Zap es una excelente opción para logging en aplicaciones Go. Combina alto rendimiento con flexibilidad y facilidad de uso. Con esta introducción ya puedes comenzar a integrar Zap en tus proyectos y aprovechar sus ventajas sobre el sistema de logging estándar de Go.
+  // ✅ Correcto
+  logger.Error("Fallo en operación", zap.Error(err))
+  ```
 
-## Ejercicios Prácticos
+---
 
-1. Crea un programa que registre diferentes niveles de log con contexto estructurado
-2. Configura Zap para escribir logs tanto en consola como en un archivo
-3. Integra Zap en una aplicación web simple como middleware de logging
-4. Compara el rendimiento entre Logger y SugaredLogger con benchmarks
+#### **8. Ejercicios de Práctica**  
+1. Crea un logger que escriba en un archivo `app.log` y muestre errores por consola.  
+2. Registra eventos de una función simulando una transferencia bancaria:  
+   - Info: "Transferencia iniciada"  
+   - Error: "Fondos insuficientes" (con campo `cuenta_origen`)  
+3. Compara el rendimiento entre `Logger` y `SugaredLogger` usando `benchmark`:  
+   ```go
+   func BenchmarkLogger(b *testing.B) {
+       logger, _ := zap.NewProduction()
+       defer logger.Sync()
+       b.ResetTimer()
+       for i := 0; i < b.N; i++ {
+           logger.Info("Test", zap.Int("iteración", i))
+       }
+   }
+   ```
+
+---
+
+### Conclusión  
+Zap es la herramienta ideal para logging en Go: **veloz como un rayo ⚡ y flexible como un junco 🌿**. Comienza con `zap.NewProduction()` y `SugaredLogger`, luego explora configuraciones avanzadas según tus necesidades.  
