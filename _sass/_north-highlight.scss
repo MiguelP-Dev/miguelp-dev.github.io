@@ -10,8 +10,9 @@
     margin: 1.5rem 0;
     font-size: 0.95em;
     line-height: 1.6;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 0 2px rgba($neutral-text, 0.18), 0 2px 4px rgba(0, 0, 0, 0.08);
     font-family: $font-family-mono;
+    border: 2px solid #A0A0B2; // Gris oscuro para mejor contraste
 
     @include respond-to(phone) {
         font-size: 0.85em;
@@ -26,11 +27,11 @@
     .hljs-doctag,
     .hljs-name,
     .hljs-strong {
-        color: $accent-color; // Azul claro
+        color: #FF2E63; // Vibrant pink
     }
 
     .hljs-comment {
-        color: $border-color; // Gris azulado
+        color: #388E3C; // Verde hierba oscuro
         font-style: italic;
     }
 
@@ -46,7 +47,7 @@
     .hljs-name,
     .hljs-selector-id,
     .hljs-selector-class {
-        color: $hover-accent; // Verde 
+        color: #0074D9; // Azul fuerte para strings y literales
     }
 
     .hljs-meta,
@@ -59,24 +60,25 @@
     .hljs-template-variable,
     .hljs-link,
     .hljs-bullet {
-        color: $accent-color; // Cian
+        color: #18A0FB; // Vibrant blue
     }
 
     .hljs-emphasis {
         font-style: italic;
+        color: #FFCB05; // Vibrant yellow
     }
 
     .hljs-attr,
     .hljs-selector-attr {
-        color: $hover-accent; // Verde azulado
+        color: #FF61F6; // Vibrant purple
     }
 
     .hljs-number {
-        color: $accent-color; // Amarillo 
+        color: #FF6B00; // Vibrant orange
     }
 
     .hljs-tag .hljs-attr {
-        color: $text-color; // Texto normal
+        color: #23242A; // Texto normal
     }
 
   /* Específico para Liquid */
@@ -120,6 +122,8 @@
     pre code.hljs {
         padding: 1.5em;
         border-radius: 8px;
+        border: 2px solid #A0A0B2; // Gris oscuro para mejor contraste
+        box-shadow: 0 0 0 2px rgba($neutral-text, 0.18);
     }
 
     div.highlighter-rouge pre.highlight {
@@ -127,4 +131,6 @@
         padding: 1em;
         border-radius: 8px;
         overflow-x: auto;
+        border: 2px solid #A0A0B2; // Gris oscuro para mejor contraste
+        box-shadow: 0 0 0 2px rgba($neutral-text, 0.18);
     }
