@@ -20,6 +20,9 @@ jobs:
       with:
         ruby-version: 3.2
         bundler-cache: true
+    
+    - name: Clean site
+      run: bundle exec jekyll clean
 
     - name: Build site
       run: bundle exec jekyll build
