@@ -3,24 +3,24 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 2rem 0;
-    background-color: $nord1;
+    background-color: $secondary-background;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     font-size: 0.95em;
     line-height: 1.5;
   
     // Cabeceras
     thead {
-      background-color: $nord2;
+      background-color: $background-color;
       
       tr {
         th {
           padding: 1rem 1.5rem;
-          color: $nord6;
+          color: $heading-color;
           font-weight: 600;
           text-align: left;
-          border-bottom: 2px solid $nord3;
+          border-bottom: 2px solid $border-color;
           
           &:first-child {
             border-top-left-radius: 8px;
@@ -37,10 +37,10 @@ table {
     tbody {
       tr {
         transition: background-color 0.2s ease;
-        border-bottom: 1px solid rgba($nord3, 0.3);
+        border-bottom: 1px solid rgba($border-color, 0.3);
         
         &:hover {
-          background-color: rgba($nord8, 0.08);
+          background-color: rgba($accent-color, 0.08);
         }
         
         &:last-child {
@@ -49,33 +49,33 @@ table {
         
         td {
           padding: 1rem 1.5rem;
-          color: $nord4;
+          color: $text-color;
           
           // Estilo especial para la primera columna
           &:first-child {
-            color: $nord5;
+            color: $heading-color;
             font-weight: 500;
-            font-family: 'SF Mono', 'Roboto Mono', monospace;
+            font-family: $font-family-mono;
           }
           
           // Estilo para código inline
           code {
-            background-color: rgba($nord3, 0.3);
+            background-color: rgba($border-color, 0.3);
             padding: 0.2rem 0.4rem;
             border-radius: 4px;
-            font-family: 'SF Mono', 'Roboto Mono', monospace;
+            font-family: $font-family-mono;
             font-size: 0.9em;
-            color: $nord8;
+            color: $accent-color;
           }
         }
       }
       
       // Zebra striping automático
       tr:nth-child(even) {
-        background-color: rgba($nord3, 0.05);
+        background-color: rgba($border-color, 0.05);
         
         &:hover {
-          background-color: rgba($nord8, 0.1);
+          background-color: rgba($accent-color, 0.1);
         }
       }
     }
@@ -88,7 +88,7 @@ table {
       font-size: 0.85em;
       margin: 1.5rem 0;
       box-shadow: none;
-      border: 1px solid $nord3;
+      border: 1px solid $border-color;
       
       th, td {
         min-width: 120px;

@@ -24,7 +24,7 @@ body {
     left: 0;
     right: 0;
     height: 60px;
-    background-color: $nord1;
+    background-color: $secondary-background;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     display: flex;
@@ -43,8 +43,10 @@ body {
         h1 {
             font-size: 1.2rem;
             margin: 0;
-            color: $nord4;
+            color: $code-background;
+            font-weight: bold;
             letter-spacing: -0.3px;
+            text-shadow: 0 1px 4px rgba($background-color, 0.7);
         }
         
         .sidebar-toggle {
@@ -52,7 +54,7 @@ body {
             left: 1rem;
             background: none;
             border: none;
-            color: $nord4;
+            color: $text-color;
             font-size: 1.5rem;
             cursor: pointer;
             padding: 0.5rem;
@@ -73,6 +75,22 @@ body {
     }
 }
 
+.navbar-title {
+    font-size: 1.3rem;
+    margin: 0;
+    color: $code-background;
+    font-weight: bold;
+    letter-spacing: -0.3px;
+    text-shadow: 0 1px 4px rgba($background-color, 0.7);
+    transition: font-size 0.2s;
+    @include respond-to(tablet) {
+        font-size: 1.5rem;
+    }
+    @include respond-to(desktop) {
+        font-size: 2.1rem;
+    }
+}
+
 /* ========== SIDEBAR ========== */
 .sidebar {
     position: fixed;
@@ -80,22 +98,22 @@ body {
     left: 0;
     width: 250px;
     height: calc(100vh - 60px);
-    background-color: $nord2;
+    background-color: $secondary-background;
     z-index: 999;
     overflow-y: auto;
     padding-right: 12px;
 
     scrollbar-width: thin;
-    scrollbar-color: $nord7 $nord1;
+    scrollbar-color: $hover-accent $secondary-background;
 
     &::-webkit-scrollbar {
         width: 6px;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: rgba($nord4, 0.4);
+        background-color: rgba($text-color, 0.4);
         border-radius: 3px;
         &:hover {
-            background-color: rgba($nord4, 0.6);
+            background-color: rgba($text-color, 0.6);
         }
     }
 
@@ -112,7 +130,7 @@ body {
         display: flex;
         align-items: center;
         padding: 0.75rem 1.5rem;
-        color: $nord4;
+        color: $text-color;
         text-decoration: none;
         transition: background-color 0.2s;
         
@@ -130,12 +148,12 @@ body {
         }
 
         &:hover {
-            background-color: rgba($nord8, 0.1);
+            background-color: rgba($accent-color, 0.1);
         }
 
         &.active {
-            background-color: rgba($nord8, 0.2);
-            border-left: 3px solid $nord8;
+            background-color: rgba($accent-color, 0.2);
+            border-left: 3px solid $accent-color;
         }
     }
 
@@ -187,7 +205,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba($nord0, 0.7);
+    background: rgba($background-color, 0.7);
     z-index: 998;
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
@@ -259,7 +277,7 @@ body {
 }
 
 .card {
-    background-color: $nord1;
+    background-color: $secondary-background;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -273,18 +291,18 @@ body {
     
     &-icon {
         font-size: 2rem;
-        color: $nord8;
+        color: $accent-color;
         margin-bottom: 1rem;
     }
     
     &-title {
         font-size: 1.5rem;
-        color: $nord6;
+        color: $heading-color;
         margin: 0 0 1rem;
     }
     
     &-description {
-        color: $nord4;
+        color: $text-color;
         margin-bottom: 1.5rem;
     }
     
@@ -292,22 +310,22 @@ body {
         display: inline-flex;
         align-items: center;
         padding: 0.5rem 1rem;
-        background-color: $nord8;
-        color: $nord0;
+        background-color: $accent-color;
+        color: $background-color;
         border-radius: 4px;
         text-decoration: none;
         transition: background-color 0.2s;
         
         &:hover {
-            background-color: $nord7;
+            background-color: $hover-accent;
         }
     }
 }
 
 /* ========== FOOTER ========== */
 .footer {
-    background-color: $nord1;
-    color: $nord4;
+    background-color: $secondary-background;
+    color: $text-color;
     padding: 1rem;
     height: 60px;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
@@ -322,25 +340,25 @@ body {
     }
     
     a {
-        color: $nord8;
+        color: $accent-color;
         text-decoration: none;
         font-weight: 600;
         transition: all 0.2s;
         
         &:hover {
-            color: $nord9;
+            color: $hover-accent;
         }
     }
 }
 
 .section-link{
-    color: $nord8;
+    color: $accent-color;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.2s;
     
     &:hover {
-        color: $nord9;
+        color: $hover-accent;
     }
 }
 

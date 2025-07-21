@@ -15,7 +15,7 @@ El paquete `sync` proporciona primitivas para manejar concurrencia y sincronizac
 
 ---
 
-#### Primitivas de Sincronización  
+### Primitivas de Sincronización
 
 #### 1. **`sync.Mutex`**
 

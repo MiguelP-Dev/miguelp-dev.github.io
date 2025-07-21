@@ -5,7 +5,7 @@
     margin: 1em 0;
     overflow: hidden;
     border-radius: 8px;
-    color: $nord6; /* Texto claro */
+    color: $heading-color; /* Texto claro */
     z-index: 1;
 }
 
@@ -20,7 +20,7 @@
     background: linear-gradient(
         90deg, 
         transparent 25%, 
-        rgba($nord8, 0.3) 75%, /* Color agua (azul claro) con transparencia */
+        rgba($accent-color, 0.3) 75%, /* Color acento con transparencia */
         transparent 75%
     );
 border-radius: 8px; /* Esquinas redondeadas para el efecto */
@@ -31,7 +31,7 @@ z-index: -1;
 /* Centreamos el H2 en el bloque */
 .section-title {
     text-align: center;
-    background-color: $nord3;
+    background-color: $secondary-background;
 }
 
 /* Efecto de texto con brillo dinámico */
@@ -39,9 +39,9 @@ z-index: -1;
     position: relative;
     background: linear-gradient(
         90deg,
-        $nord4, /* Gris claro */
-        $nord6, /* Blanco azulado */
-        $nord4
+        $text-color, /* Gris claro */
+        $heading-color, /* Blanco azulado */
+        $text-color
     );
     -webkit-background-clip: text;
     background-clip: text;

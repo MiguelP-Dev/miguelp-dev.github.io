@@ -4,13 +4,14 @@
     display: block;
     overflow-x: auto;
     padding: 1em;
-    background: $nord1;
-    color: $nord4;
+    background: $code-background;
+    color: $text-color;
     border-radius: 8px;
     margin: 1.5rem 0;
     font-size: 0.95em;
     line-height: 1.6;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    font-family: $font-family-mono;
 
     @include respond-to(phone) {
         font-size: 0.85em;
@@ -25,11 +26,11 @@
     .hljs-doctag,
     .hljs-name,
     .hljs-strong {
-        color: $nord9; // Azul claro
+        color: $accent-color; // Azul claro
     }
 
     .hljs-comment {
-        color: $nord3; // Gris azulado
+        color: $border-color; // Gris azulado
         font-style: italic;
     }
 
@@ -45,7 +46,7 @@
     .hljs-name,
     .hljs-selector-id,
     .hljs-selector-class {
-        color: $nord14; // Verde 
+        color: $hover-accent; // Verde 
     }
 
     .hljs-meta,
@@ -58,7 +59,7 @@
     .hljs-template-variable,
     .hljs-link,
     .hljs-bullet {
-        color: $nord8; // Cian
+        color: $accent-color; // Cian
     }
 
     .hljs-emphasis {
@@ -67,33 +68,33 @@
 
     .hljs-attr,
     .hljs-selector-attr {
-        color: $nord7; // Verde azulado
+        color: $hover-accent; // Verde azulado
     }
 
     .hljs-number {
-        color: $nord13; // Amarillo 
+        color: $accent-color; // Amarillo 
     }
 
     .hljs-tag .hljs-attr {
-        color: $nord4; // Texto normal
+        color: $text-color; // Texto normal
     }
 
   /* Específico para Liquid */
     .language-liquid .hljs-template-tag,
     .language-liquid .hljs-template-variable {
-        color: $nord9;
+        color: $accent-color;
     }
 
     .language-liquid .hljs-variable {
-        color: $nord8;
+        color: $accent-color;
     }
 
     .language-liquid .hljs-tag {
-        color: $nord11; // Rojo
+        color: $accent-color; // Rojo
     }
 
     .language-liquid .hljs-name {
-        color: $nord9;
+        color: $accent-color;
     }
 
   /* Ajustes para la numeración de líneas */
@@ -109,7 +110,7 @@
 
     .hljs-ln-numbers {
         text-align: right;
-        color: $nord3;
+        color: $border-color;
         padding-right: 1em !important;
         -webkit-user-select: none;
         user-select: none;
@@ -122,7 +123,7 @@
     }
 
     div.highlighter-rouge pre.highlight {
-        background: $nord1;
+        background: $code-background;
         padding: 1em;
         border-radius: 8px;
         overflow-x: auto;
