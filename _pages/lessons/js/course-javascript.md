@@ -169,11 +169,30 @@ document.getElementById("demo").innerText = "Hola desde JS!";
 */
 ```
 
+Lo más común es usar comentarios de una línea para explicar una línea o una sección de código.
+Los comentarios de varias líneas se usan para explicar bloques de código de manera detallada, pero más comúnmente se usan para documentar el código.
+
 ---
 
 ## 📖 Variables en JavaScript
 
 Las variables almacenan datos.
+
+### Identificadores en JavaScript
+
+En JavaScript, todas las variables deben identificarse con nombres únicos.
+
+Estos nombres únicos se llaman identificadores.
+
+Los identificadores pueden ser nombres cortos (como x e y cosa que por legibilidad, mantenimiento y comprensión del código, no es recomendable usar nombres cortos) o nombres más descriptivos (edad, suma, volumenTotal).
+
+**Las reglas generales para construir nombres para variables (identificadores únicos) son:**
+
+- Los nombres pueden contener letras, dígitos, guiones bajos y signos de dólar.
+- Los nombres deben comenzar con una letra.
+- Los nombres también pueden comenzar con $ y _ (pero no lo usaremos en este tutorial).
+- Los nombres son sensibles a mayúsculas y minúsculas (y y Y son variables diferentes).
+- Las palabras reservadas (como las palabras clave de JavaScript) no pueden ser usadas como nombres.
 
 ```js
 var nombre = "Ana";      // Antiguo (evitar en nuevos proyectos)
@@ -184,7 +203,8 @@ const PI = 3.14;         // Constante, no cambia
 **Reglas:**
 
 - Usa `let` para variables que cambian y `const` para constantes.
-- Evita `var` en código moderno.
+- Se considera una mala práctica usar `var` en código moderno.
+- Se considera una buena práctica siempre declarar las variables y luego inicializarlas.
 
 ---
 
@@ -203,11 +223,21 @@ let objeto = {nombre: "Ana", edad: 25};  // Object
 let array = [1, 2, 3];     // Array (tipo de objeto)
 ```
 
+### Los Objetos
+
+Los objetos pueden contener tanto objetos incorporados como objetos definidos por el usuario:
+
+Los tipos de objetos incorporados pueden ser:
+
+objects, arrays, dates, maps, sets, intarrays, floatarrays, promises, etc.
+
 ---
 
 ## 📖 Operadores en JavaScript
 
 ### Aritméticos
+
+Los operadores aritméticos realizan operaciones aritméticas en números (literales o variables).
 
 ```js
 let suma = 5 + 3;
@@ -219,6 +249,8 @@ let resto = 5 % 2;
 
 ### Comparación
 
+Los operadores de comparación realizan comparaciones entre valores (literales o variables).
+
 ```js
 5 == "5"      // true (compara solo valor)
 5 === "5"     // false (compara valor y tipo)
@@ -228,30 +260,88 @@ let resto = 5 % 2;
 
 ### Lógicos
 
+Los operadores lógicos realizan operaciones lógicas en valores booleanos (literales o variables).
+
 ```js
 true && false   // false
 true || false   // true
 !true           // false
 ```
 
+**NOTAS:**
+
+```plaintext
+ * En aritmética, la división de dos enteros produce un cociente y un resto.
+ * En matemáticas, el resultado de una operación módulo es el resto de una división aritmética.
+```
+
+### Precedencia de Operadores
+
+La precedencia de operadores describe el orden en que se realizan las operaciones en una expresión aritmética.
+
+```js
+let x = 100 + 50 * 3;
+```
+
+¿El resultado del ejemplo anterior es el mismo que 150 * 3, o es el mismo que 100 + 150?
+
+¿La adición o la multiplicación se hace primero?
+
+Como en las matemáticas tradicionales, la multiplicación se hace primero.
+
+Los operadores de multiplicación (*) y división (/) tienen mayor precedencia que los operadores de adición (+) y sustracción (-).
+
+Y (como en las matemáticas tradicionales) la precedencia puede ser cambiada usando paréntesis.
+
+Cuando se usan paréntesis, las operaciones dentro de los paréntesis se calculan primero:
+
+```js
+let x = (100 + 50) * 3;
+```
+
+Cuando muchas operaciones tienen la misma precedencia (como la adición y la sustracción o la multiplicación y la división), se calculan de izquierda a derecha:
+
+```js
+let x = 100 + 50 - 3;
+```
+
+```js
+let x = 100 / 50 * 3;
+```
+
 ---
 
 ## 📖 Estructuras condicionales en JavaScript
 
-Las estructuras condicionales permiten ejecutar diferentes bloques de código según condiciones.
+Muy a menudo, cuando escribes código, deseas realizar diferentes acciones dependiendo de las decisiones.
+
+Puedes utilizar sentencias condicionales en tu código para lograrlo.
+
+En JavaScript, tenemos las siguientes sentencias condicionales:
+
+Utiliza if para especificar un bloque de código que se ejecutará si se cumple una condición especificada
+Utiliza else para especificar un bloque de código que se ejecutará si la misma condición es falsa
+Utiliza else if para especificar una nueva condición a probar si la primera condición es falsa
+Utiliza switch para especificar muchos bloques de código alternativos que se ejecutarán.
 
 ### IF / ELSE
+
+La estructura `if/else` evalúa una condición y ejecuta un bloque de código si se cumple, o otro bloque de código si no se cumple. Puedes combinar varios `if/else` para crear un `if/else if/else`.
 
 ```js
 let edad = 20;
 if (edad >= 18) {
   console.log("Eres mayor de edad");
+} else if (edad >= 13 && edad < 18) {
+  console.log("Eres adolescente");
 } else {
   console.log("Eres menor");
 }
 ```
 
 ### SWITCH
+
+La estructura `switch` evalúa una expresión y ejecuta un bloque de código según el valor de la expresión. En cada caso de `switch`, debes usar `break` para salir del bucle.
 
 ```js
 let color = "rojo";
@@ -267,12 +357,6 @@ switch(color) {
 }
 ```
 
-**Reglas:**
-
-- Usa `if/else` para condiciones simples o múltiples caminos claros.
-- Usa `switch` cuando compares una misma variable contra varios valores posibles.
-- Recuerda siempre usar `break` en cada caso de `switch`.
-
 ---
 
 ## 📖 Bucles y ciclos en JavaScript
@@ -281,6 +365,8 @@ Los bucles permiten repetir bloques de código.
 
 ### FOR
 
+La estructura `for` itera sobre un array o un objeto y ejecuta un bloque de código por cada elemento.
+
 ```js
 for (let i = 0; i < 5; i++) {
   console.log(i);
@@ -288,6 +374,8 @@ for (let i = 0; i < 5; i++) {
 ```
 
 ### WHILE
+
+La estructura `while` itera mientras se cumpla una condición y ejecuta un bloque de código.
 
 ```js
 let i = 0;
@@ -299,6 +387,8 @@ while (i < 5) {
 
 ### DO...WHILE
 
+La estructura `do/while` itera al menos una vez y ejecuta un bloque de código mientras se cumpla una condición.
+
 ```js
 let i = 0;
 do {
@@ -307,14 +397,6 @@ do {
 } while (i < 5);
 ```
 
-### Diferencias y reglas
-
-| Ciclo       | Cuándo usarlo | Características principales |
-| --- | --- | --- |
-| **for** | Cuando conoces el número exacto de iteraciones | Inicialización, condición y actualización en una sola línea. Ideal para recorrer arrays por índice. |
-| **while** | Cuando no sabes cuántas veces se repetirá | Se ejecuta mientras la condición sea verdadera. Útil para bucles dependientes de condiciones externas. |
-| **do...while** | Cuando necesitas ejecutar el bloque al menos una vez | La condición se evalúa después de ejecutar el bloque. Garantiza al menos una iteración. |
-
 ---
 
 ## 📖 Funciones en JavaScript
@@ -322,19 +404,19 @@ do {
 Las funciones permiten encapsular lógica reutilizable.
 
 ```js
-// Declaración de función
+// Declaración de función: una función que se define con el nombre y se puede llamar desde cualquier parte del código
 function saludar(nombre) {
   return `Hola, ${nombre}!`;
 }
 
 console.log(saludar("Ana"));
 
-// Función anónima
+// Función anónima: una función que no tiene nombre y se asigna a una variable (generalmente se usa para callbacks)
 const despedir = function(nombre) {
   return `Adiós, ${nombre}`;
 }
 
-// Arrow function
+// Arrow function: una función que se define con la sintaxis de flecha (=>) y es una forma más moderna de escribir funciones
 const sumar = (a, b) => a + b;
 ```
 
@@ -348,7 +430,7 @@ const sumar = (a, b) => a + b;
 
 ## 📖 Objetos en JavaScript
 
-Los objetos agrupan datos y funcionalidades.
+Los objetos agrupan datos y funcionalidades. Son una forma de agrupar datos relacionados y las funciones que operan sobre ellos.
 
 ```js
 let persona = {
@@ -367,7 +449,7 @@ persona.saludar();
 
 ## 📖 Arrays (Arreglos) en JavaScript
 
-Los arrays almacenan colecciones ordenadas de datos.
+Los arrays almacenan colecciones ordenadas de datos. Son una forma de agrupar datos relacionados y las funciones que operan sobre ellos.
 
 ```js
 let frutas = ["manzana", "banana", "uva"];
@@ -384,7 +466,7 @@ frutas.unshift("naranja");   // Agrega al inicio
 
 ## 📖 Manejo de eventos en JavaScript
 
-Los eventos permiten que tu página web responda a acciones del usuario o del navegador.
+Los eventos permiten que tu página web responda a acciones del usuario o del navegador. Son una forma de interactuar con el usuario y responder a sus acciones.
 
 ```html
 <button onclick="alert('¡Clic!')">Haz clic</button>
@@ -400,7 +482,7 @@ document.getElementById("miBoton").addEventListener("click", () => {
 
 ## 📖 Conceptos clave sobre eventos en JavaScript
 
-Los eventos permiten que tu página web responda a acciones del usuario (clics, teclas, movimientos, etc.) o del navegador (carga, errores, etc.).
+Los eventos permiten que tu página web responda a acciones del usuario (clics, teclas, movimientos, etc.) o del navegador (carga, errores, etc.). Son una forma de interactuar con el usuario y responder a sus acciones.
 
 ### Tipos de eventos comunes
 
@@ -409,6 +491,18 @@ Los eventos permiten que tu página web responda a acciones del usuario (clics, 
 - `keydown` / `keyup`: Cuando se presiona o suelta una tecla.
 - `submit`: Cuando se envía un formulario.
 - `load`: Cuando la página o un recurso termina de cargarse.
+
+
+### Lista de teclas comunes
+
+- `Enter`
+- `Escape`
+- `Space`
+- `Tab`
+- `ArrowUp`
+- `ArrowDown`
+- `ArrowLeft`
+- `ArrowRight`
 
 ### Casos de uso típicos
 
@@ -464,34 +558,65 @@ let nombre = `Ana`;
 
 ### Métodos de String
 
-```js
-let texto = "JavaScript es genial";
+Los objetos `String` tienen una variedad de métodos para manipular y analizar cadenas de texto.
 
-// Longitud
-console.log(texto.length);  // 20
+#### Acceso a caracteres específicos
 
-// Mayúsculas / minúsculas
-console.log(texto.toUpperCase());  // JAVASCRIPT ES GENIAL
-console.log(texto.toLowerCase());  // javascript es genial
+- `charAt(index)`: Devuelve el carácter en la posición especificada.
+- `charCodeAt(index)`: Devuelve el código Unicode del carácter en la posición especificada.
+- `[index]`: Accede al carácter en la posición especificada (similar a `charAt`).
 
-// Extraer partes
-console.log(texto.substring(0, 10));   // JavaScript
+#### Subcadenas
 
-// Buscar
-console.log(texto.indexOf("genial"));  // 15
-console.log(texto.includes("genial")); // true
+- `slice(start, end)`: Devuelve una subcadena desde `start` hasta `end`.
+- `substring(start, end)`: Devuelve una subcadena desde `start` hasta `end` (no incluye el carácter en `end`).
+- `substr(start, length)`: Devuelve una subcadena desde `start` con longitud `length`.
 
-// Reemplazar
-console.log(texto.replace("genial", "increíble")); 
-```
+#### Longitud
 
----
+- `length`: Devuelve la longitud de la cadena.
 
-### Template Strings
+#### Concatenación
 
-Puedes interpolar variables fácilmente con backticks:
+- `concat(string2, ...)`: Concatena la cadena con una o varias cadenas adicionales.
+- `+`: Concatena la cadena con una o varias cadenas adicionales.
 
-#### ¿Qué son los backticks?
+#### Repetición
+
+- `repeat(n)`: Repite la cadena `n` veces.
+
+#### Recorrido
+
+- `for...of`: Itera sobre cada carácter de la cadena.
+- `split('')`: Divide la cadena en un array de caracteres individuales.
+
+#### Conversión a mayúsculas y minúsculas
+
+- `toUpperCase()`: Convierte la cadena a mayúsculas.
+- `toLowerCase()`: Convierte la cadena a minúsculas.
+
+#### Reemplazo
+
+- `replace(valor, nuevoValor)`: Reemplaza el primer valor encontrado con `nuevoValor`.
+- `replaceAll(valor, nuevoValor)`: Reemplaza todos los valores encontrados con `nuevoValor`.
+
+#### División
+
+- `split(separador)`: Divide la cadena en un array de subcadenas separadas por `separador`.
+
+#### Unión
+
+- `join(separador)`: Une un array de cadenas en una cadena separada por `separador`.
+
+#### Verificación
+
+- `includes(valor)`: Verifica si la cadena contiene el valor especificado.
+- `startsWith(valor)`: Verifica si la cadena comienza con el valor especificado.
+- `endsWith(valor)`: Verifica si la cadena termina con el valor especificado.
+
+#### Interpolación
+
+- `` ${expresion} ``: Interpola la expresión en una cadena. Puedes interpolar variables fácilmente con backticks:
 
 Los *backticks* (acento grave: `` ` ``) son un tipo de comillas que permiten crear *template strings* en JavaScript. A diferencia de las comillas simples (`'`) o dobles (`"`), los backticks permiten:
 
