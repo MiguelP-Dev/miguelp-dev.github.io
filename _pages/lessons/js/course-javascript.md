@@ -1,1341 +1,1036 @@
 ---
 layout: default
-title: "JavaScript Moderno: Curso Completo"
-description: "Domina JavaScript desde los fundamentos hasta temas avanzados"
+title: "JavaScript Moderno: Curso Completo 2025"
+description: "Domina JavaScript desde fundamentos hasta desarrollo profesional con proyectos reales"
 permalink: /lessons/js/course-javascript/
 category: lessons
 subcategory: "web development"
-icon: 📜
+icon: 🚀
 article: true
 ---
 
-## ✨ Introducción al curso
+# 🚀 JavaScript Moderno: De Principiante a Desarrollador
 
-Bienvenido a este curso de JavaScript. Aquí aprenderás desde los fundamentos hasta técnicas modernas para crear sitios y aplicaciones web interactivas y dinámicas.  
-No necesitas conocimientos previos, solo curiosidad y un navegador.
+## 📋 Índice del Curso
 
-**¿Qué encontrarás en este curso?**
+### 📚 **NIVEL PRINCIPIANTE** (20-25 horas)
+- [Módulo 1: Fundamentos y Configuración](#módulo-1-fundamentos-y-configuración)
+- [Módulo 2: Variables, Tipos de Datos y Operadores](#módulo-2-variables-tipos-de-datos-y-operadores)
+- [Módulo 3: Control de Flujo y Estructuras](#módulo-3-control-de-flujo-y-estructuras)
+- [Módulo 4: Funciones y Scope](#módulo-4-funciones-y-scope)
+- [**Proyecto 1:** Calculadora Interactiva](#proyecto-1-calculadora-interactiva)
 
-- Explicaciones claras y ejemplos modernos.
-- Ejercicios prácticos con soluciones explicadas.
-- Proyectos finales para consolidar tus conocimientos.
-- Buenas prácticas, accesibilidad y seguridad.
-- Glosario y recursos recomendados.
+### 🎯 **NIVEL INTERMEDIO** (25-30 horas)
+- [Módulo 5: Objetos y Arrays Avanzados](#módulo-5-objetos-y-arrays-avanzados)
+- [Módulo 6: DOM y Manipulación de Eventos](#módulo-6-dom-y-manipulación-de-eventos)
+- [Módulo 7: Asincronía y APIs](#módulo-7-asincronía-y-apis)
+- [Módulo 8: Almacenamiento y Datos](#módulo-8-almacenamiento-y-datos)
+- [**Proyecto 2:** Gestor de Tareas con API](#proyecto-2-gestor-de-tareas-con-api)
 
----
-
-## 📝 Glosario de términos clave
-
-| Término         | Definición breve |
-|-----------------|-----------------|
-| Variable        | Espacio para almacenar datos. |
-| Array           | Lista ordenada de valores. |
-| Objeto          | Colección de pares clave-valor. |
-| Función         | Bloque de código reutilizable. |
-| Callback        | Función pasada como argumento. |
-| Promesa         | Objeto para operaciones asíncronas. |
-| DOM             | Modelo de objetos del documento HTML. |
-| BOM             | Modelo de objetos del navegador. |
-| Hoisting        | Elevación de declaraciones en JS. |
-| Closure         | Función que recuerda su contexto. |
+### 🔥 **NIVEL AVANZADO** (30-35 horas)
+- [Módulo 9: Clases, Herencia y Patrones](#módulo-9-clases-herencia-y-patrones)
+- [Módulo 10: Módulos y Herramientas Modernas](#módulo-10-módulos-y-herramientas-modernas)
+- [Módulo 11: Performance y Optimización](#módulo-11-performance-y-optimización)
+- [Módulo 12: Testing y Debugging Avanzado](#módulo-12-testing-y-debugging-avanzado)
+- [**Proyecto Final:** Dashboard de Análisis de Datos](#proyecto-final-dashboard-de-análisis-de-datos)
 
 ---
 
-## 🦾 Buenas prácticas y patrones modernos
+## 🎯 Objetivos del Curso
 
-- Usa siempre `let` y `const` en vez de `var`.
-- Prefiere funciones flecha para callbacks y funciones cortas.
-- Nombra variables y funciones de forma descriptiva.
-- Separa la lógica de negocio del manejo del DOM.
-- Utiliza módulos ES6 para organizar el código.
-- Aplica el principio DRY (Don't Repeat Yourself).
-- Usa linters como ESLint para mantener el código limpio.
-- Escribe pruebas unitarias para funciones importantes.
-
----
-
-## ♿ Accesibilidad y seguridad
-
-- Usa atributos `aria-*` y roles en HTML para mejorar la accesibilidad.
-- Valida siempre los datos de entrada del usuario.
-- Evita el uso de `innerHTML` con datos externos para prevenir XSS.
-- Usa etiquetas semánticas (`<button>`, `<nav>`, `<main>`, etc.).
-- Añade mensajes alternativos (`alt`) en imágenes.
+Al completar este curso serás capaz de:
+- ✅ Desarrollar aplicaciones web interactivas desde cero
+- ✅ Manejar APIs y datos asíncronos profesionalmente
+- ✅ Implementar patrones de diseño y arquitecturas escalables
+- ✅ Optimizar aplicaciones para rendimiento y accesibilidad
+- ✅ Usar herramientas modernas de desarrollo y testing
+- ✅ Crear un portfolio de proyectos para empleadores
 
 ---
 
-## 🏋️‍♂️ Ejercicios prácticos
+## 📖 Glosario de Términos
 
-Al final de cada sección encontrarás ejercicios para practicar lo aprendido. ¡Intenta resolverlos antes de ver la solución!
-
----
-
-## 1️⃣ Fundamentos de JavaScript
-
-### Descripción
-
-En esta sección aprenderás los conceptos básicos de JavaScript: qué es, cómo se usa, su sintaxis y las reglas fundamentales para escribir código limpio y funcional.
-
----
-
-## 📖 ¿Qué es Javascript?
-
-JavaScript (JS) es un lenguaje de programación interpretado, orientado a objetos y basado en prototipos. Se ejecuta principalmente en el navegador para dar interactividad a las páginas web, aunque también se usa en el servidor con Node.js.
-
-### Ventajas
-
-- Fácil de aprender.
-- Se ejecuta directamente en el navegador.
-- Gran comunidad y muchas herramientas.
-- Compatible con todos los navegadores modernos.
+| Término | Definición | Ejemplo |
+|---------|------------|---------|
+| **Variable** | Contenedor para almacenar datos | `let nombre = "Ana"` |
+| **Función** | Bloque de código reutilizable | `function saludar() {...}` |
+| **Callback** | Función pasada como argumento | `array.map(callback)` |
+| **Promesa** | Objeto para operaciones asíncronas | `fetch().then()` |
+| **DOM** | Representación del documento HTML | `document.querySelector()` |
+| **API** | Interfaz para comunicación entre sistemas | REST API, Fetch API |
+| **Closure** | Función que mantiene acceso a su scope padre | Variables privadas |
+| **Hoisting** | Elevación de declaraciones | `var` vs `let`/`const` |
+| **Event Loop** | Mecanismo de asincronía de JS | Callbacks, Promesas |
+| **Module** | Archivo con código exportable/importable | ES6 modules |
 
 ---
 
-## 📖 Formas de usar JavaScript
+# 📚 NIVEL PRINCIPIANTE
 
-Puedes incluir JavaScript en una página web de varias formas:
+## Módulo 1: Fundamentos y Configuración
+*⏱️ Tiempo estimado: 4-5 horas*
 
+### 📋 Prerequisites
+- Conocimientos básicos de HTML y CSS
+- Navegador web moderno (Chrome, Firefox, Safari, Edge)
+- Editor de código (VS Code recomendado)
+
+### 🎯 Objetivos del Módulo
+- Configurar entorno de desarrollo profesional
+- Entender qué es JavaScript y cómo funciona
+- Dominar las herramientas de desarrollo del navegador
+- Escribir y ejecutar tu primer código JavaScript
+
+---
+
+### 📖 ¿Qué es JavaScript?
+
+JavaScript es un lenguaje de programación interpretado, dinámico y de alto nivel que:
+- **Se ejecuta en el navegador** para crear interactividad en páginas web
+- **Se ejecuta en el servidor** con Node.js para backend
+- **Es orientado a objetos** basado en prototipos
+- **Es débilmente tipado** (tipos se determinan en tiempo de ejecución)
+- **Tiene un event loop** para manejar asincronía
+
+#### Historia y Evolución
+- **1995:** Creado por Brendan Eich en 10 días
+- **2009:** Node.js permite JavaScript en servidor
+- **2015:** ES6/ES2015 moderniza el lenguaje
+- **2025:** JavaScript es el lenguaje más usado del mundo
+
+#### ¿Por qué Aprender JavaScript?
+✅ **Versatilidad:** Frontend, backend, mobile, desktop  
+✅ **Demanda laboral:** Millones de trabajos disponibles  
+✅ **Comunidad:** Ecosistema gigante de librerías  
+✅ **Evolución constante:** Nuevas features cada año  
+
+---
+
+### 🛠️ Configuración del Entorno de Desarrollo
+
+#### 1. Editor de Código: VS Code
+```bash
+# Descargar VS Code desde: https://code.visualstudio.com/
+
+# Extensiones esenciales:
+- JavaScript (ES6) code snippets
+- Prettier - Code formatter
+- ESLint
+- Live Server
+- Bracket Pair Colorizer
+```
+
+#### 2. Navegador y DevTools
+```javascript
+// Abrir DevTools en cualquier navegador:
+// Windows/Linux: F12 o Ctrl+Shift+I
+// Mac: Cmd+Option+I
+
+// Pestañas importantes:
+// - Console: Para ejecutar código y ver logs
+// - Sources: Para debugging con breakpoints
+// - Network: Para ver peticiones HTTP
+// - Application: Para localStorage, cookies, etc.
+```
+
+#### 3. Configuración de Proyecto
 ```html
-<!-- En línea -->
-<button onclick="alert('Hola!')">Clic</button>
+<!-- estructura-proyecto/
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── main.js
+└── assets/
+    └── images/ -->
 
-<!-- Dentro de etiquetas <script> -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primer Proyecto JavaScript</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>Hola JavaScript</h1>
+    <div id="app"></div>
+    
+    <!-- Siempre al final del body -->
+    <script src="js/main.js"></script>
+</body>
+</html>
+```
+
+---
+
+### 📖 Formas de Incluir JavaScript
+
+#### 1. Código Inline (No recomendado para producción)
+```html
+<button onclick="alert('¡Hola!')">Click aquí</button>
+```
+
+#### 2. Script Interno
+```html
 <script>
-  console.log("Hola desde un script interno");
+    // Bueno para código específico de una página
+    console.log("Código interno");
+    
+    function miFuncion() {
+        return "Función interna";
+    }
 </script>
-
-<!-- En un archivo externo -->
-<script src="script.js"></script>
 ```
 
-**Reglas:**
+#### 3. Archivo Externo (Recomendado)
+```html
+<!-- En el <head> con defer -->
+<script defer src="js/main.js"></script>
 
-- Usa archivos externos para proyectos reales.
-- Evita el código en línea salvo para ejemplos rápidos.
-- Mantén el JS separado del HTML para mejor mantenimiento y seguridad.
-
----
-
-### Recomendaciones para incluir JavaScript
-
-- **En línea:** Úsalo solo para ejemplos simples o pruebas rápidas. No recomendado para proyectos reales, ya que dificulta el mantenimiento y la seguridad.
-- **Script interno:** Útil para scripts pequeños o cuando el código es específico de una sola página. Mantén el código separado del HTML cuando sea posible.
-- **Archivo externo:** Es la mejor práctica para proyectos reales. Permite reutilizar código, facilita el mantenimiento y mejora la organización. Usa siempre archivos externos para scripts grandes o reutilizables.
-
----
-
-## 📖 Cómo mostrar resultados en JavaScript
-
-```js
-// En la consola del navegador
-console.log("Hola, consola!");
-
-// En una alerta
-alert("Hola, usuario!");
-
-// En el documento
-document.write("Hola, página!");
-
-// En un elemento HTML
-document.getElementById("demo").innerText = "Hola desde JS!";
+<!-- Al final del <body> -->
+<script src="js/main.js"></script>
 ```
 
-**Reglas y recomendaciones:**
-
-- Usa `console.log()` para depurar y ver valores en la consola del navegador.
-- Utiliza `alert()` solo para mensajes simples o pruebas rápidas, ya que interrumpe la experiencia del usuario.
-- Evita `document.write()` en proyectos reales; puede sobrescribir el contenido de la página.
-- Para mostrar resultados en la página, modifica el contenido de elementos HTML usando métodos como `innerText` o `innerHTML`.
-- Prefiere seleccionar elementos por ID o clase para actualizar el DOM de forma segura y organizada.
-
----
-
-## 📖 Sintaxis básica de JavaScript
-
-**Reglas básicas:**
-
-- Las sentencias terminan con `;` (opcional pero recomendado).
-- JavaScript es case-sensitive (`nombre` ≠ `Nombre`).
-- Los bloques se delimitan con `{ }`.
-- Los comentarios se hacen así:
-
-```js
-// Comentario de una línea
-
-/*
-  Comentario
-  de varias
-  líneas
-*/
-```
-
-Lo más común es usar comentarios de una línea para explicar una línea o una sección de código.
-Los comentarios de varias líneas se usan para explicar bloques de código de manera detallada, pero más comúnmente se usan para documentar el código.
-
----
-
-## 📖 Variables en JavaScript
-
-Las variables almacenan datos.
-
-### Identificadores en JavaScript
-
-En JavaScript, todas las variables deben identificarse con nombres únicos.
-
-Estos nombres únicos se llaman identificadores.
-
-Los identificadores pueden ser nombres cortos (como x e y cosa que por legibilidad, mantenimiento y comprensión del código, no es recomendable usar nombres cortos) o nombres más descriptivos (edad, suma, volumenTotal).
-
-**Las reglas generales para construir nombres para variables (identificadores únicos) son:**
-
-- Los nombres pueden contener letras, dígitos, guiones bajos y signos de dólar.
-- Los nombres deben comenzar con una letra.
-- Los nombres también pueden comenzar con $ y _ (pero no lo usaremos en este tutorial).
-- Los nombres son sensibles a mayúsculas y minúsculas (y y Y son variables diferentes).
-- Las palabras reservadas (como las palabras clave de JavaScript) no pueden ser usadas como nombres.
-
-```js
-var nombre = "Ana";      // Antiguo (evitar en nuevos proyectos)
-let edad = 25;           // Moderna, con alcance de bloque
-const PI = 3.14;         // Constante, no cambia
-```
-
-**Reglas:**
-
-- Usa `let` para variables que cambian y `const` para constantes.
-- Se considera una mala práctica usar `var` en código moderno.
-- Se considera una buena práctica siempre declarar las variables y luego inicializarlas.
-
----
-
-## 📖 Tipos de datos en JavaScript
-
-JavaScript tiene tipos de datos básicos:
-
-```js
-let texto = "Hola";        // String
-let numero = 42;           // Number
-let decimal = 3.14;        // Number
-let booleano = true;       // Boolean
-let indefinido;            // undefined
-let nulo = null;           // null
-let objeto = {nombre: "Ana", edad: 25};  // Object
-let array = [1, 2, 3];     // Array (tipo de objeto)
-```
-
-### Los Objetos
-
-Los objetos pueden contener tanto objetos incorporados como objetos definidos por el usuario:
-
-Los tipos de objetos incorporados pueden ser:
-
-objects, arrays, dates, maps, sets, intarrays, floatarrays, promises, etc.
-
----
-
-## 📖 Operadores en JavaScript
-
-### Aritméticos
-
-Los operadores aritméticos realizan operaciones aritméticas en números (literales o variables).
-
-```js
-let suma = 5 + 3;
-let resta = 5 - 3;
-let multi = 5 * 3;
-let div = 5 / 2;
-let resto = 5 % 2;
-```
-
-### Comparación
-
-Los operadores de comparación realizan comparaciones entre valores (literales o variables).
-
-```js
-5 == "5"      // true (compara solo valor)
-5 === "5"     // false (compara valor y tipo)
-5 != 3        // true
-5 < 10        // true
-```
-
-### Lógicos
-
-Los operadores lógicos realizan operaciones lógicas en valores booleanos (literales o variables).
-
-```js
-true && false   // false
-true || false   // true
-!true           // false
-```
-
-**NOTAS:**
-
-```plaintext
- * En aritmética, la división de dos enteros produce un cociente y un resto.
- * En matemáticas, el resultado de una operación módulo es el resto de una división aritmética.
-```
-
-### Precedencia de Operadores
-
-La precedencia de operadores describe el orden en que se realizan las operaciones en una expresión aritmética.
-
-```js
-let x = 100 + 50 * 3;
-```
-
-¿El resultado del ejemplo anterior es el mismo que 150 * 3, o es el mismo que 100 + 150?
-
-¿La adición o la multiplicación se hace primero?
-
-Como en las matemáticas tradicionales, la multiplicación se hace primero.
-
-Los operadores de multiplicación (*) y división (/) tienen mayor precedencia que los operadores de adición (+) y sustracción (-).
-
-Y (como en las matemáticas tradicionales) la precedencia puede ser cambiada usando paréntesis.
-
-Cuando se usan paréntesis, las operaciones dentro de los paréntesis se calculan primero:
-
-```js
-let x = (100 + 50) * 3;
-```
-
-Cuando muchas operaciones tienen la misma precedencia (como la adición y la sustracción o la multiplicación y la división), se calculan de izquierda a derecha:
-
-```js
-let x = 100 + 50 - 3;
-```
-
-```js
-let x = 100 / 50 * 3;
-```
-
----
-
-## 📖 Estructuras condicionales en JavaScript
-
-Muy a menudo, cuando escribes código, deseas realizar diferentes acciones dependiendo de las decisiones.
-
-Puedes utilizar sentencias condicionales en tu código para lograrlo.
-
-En JavaScript, tenemos las siguientes sentencias condicionales:
-
-Utiliza if para especificar un bloque de código que se ejecutará si se cumple una condición especificada
-Utiliza else para especificar un bloque de código que se ejecutará si la misma condición es falsa
-Utiliza else if para especificar una nueva condición a probar si la primera condición es falsa
-Utiliza switch para especificar muchos bloques de código alternativos que se ejecutarán.
-
-### IF / ELSE
-
-La estructura `if/else` evalúa una condición y ejecuta un bloque de código si se cumple, o otro bloque de código si no se cumple. Puedes combinar varios `if/else` para crear un `if/else if/else`.
-
-```js
-let edad = 20;
-if (edad >= 18) {
-  console.log("Eres mayor de edad");
-} else if (edad >= 13 && edad < 18) {
-  console.log("Eres adolescente");
-} else {
-  console.log("Eres menor");
-}
-```
-
-### SWITCH
-
-La estructura `switch` evalúa una expresión y ejecuta un bloque de código según el valor de la expresión. En cada caso de `switch`, debes usar `break` para salir del bucle.
-
-```js
-let color = "rojo";
-switch(color) {
-  case "rojo":
-    console.log("Color rojo");
-    break;
-  case "azul":
-    console.log("Color azul");
-    break;
-  default:
-    console.log("Otro color");
-}
-```
-
----
-
-## 📖 Bucles y ciclos en JavaScript
-
-Los bucles permiten repetir bloques de código.
-
-### FOR
-
-La estructura `for` itera sobre un array o un objeto y ejecuta un bloque de código por cada elemento.
-
-```js
-for (let i = 0; i < 5; i++) {
-  console.log(i);
-}
-```
-
-### WHILE
-
-La estructura `while` itera mientras se cumpla una condición y ejecuta un bloque de código.
-
-```js
-let i = 0;
-while (i < 5) {
-  console.log(i);
-  i++;
-}
-```
-
-### DO...WHILE
-
-La estructura `do/while` itera al menos una vez y ejecuta un bloque de código mientras se cumpla una condición.
-
-```js
-let i = 0;
-do {
-  console.log(i);
-  i++;
-} while (i < 5);
-```
-
----
-
-## 📖 Funciones en JavaScript
-
-Las funciones permiten encapsular lógica reutilizable.
-
-```js
-// Declaración de función: una función que se define con el nombre y se puede llamar desde cualquier parte del código
-function saludar(nombre) {
-  return `Hola, ${nombre}!`;
+```javascript
+// js/main.js
+console.log("Código desde archivo externo");
+
+// Mejor organización y reutilización
+function inicializarApp() {
+    console.log("App inicializada");
 }
 
-console.log(saludar("Ana"));
-
-// Función anónima: una función que no tiene nombre y se asigna a una variable (generalmente se usa para callbacks)
-const despedir = function(nombre) {
-  return `Adiós, ${nombre}`;
-}
-
-// Arrow function: una función que se define con la sintaxis de flecha (=>) y es una forma más moderna de escribir funciones
-const sumar = (a, b) => a + b;
+// Ejecutar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', inicializarApp);
 ```
 
-**Reglas:**
+#### ⚡ Mejores Prácticas
+```html
+<!-- ✅ BUENO: Con defer para cargar sin bloquear -->
+<script defer src="js/main.js"></script>
 
-- Usa funciones declaradas para utilidades generales.
-- Usa funciones expresión o arrow para callbacks y funciones internas.
-- Usa arrow functions cuando no necesites un `this` propio.
+<!-- ✅ BUENO: Al final del body -->
+<script src="js/main.js"></script>
+
+<!-- ❌ MALO: En head sin defer -->
+<script src="js/main.js"></script>
+
+<!-- ❌ MALO: Código inline -->
+<button onclick="hacerAlgo()">Click</button>
+```
 
 ---
 
-## 📖 Objetos en JavaScript
+### 📖 Herramientas de Desarrollo
 
-Los objetos agrupan datos y funcionalidades. Son una forma de agrupar datos relacionados y las funciones que operan sobre ellos.
+#### Console: Tu Mejor Amigo
+```javascript
+// Tipos de logs
+console.log("Información general");
+console.info("Información importante");
+console.warn("Advertencia");
+console.error("Error crítico");
 
-```js
-let persona = {
-  nombre: "Ana",
-  edad: 25,
-  saludar: function() {
-    console.log("Hola, soy " + this.nombre);
-  }
+// Logs con estilo
+console.log("%cTexto grande y rojo", "color: red; font-size: 20px;");
+
+// Agrupar logs
+console.group("Mi Grupo");
+console.log("Log dentro del grupo");
+console.groupEnd();
+
+// Medir tiempo
+console.time("operacion");
+// ... código ...
+console.timeEnd("operacion"); // operacion: 1.234ms
+
+// Mostrar objetos en tabla
+console.table([{nombre: "Ana", edad: 25}, {nombre: "Luis", edad: 30}]);
+```
+
+#### Debugging con Breakpoints
+```javascript
+// Usando debugger statement
+function calculadora(a, b, operacion) {
+    debugger; // Pausa ejecución aquí
+    
+    switch(operacion) {
+        case '+':
+            return a + b;
+        case '-':
+            return a - b;
+        default:
+            console.error("Operación no válida");
+    }
+}
+
+// El navegador pausará aquí cuando llegue a esta línea
+```
+
+---
+
+### 🏋️‍♂️ Ejercicios Prácticos
+
+#### Ejercicio 1: Configuración Básica
+```javascript
+// 1. Crear estructura de proyecto
+// 2. Configurar VS Code con extensiones
+// 3. Escribir este código en main.js:
+
+console.log("¡Hola Mundo!");
+console.log("Mi nombre es [TU_NOMBRE]");
+console.log("Fecha actual:", new Date().toLocaleDateString());
+
+// Verificar que aparezca en la consola del navegador
+```
+
+#### Ejercicio 2: Explorando la Console
+```javascript
+// Experimenta con diferentes tipos de console:
+console.log("Log normal");
+console.warn("Este es un warning");
+console.error("Este es un error");
+
+// Crea un objeto y muéstralo en tabla:
+const estudiante = {
+    nombre: "Ana",
+    edad: 22,
+    curso: "JavaScript"
 };
 
-console.log(persona.nombre);
-persona.saludar();
+console.table(estudiante);
+
+// Mide cuánto tarda este código:
+console.time("bucle");
+for(let i = 0; i < 1000; i++) {
+    // bucle vacío
+}
+console.timeEnd("bucle"); // bucle: 1.234ms
+```
+
+#### Ejercicio 3: Debugging Básico
+```javascript
+// Copia este código y usa breakpoints para entender el flujo:
+function saludar(nombre, apellido) {
+    debugger; // Coloca breakpoint aquí
+    
+    const nombreCompleto = nombre + " " + apellido;
+    const saludo = "Hola " + nombreCompleto;
+    
+    console.log(saludo);
+    return saludo;
+}
+
+saludar("Ana", "García");
+saludar("Luis", "Martínez");
 ```
 
 ---
 
-## 📖 Arrays (Arreglos) en JavaScript
+### ✅ Quiz Módulo 1
 
-Los arrays almacenan colecciones ordenadas de datos. Son una forma de agrupar datos relacionados y las funciones que operan sobre ellos.
+1. **¿Cuál es la mejor forma de incluir JavaScript en producción?**
+   - a) Código inline en HTML
+   - b) Archivo externo con defer
+   - c) Script interno en el head
+   - d) No importa la forma
 
-```js
-let frutas = ["manzana", "banana", "uva"];
-console.log(frutas[0]);      // "manzana"
+2. **¿Qué hace el statement `debugger`?**
+   - a) Elimina errores del código
+   - b) Pausa la ejecución para debugging
+   - c) Muestra información en console
+   - d) Optimiza el rendimiento
 
-// Métodos útiles
-frutas.push("pera");         // Agrega
-frutas.pop();                // Elimina el último
-frutas.shift();              // Elimina el primero
-frutas.unshift("naranja");   // Agrega al inicio
+3. **¿Cuál NO es una ventaja de JavaScript?**
+   - a) Se ejecuta en navegador y servidor
+   - b) Tipado fuerte y estático
+   - c) Gran comunidad y ecosistema
+   - d) Versatilidad para diferentes plataformas
+
+**Respuestas:** 1-b, 2-b, 3-b
+
+---
+
+## Módulo 2: Variables, Tipos de Datos y Operadores
+*⏱️ Tiempo estimado: 6-7 horas*
+
+### 📋 Prerequisites
+- Módulo 1 completado
+- Entorno de desarrollo configurado
+- Conocimiento básico de la console del navegador
+
+### 🎯 Objetivos del Módulo
+- Dominar la declaración y uso de variables modernas
+- Entender todos los tipos de datos de JavaScript
+- Aplicar operadores en contextos reales
+- Manejar coerción y comparación de tipos
+
+---
+
+### 📖 Variables en JavaScript Moderno
+
+#### Evolución de Variables
+```javascript
+// ❌ ANTIGUO: var (evitar en código nuevo)
+var nombre = "Ana";
+var nombre = "Luis"; // Redeclaración permitida (problemático)
+console.log(nombre); // "Luis"
+
+// ✅ MODERNO: let y const (ES6+)
+let edad = 25;           // Variable que puede cambiar
+const PI = 3.14159;      // Constante, no puede cambiar
+
+// edad = 26;            // ✅ Permitido
+// PI = 3.14;            // ❌ Error: Assignment to constant variable
+```
+
+#### Scope (Alcance) de Variables
+```javascript
+// Global scope
+const globalVar = "Soy global";
+
+function ejemploScope() {
+    // Function scope
+    const funcionVar = "Soy de función";
+    
+    if (true) {
+        // Block scope
+        let blockVar = "Soy de bloque";
+        const blockConst = "También de bloque";
+        
+        console.log(globalVar);    // ✅ Accesible
+        console.log(funcionVar);   // ✅ Accesible
+        console.log(blockVar);     // ✅ Accesible
+    }
+    
+    // console.log(blockVar);      // ❌ Error: not defined
+    console.log(funcionVar);       // ✅ Accesible
+}
+
+// console.log(funcionVar);        // ❌ Error: not defined
+```
+
+#### Hoisting Explicado
+```javascript
+// Lo que escribes:
+console.log(miVar);    // undefined (no error)
+var miVar = "Hola";
+
+// Lo que JavaScript interpreta:
+var miVar;             // Declaración se eleva
+console.log(miVar);    // undefined
+miVar = "Hola";        // Asignación permanece aquí
+
+// Con let y const:
+// console.log(miLet);    // ❌ ReferenceError: Cannot access before initialization
+let miLet = "Hola";
+```
+
+#### Reglas para Naming
+```javascript
+// ✅ VÁLIDO
+let nombre = "Ana";
+let _privado = "secreto";
+let $elemento = document.querySelector('div');
+let camelCase = "recomendado";
+let numero1 = 1;
+
+// ❌ INVÁLIDO
+// let 1numero = 1;        // No puede empezar con número
+// let mi-variable = 1;    // No guiones
+// let function = 1;       // Palabra reservada
+// let let = 1;            // Palabra reservada
 ```
 
 ---
 
-## 📖 Manejo de eventos en JavaScript
+### 📖 Tipos de Datos Primitivos
 
-Los eventos permiten que tu página web responda a acciones del usuario o del navegador. Son una forma de interactuar con el usuario y responder a sus acciones.
+#### 1. String (Cadenas de Texto)
+```javascript
+// Formas de declarar strings
+let nombre = "Ana";           // Comillas dobles
+let apellido = 'García';      // Comillas simples
+let mensaje = `Hola ${nombre}`; // Template literals (backticks)
 
-```html
-<button onclick="alert('¡Clic!')">Haz clic</button>
+// Template literals: el poder de ES6+
+const edad = 25;
+const presentacion = `
+    Hola, mi nombre es ${nombre} ${apellido}.
+    Tengo ${edad} años.
+    El año que viene tendré ${edad + 1} años.
+`;
 
-<script>
-document.getElementById("miBoton").addEventListener("click", () => {
-  console.log("Botón presionado");
-});
-</script>
+console.log(presentacion);
+```
+
+##### Métodos Esenciales de String
+```javascript
+const texto = "  JavaScript es genial  ";
+
+// Información básica
+console.log(texto.length);                    // 22
+console.log(texto[0]);                        // " "
+console.log(texto.charAt(2));                 // "J"
+
+// Búsqueda
+console.log(texto.indexOf("Script"));         // 4
+console.log(texto.includes("genial"));        // true
+console.log(texto.startsWith("  Java"));      // true
+console.log(texto.endsWith("genial  "));      // true
+
+// Transformación
+console.log(texto.toLowerCase());             // "  javascript es genial  "
+console.log(texto.toUpperCase());             // "  JAVASCRIPT ES GENIAL  "
+console.log(texto.trim());                    // "JavaScript es genial"
+console.log(texto.replace("genial", "awesome")); // "  JavaScript es awesome  "
+
+// División y unión
+const palabras = texto.trim().split(" ");     // ["JavaScript", "es", "genial"]
+console.log(palabras.join("-"));              // "JavaScript-es-genial"
+
+// Subcadenas
+console.log(texto.slice(2, 12));              // "JavaScript"
+console.log(texto.substring(2, 12));          // "JavaScript"
+console.log(texto.substr(2, 10));             // "JavaScript"
+```
+
+#### 2. Number (Números)
+```javascript
+// Tipos de números
+let entero = 42;
+let decimal = 3.14159;
+let negativo = -17;
+let cientifico = 1.2e6;        // 1,200,000
+let hexadecimal = 0xFF;        // 255
+let binario = 0b1010;          // 10
+let octal = 0o755;             // 493
+
+// Valores especiales
+console.log(1 / 0);            // Infinity
+console.log(-1 / 0);           // -Infinity
+console.log("texto" * 2);      // NaN (Not a Number)
+
+// Verificaciones
+console.log(Number.isInteger(42));      // true
+console.log(Number.isInteger(42.0));    // true
+console.log(Number.isInteger(42.1));    // false
+console.log(Number.isNaN(NaN));         // true
+console.log(Number.isFinite(42));       // true
+console.log(Number.isFinite(Infinity)); // false
+```
+
+##### Métodos de Number
+```javascript
+const numero = 123.456789;
+
+// Formateo
+console.log(numero.toFixed(2));           // "123.46"
+console.log(numero.toPrecision(5));       // "123.46"
+console.log(numero.toExponential(2));     // "1.23e+2"
+
+// Conversiones
+console.log(parseInt("123.456"));         // 123
+console.log(parseFloat("123.456"));       // 123.456
+console.log(Number("123.456"));           // 123.456
+console.log(+"123.456");                  // 123.456 (conversión implícita)
+
+// Rangos seguros
+console.log(Number.MAX_SAFE_INTEGER);     // 9007199254740991
+console.log(Number.MIN_SAFE_INTEGER);     // -9007199254740991
+```
+
+#### 3. BigInt (Números Grandes)
+```javascript
+// Para números mayores que Number.MAX_SAFE_INTEGER
+const numeroGrande = 1234567890123456789012345678901234567890n;
+const otroBigInt = BigInt("1234567890123456789012345678901234567890");
+
+console.log(numeroGrande);
+console.log(typeof numeroGrande);         // "bigint"
+
+// Operaciones con BigInt
+const suma = numeroGrande + 100n;         // Solo con otros BigInt
+// const error = numeroGrande + 100;      // ❌ Error: Cannot mix BigInt and other types
+```
+
+#### 4. Boolean (Booleanos)
+```javascript
+let esVerdadero = true;
+let esFalso = false;
+
+// Valores que se evalúan como false (falsy)
+console.log(Boolean(false));      // false
+console.log(Boolean(0));          // false
+console.log(Boolean(-0));         // false
+console.log(Boolean(0n));         // false
+console.log(Boolean(""));         // false
+console.log(Boolean(null));       // false
+console.log(Boolean(undefined));  // false
+console.log(Boolean(NaN));        // false
+
+// Todo lo demás es truthy
+console.log(Boolean("0"));        // true (string no vacío)
+console.log(Boolean(" "));        // true (string con espacio)
+console.log(Boolean([]));         // true (array vacío)
+console.log(Boolean({}));         // true (objeto vacío)
+console.log(Boolean(function(){})); // true (función)
+```
+
+#### 5. Undefined y Null
+```javascript
+// undefined: variable declarada pero no asignada
+let sinAsignar;
+console.log(sinAsignar);          // undefined
+console.log(typeof sinAsignar);   // "undefined"
+
+// null: ausencia intencional de valor
+let vacio = null;
+console.log(vacio);               // null
+console.log(typeof vacio);        // "object" (bug histórico de JS)
+
+// Comparaciones
+console.log(undefined == null);   // true (coerción)
+console.log(undefined === null);  // false (strict equality)
+```
+
+#### 6. Symbol (Único en ES6+)
+```javascript
+// Símbolos: valores únicos e inmutables
+const sym1 = Symbol('descripcion');
+const sym2 = Symbol('descripcion');
+console.log(sym1 === sym2);       // false (cada símbolo es único)
+
+// Uso común: propiedades privadas de objetos
+const PRIVATE_PROP = Symbol('private');
+const objeto = {
+    nombre: "público",
+    [PRIVATE_PROP]: "privado"
+};
+
+console.log(objeto.nombre);       // "público"
+console.log(objeto[PRIVATE_PROP]); // "privado"
 ```
 
 ---
 
-## 📖 Conceptos clave sobre eventos en JavaScript
+### 📖 Tipos de Datos No Primitivos
 
-Los eventos permiten que tu página web responda a acciones del usuario (clics, teclas, movimientos, etc.) o del navegador (carga, errores, etc.). Son una forma de interactuar con el usuario y responder a sus acciones.
+#### Objects (Objetos)
+```javascript
+// Objeto literal
+const persona = {
+    nombre: "Ana",
+    edad: 25,
+    activo: true,
+    hobbies: ["leer", "programar"],
+    direccion: {
+        calle: "Main St",
+        numero: 123
+    },
+    saludar() {
+        return `Hola, soy ${this.nombre}`;
+    }
+};
 
-### Tipos de eventos comunes
+// Acceso a propiedades
+console.log(persona.nombre);           // "Ana"
+console.log(persona["edad"]);          // 25
+console.log(persona.direccion.calle);  // "Main St"
+console.log(persona.saludar());        // "Hola, soy Ana"
 
-- `click`: Cuando el usuario hace clic en un elemento.
-- `mouseover` / `mouseout`: Cuando el mouse entra o sale de un elemento.
-- `keydown` / `keyup`: Cuando se presiona o suelta una tecla.
-- `submit`: Cuando se envía un formulario.
-- `load`: Cuando la página o un recurso termina de cargarse.
+// Propiedades dinámicas
+const propiedad = "nombre";
+console.log(persona[propiedad]);       // "Ana"
+```
 
+#### Arrays (Arreglos)
+```javascript
+// Diferentes formas de crear arrays
+const frutas = ["manzana", "banana", "uva"];
+const numeros = new Array(1, 2, 3, 4, 5);
+const mixto = ["texto", 42, true, null, {nombre: "Ana"}];
 
-### Lista de teclas comunes
+// Array con métodos modernos
+const tareas = [
+    {id: 1, texto: "Aprender JS", completada: false},
+    {id: 2, texto: "Hacer ejercicio", completada: true},
+    {id: 3, texto: "Leer libro", completada: false}
+];
 
-- `Enter`
-- `Escape`
-- `Space`
-- `Tab`
-- `ArrowUp`
-- `ArrowDown`
-- `ArrowLeft`
-- `ArrowRight`
+// Operaciones comunes
+tareas.push({id: 4, texto: "Nueva tarea", completada: false});
+const tareasCompletadas = tareas.filter(tarea => tarea.completada);
+const textosTareas = tareas.map(tarea => tarea.texto);
 
-### Casos de uso típicos
-
-- Mostrar u ocultar menús al hacer clic.
-- Validar formularios antes de enviarlos.
-- Cambiar estilos al pasar el mouse sobre elementos.
-- Capturar atajos de teclado.
-- Cargar datos dinámicamente tras una acción del usuario.
+console.log(tareasCompletadas);
+console.log(textosTareas);
+```
 
 ---
 
-## 📝 Recomendaciones para manejar eventos
+### 📖 Operadores en Profundidad
 
-- **Separa el HTML del JavaScript:** Usa `addEventListener` en lugar de atributos HTML como `onclick` para mantener el código organizado y reutilizable.
-- **Nombra funciones de manera descriptiva:** Por ejemplo, `handleClick` o `onFormSubmit`.
-- **Elimina listeners cuando ya no sean necesarios:** Para evitar fugas de memoria en aplicaciones grandes.
-- **Evita el uso excesivo de eventos globales:** Prefiere delegar eventos en elementos específicos o usar event delegation para listas dinámicas.
-- **Aprovecha el objeto `event`:** Permite acceder a información útil como el elemento que disparó el evento, teclas presionadas, etc.
+#### Operadores Aritméticos
+```javascript
+const a = 10;
+const b = 3;
+
+console.log(a + b);    // 13 - Suma
+console.log(a - b);    // 7  - Resta
+console.log(a * b);    // 30 - Multiplicación
+console.log(a / b);    // 3.3333... - División
+console.log(a % b);    // 1  - Módulo (resto)
+console.log(a ** b);   // 1000 - Exponenciación (ES2016)
+
+// Operadores de asignación
+let x = 5;
+x += 3;    // x = x + 3;  -> 8
+x -= 2;    // x = x - 2;  -> 6
+x *= 2;    // x = x * 2;  -> 12
+x /= 3;    // x = x / 3;  -> 4
+x %= 3;    // x = x % 3;  -> 1
+x **= 2;   // x = x ** 2; -> 1
+
+// Incremento y decremento
+let i = 5;
+console.log(i++);   // 5 (post-incremento: devuelve valor actual)
+console.log(i);     // 6
+console.log(++i);   // 7 (pre-incremento: incrementa y devuelve)
+console.log(i--);   // 7 (post-decremento)
+console.log(--i);   // 5 (pre-decremento)
+```
+
+#### Operadores de Comparación
+```javascript
+// Igualdad (==) vs Identidad (===)
+console.log(5 == "5");     // true  (coerción de tipos)
+console.log(5 === "5");    // false (sin coerción)
+console.log(null == undefined);   // true
+console.log(null === undefined);  // false
+
+// Desigualdad
+console.log(5 != "5");     // false
+console.log(5 !== "5");    // true
+
+// Comparaciones relacionales
+console.log(10 > 5);       // true
+console.log(10 >= 10);     // true
+console.log(5 < 3);        // false
+console.log(5 <= 5);       // true
+
+// Comparaciones con strings
+console.log("a" < "b");    // true (orden alfabético)
+console.log("Ana" < "Luis"); // true
+```
+
+#### Operadores Lógicos
+```javascript
+const esAdulto = edad => edad >= 18;
+const tieneLicencia = true;
+const edad = 20;
+
+// AND lógico (&&)
+const puedeConducir = esAdulto(edad) && tieneLicencia;
+console.log(puedeConducir); // true
+
+// OR lógico (||)
+const esEstudiante = false;
+const esMenor = edad < 18;
+const tieneDescuento = esEstudiante || esMenor;
+console.log(tieneDescuento); // false
+
+// NOT lógico (!)
+console.log(!true);         // false
+console.log(!false);        // true
+console.log(!!edad);        // true (conversión a boolean)
+
+// Short-circuit evaluation
+const usuario = null;
+const nombre = usuario && usuario.nombre;        // null (evita error)
+const nombreDefault = usuario?.nombre || "Invitado"; // "Invitado"
+```
+
+#### Operadores Modernos (ES2020+)
+```javascript
+// Nullish coalescing (??)
+const configuracion = {
+    tema: null,
+    idioma: undefined,
+    notifications: false
+};
+
+const tema = configuracion.tema ?? "claro";           // "claro"
+const idioma = configuracion.idioma ?? "español";    // "español"
+const notifs = configuracion.notifications ?? true;  // false (no es null/undefined)
+
+// Optional chaining (?.)
+const usuario = {
+    perfil: {
+        nombre: "Ana"
+        // direccion no existe
+    }
+};
+
+console.log(usuario?.perfil?.nombre);           // "Ana"
+console.log(usuario?.perfil?.direccion?.calle); // undefined (no error)
+console.log(usuario?.metodoInexistente?.());    // undefined (no error)
+
+// Logical assignment (ES2021)
+let valor = null;
+valor ??= "valor por defecto";  // valor = valor ?? "valor por defecto"
+console.log(valor); // "valor por defecto"
+```
 
 ---
 
-## 💡 Ejemplo de delegación de eventos
+### 📖 Type Coercion (Coerción de Tipos)
 
-La delegación de eventos es útil cuando tienes muchos elementos similares (por ejemplo, una lista de botones generados dinámicamente):
+#### Coerción Implícita
+```javascript
+// Suma: número + string = string
+console.log(5 + "3");      // "53"
+console.log("5" + 3);      // "53"
+console.log(5 + 3 + "2");  // "82" (5+3=8, luego 8+"2"="82")
+console.log("2" + 5 + 3);  // "253" ("2"+5="25", luego "25"+3="253")
 
-```js
-document.getElementById("lista").addEventListener("click", function(event) {
-    if (event.target.tagName === "BUTTON") {
-        alert("Botón: " + event.target.textContent);
+// Otros operadores: string a número
+console.log("5" - 3);      // 2
+console.log("5" * 3);      // 15
+console.log("5" / 2);      // 2.5
+console.log("5" % 2);      // 1
+
+// Booleanos en operaciones
+console.log(true + 1);     // 2 (true = 1)
+console.log(false + 1);    // 1 (false = 0)
+```
+
+#### Coerción Explícita
+```javascript
+// A número
+console.log(Number("42"));      // 42
+console.log(Number("42.5"));    // 42.5
+console.log(Number("42px"));    // NaN
+console.log(parseInt("42px"));  // 42
+console.log(parseFloat("42.5px")); // 42.5
+console.log(+"42");            // 42
+
+// A string
+console.log(String(42));        // "42"
+console.log(String(true));      // "true"
+console.log((42).toString());   // "42"
+
+// A boolean
+console.log(Boolean(1));        // true
+console.log(Boolean(0));        // false
+console.log(!!"hello");         // true (doble negación)
+```
+
+---
+
+### 🏋️‍♂️ Ejercicios Prácticos
+
+#### Ejercicio 1: Variables y Scope
+```javascript
+// Completa este código identificando los errores:
+function ejemploScope() {
+    const mensaje = "Hola desde función";
+    
+    if (true) {
+        let contador = 0;
+        const PI = 3.14159;
+        
+        // ¿Qué imprime cada console.log?
+        console.log(mensaje);    // ?
+        console.log(contador);   // ?
+        console.log(PI);         // ?
+    }
+    
+    // console.log(contador);   // ¿Error o no?
+    // PI = 3.14;               // ¿Error o no?
+}
+
+ejemploScope();
+```
+
+#### Ejercicio 2: Manipulación de Strings
+```javascript
+// Crea una función que limpie y formatee nombres
+function formatearNombre(nombreCompleto) {
+    // Eliminar espacios extras, convertir a formato: "Apellido, Nombre"
+    // Ejemplo: "  ana   garcia lopez  " → "Garcia Lopez, Ana"
+    
+    // Tu código aquí:
+    const limpio = nombreCompleto.trim().toLowerCase();
+    const partes = limpio.split(' ').filter(parte => parte.length > 0);
+    const nombre = partes[0];
+    const apellidos = partes.slice(1).join(' ');
+    
+    // Capitalizar primera letra de cada palabra
+    const capitalizar = str => str.charAt(0).toUpperCase() + str.slice(1);
+    
+    return `${apellidos.split(' ').map(capitalizar).join(' ')}, ${capitalizar(nombre)}`;
+}
+
+// Probar:
+console.log(formatearNombre("  ana   garcia lopez  "));
+// Resultado esperado: "Garcia Lopez, Ana"
+```
+
+#### Ejercicio 3: Coerción y Comparaciones
+```javascript
+// Predice el resultado de cada expresión:
+console.log(5 + "3" - 2);           // ?
+console.log(true + false);          // ?
+console.log("5" - - - 2);          // ?
+console.log([] + []);               // ?
+console.log([] + {});               // ?
+console.log({} + []);               // ?
+console.log(0 == false);            // ?
+console.log(0 === false);           // ?
+console.log("" == false);           // ?
+console.log(null == undefined);     // ?
+console.log(null === undefined);    // ?
+
+// Respuestas:
+// "53" - 2 = 51, 1, 7, "", "[object Object]", 0, true, false, true, true, false
+```
+
+#### Ejercicio 4: Operadores Modernos
+```javascript
+// Implementa una función segura para acceder a propiedades anidadas
+function obtenerDireccionCompleta(usuario) {
+    // Usar optional chaining y nullish coalescing
+    const calle = usuario?.direccion?.calle ?? "No especificada";
+    const numero = usuario?.direccion?.numero ?? "S/N";
+    const ciudad = usuario?.direccion?.ciudad ?? "Ciudad no especificada";
+    
+    return `${calle} ${numero}, ${ciudad}`;
+}
+
+// Probar con diferentes objetos:
+const usuario1 = {
+    nombre: "Ana",
+    direccion: {
+        calle: "Main St",
+        numero: 123,
+        ciudad: "Madrid"
+    }
+};
+
+const usuario2 = {
+    nombre: "Luis"
+    // Sin dirección
+};
+
+const usuario3 = {
+    nombre: "María",
+    direccion: {
+        calle: "Broadway"
+        // Sin número ni ciudad
+    }
+};
+
+console.log(obtenerDireccionCompleta(usuario1));
+console.log(obtenerDireccionCompleta(usuario2));
+console.log(obtenerDireccionCompleta(usuario3));
+```
+
+---
+
+### 💡 Mini Proyecto: Validador de Datos Personal
+
+```javascript
+// Crea un sistema de validación completo
+class ValidadorPersona {
+    static validarEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+    
+    static validarEdad(edad) {
+        const num = Number(edad);
+        return !isNaN(num) && num >= 0 && num <= 120;
+    }
+    
+    static validarTelefono(telefono) {
+        // Formato: +34 123 456 789 o 123456789
+        const soloNumeros = telefono.replace(/\D/g, '');
+        return soloNumeros.length >= 9 && soloNumeros.length <= 12;
+    }
+    
+    static formatearNombre(nombre) {
+        return nombre
+            .trim()
+            .toLowerCase()
+            .split(' ')
+            .filter(palabra => palabra.length > 0)
+            .map(palabra => palabra.charAt(0).toUpperCase() + palabra.slice(1))
+            .join(' ');
+    }
+    
+    static validarPersona(datos) {
+        const errores = [];
+        
+        // Validar nombre
+        if (!datos.nombre || datos.nombre.trim().length < 2) {
+            errores.push("El nombre debe tener al menos 2 caracteres");
+        }
+        
+        // Validar email
+        if (!datos.email || !this.validarEmail(datos.email)) {
+            errores.push("El email no tiene un formato válido");
+        }
+        
+        // Validar edad
+        if (!datos.edad || !this.validarEdad(datos.edad)) {
+            errores.push("La edad debe ser un número entre 0 y 120");
+        }
+        
+        // Validar teléfono (opcional)
+        if (datos.telefono && !this.validarTelefono(datos.telefono)) {
+            errores.push("El teléfono no tiene un formato válido");
+        }
+        
+        return {
+            valido: errores.length === 0,
+            errores,
+            datosLimpios: errores.length === 0 ? {
+                nombre: this.formatearNombre(datos.nombre),
+                email: datos.email.toLowerCase().trim(),
+                edad: Number(datos.edad),
+                telefono: datos.telefono?.replace(/\D/g, '') || null
+            } : null
+        };
+    }
+}
+
+// Ejemplos de uso:
+const casos = [
+    {
+        nombre: "  ana  garcia  ",
+        email: "ANA@GMAIL.COM",
+        edad: "25",
+        telefono: "+34 123 456 789"
+    },
+    {
+        nombre: "a",
+        email: "email-invalido",
+        edad: "abc",
+        telefono: "123"
+    }
+];
+
+casos.forEach((caso, index) => {
+    console.log(`\n--- Caso ${index + 1} ---`);
+    const resultado = ValidadorPersona.validarPersona(caso);
+    
+    if (resultado.valido) {
+        console.log("✅ Datos válidos:", resultado.datosLimpios);
+    } else {
+        console.log("❌ Errores encontrados:");
+        resultado.errores.forEach(error => console.log(`  - ${error}`));
     }
 });
-```
-
----
-
-## 2️⃣ 📄 **Strings, Números y Fechas en JavaScript**
-
-Ahora que sabes lo básico, vamos a trabajar con textos (strings), números, fechas, matemáticas y aleatoriedad.
-
----
-
-## 📖 Strings (Cadenas de texto)
-
-Los *strings* son secuencias de caracteres encerradas entre comillas simples, dobles o backticks.
-
-```js
-let saludo = "Hola mundo";
-let despedida = 'Adiós';
-let nombre = `Ana`;
-```
-
----
-
-### Métodos de String
-
-Los objetos `String` tienen una variedad de métodos para manipular y analizar cadenas de texto.
-
-#### Acceso a caracteres específicos
-
-- `charAt(index)`: Devuelve el carácter en la posición especificada.
-- `charCodeAt(index)`: Devuelve el código Unicode del carácter en la posición especificada.
-- `[index]`: Accede al carácter en la posición especificada (similar a `charAt`).
-
-#### Subcadenas
-
-- `slice(start, end)`: Devuelve una subcadena desde `start` hasta `end`.
-- `substring(start, end)`: Devuelve una subcadena desde `start` hasta `end` (no incluye el carácter en `end`).
-- `substr(start, length)`: Devuelve una subcadena desde `start` con longitud `length`.
-
-#### Longitud
-
-- `length`: Devuelve la longitud de la cadena.
-
-#### Concatenación
-
-- `concat(string2, ...)`: Concatena la cadena con una o varias cadenas adicionales.
-- `+`: Concatena la cadena con una o varias cadenas adicionales.
-
-#### Repetición
-
-- `repeat(n)`: Repite la cadena `n` veces.
-
-#### Recorrido
-
-- `for...of`: Itera sobre cada carácter de la cadena.
-- `split('')`: Divide la cadena en un array de caracteres individuales.
-
-#### Conversión a mayúsculas y minúsculas
-
-- `toUpperCase()`: Convierte la cadena a mayúsculas.
-- `toLowerCase()`: Convierte la cadena a minúsculas.
-
-#### Reemplazo
-
-- `replace(valor, nuevoValor)`: Reemplaza el primer valor encontrado con `nuevoValor`.
-- `replaceAll(valor, nuevoValor)`: Reemplaza todos los valores encontrados con `nuevoValor`.
-
-#### División
-
-- `split(separador)`: Divide la cadena en un array de subcadenas separadas por `separador`.
-
-#### Unión
-
-- `join(separador)`: Une un array de cadenas en una cadena separada por `separador`.
-
-#### Verificación
-
-- `includes(valor)`: Verifica si la cadena contiene el valor especificado.
-- `startsWith(valor)`: Verifica si la cadena comienza con el valor especificado.
-- `endsWith(valor)`: Verifica si la cadena termina con el valor especificado.
-
-#### Interpolación
-
-- `` ${expresion} ``: Interpola la expresión en una cadena. Puedes interpolar variables fácilmente con backticks:
-
-Los *backticks* (acento grave: `` ` ``) son un tipo de comillas que permiten crear *template strings* en JavaScript. A diferencia de las comillas simples (`'`) o dobles (`"`), los backticks permiten:
-
-- Escribir cadenas multilínea sin caracteres especiales.
-- Interpolar variables y expresiones usando `${...}` dentro del string.
-
-Por ejemplo:
-
-```js
-let nombre = "Ana";
-let edad = 25;
-
-let mensaje = `Hola, soy ${nombre} y tengo ${edad} años`;
-console.log(mensaje);
-```
-
----
-
-## 📖 Números y operaciones numéricas
-
-En Javascript, todos los números (enteros o decimales) son del tipo `number`.
-
-```js
-let entero = 42;
-let decimal = 3.14;
-let negativo = -7;
-
-// Notación científica
-let grande = 1e6;  // 1000000
-```
-
----
-
-### Métodos de números
-
-```js
-let x = 9.567;
-
-console.log(x.toFixed(2));    // "9.57" — 2 decimales
-console.log(Number.isInteger(x)); // false
-```
-
----
-
-### BigInt: Números muy grandes
-
-Para números muy grandes:
-
-```js
-let big = 1234567890123456789012345678901234567890n;
-console.log(big);
-```
-
----
-
-## 📖 Objeto MATH y operaciones matemáticas
-
-El objeto `Math` ofrece utilidades matemáticas.
-
-```js
-console.log(Math.PI);             // 3.1415...
-console.log(Math.sqrt(16));      // 4
-console.log(Math.pow(2, 8));     // 256
-console.log(Math.random());      // entre 0 y 1
-console.log(Math.floor(3.7));    // 3
-console.log(Math.ceil(3.2));     // 4
-console.log(Math.round(3.5));    // 4
-```
-
----
-
-## 📖 Números aleatorios
-
-Para obtener un número aleatorio en un rango:
-
-```js
-// Aleatorio entre 0 y 10
-let aleatorio = Math.floor(Math.random() * 11);
-console.log(aleatorio);
-```
-
----
-
-## 📖 Fecha y hora
-
-JavaScript usa el objeto `Date`.
-
-```js
-let ahora = new Date();
-console.log(ahora);
-
-// Crear una fecha específica
-let cumple = new Date("1999-12-31");
-console.log(cumple);
-```
-
----
-
-### Métodos del objeto Date
-
-```js
-let fecha = new Date();
-
-console.log(fecha.getFullYear()); // año
-console.log(fecha.getMonth());    // mes (0-11)
-console.log(fecha.getDate());     // día
-console.log(fecha.getDay());      // día semana (0-domingo)
-console.log(fecha.getHours());    // hora
-console.log(fecha.getMinutes());
-console.log(fecha.getSeconds());
-
-// Establecer valores
-fecha.setFullYear(2025);
-fecha.setMonth(0); // Enero
-```
-
----
-
-## 3️⃣ 🔄 **Arrays y Métodos Avanzados**
-
-> **Nota:** Ya se explicó qué es un array y cómo se usa. Aquí solo mantén los métodos avanzados y elimina explicaciones básicas repetidas.
-
-### Métodos de Array
-
-```js
-let numeros = [1, 2, 3, 4, 5];
-
-// Agregar y quitar
-numeros.push(6);
-numeros.pop();
-numeros.shift();
-numeros.unshift(0);
-
-// Buscar
-console.log(numeros.indexOf(3));
-console.log(numeros.includes(4));
-
-// Ordenar
-numeros.sort();
-
-// Iterar
-numeros.forEach(num => console.log(num));
-
-// Map
-let cuadrados = numeros.map(num => num * num);
-
-// Filter
-let pares = numeros.filter(num => num % 2 === 0);
-```
-
----
-
-### Iterar Arrays
-
-```js
-let frutas = ["manzana", "banana", "uva"];
-
-for (let fruta of frutas) {
-  console.log(fruta);
-}
-
-frutas.forEach((fruta, indice) => {
-  console.log(`${indice}: ${fruta}`);
-});
-```
-
----
-
-### Arrays Constantes
-
-Aunque definas un array con `const`, puedes modificar sus elementos:
-
-```js
-const miArray = [1, 2, 3];
-miArray.push(4);
-```
-
----
-
-## 4️⃣ 📜 **Objetos Avanzados**
-
-> **Nota:** Ya se explicó cómo crear un objeto básico. Aquí solo mantén métodos, propiedades y constructores.
-
-### Propiedades y Métodos
-
-```js
-let coche = {
-  marca: "Toyota",
-  modelo: "Corolla",
-  arrancar: function() {
-    console.log(`${this.marca} ${this.modelo} ha arrancado`);
-  }
-};
-
-console.log(coche.marca);
-coche.arrancar();
-```
-
----
-
-### Constructores
-
-```js
-function Persona(nombre, edad) {
-  this.nombre = nombre;
-  this.edad = edad;
-}
-
-let ana = new Persona("Ana", 25);
-console.log(ana.nombre);
-```
-
----
-
-### Prototipos
-
-Puedes añadir métodos a un constructor con su prototipo.
-
-```js
-Persona.prototype.saludar = function() {
-  console.log(`Hola, soy ${this.nombre}`);
-}
-
-ana.saludar();
-```
-
----
-
-## 5️⃣ 🔧 **Funciones Avanzadas**
-
-### Call, Apply, Bind
-
-```js
-function saluda(saludo) {
-  console.log(`${saludo}, soy ${this.nombre}`);
-}
-
-let persona = {nombre: "Ana"};
-
-saluda.call(persona, "Hola");
-saluda.apply(persona, ["Hola"]);
-
-let saludaAna = saluda.bind(persona);
-saludaAna("Hola");
-```
-
----
-
-### Closures
-
-```js
-function contador() {
-  let cuenta = 0;
-  return function() {
-    cuenta++;
-    return cuenta;
-  }
-}
-
-let miContador = contador();
-console.log(miContador());  // 1
-console.log(miContador());  // 2
-```
-
----
-
-## 6️⃣ 🔷 **Clases y Herencia**
-
-```js
-class Animal {
-  constructor(nombre) {
-    this.nombre = nombre;
-  }
-  hablar() {
-    console.log(`${this.nombre} hace un ruido`);
-  }
-}
-
-class Perro extends Animal {
-  hablar() {
-    console.log(`${this.nombre} ladra`);
-  }
-}
-
-let perro = new Perro("Rex");
-perro.hablar();
-```
-
----
-
-## 7️⃣ 🌟 **Asincronía**
-
-**¿Qué es la asincronía?**  
-La asincronía permite que el código ejecute tareas que toman tiempo (como leer archivos, hacer peticiones a internet o consultar bases de datos) sin detener el resto del programa. Así, tu aplicación sigue siendo rápida y no se "congela" esperando respuestas.
-
-**Callbacks**  
-Un callback es una función que se pasa como argumento a otra función y se ejecuta después de que termina una tarea. Ejemplo:
-
-```js
-function tareaAsincrona(callback) {
-  setTimeout(() => {
-    callback('Listo!');
-  }, 1000);
-}
-tareaAsincrona((mensaje) => {
-  console.log(mensaje);
-});
-```
-
-*Problema:* Si tienes muchas tareas anidadas, el código se vuelve difícil de leer ("callback hell").
-
-**Promesas**  
-Una promesa es un objeto que representa un valor que estará disponible en el futuro. Permite manejar el éxito o error de una tarea asincrónica de forma más ordenada.
-
-```js
-let promesa = new Promise((resolve, reject) => {
-  setTimeout(() => resolve('Hecho!'), 1000);
-});
-promesa.then(resultado => console.log(resultado));
-```
-
-**Async/Await**  
-`async` y `await` son una forma moderna y sencilla de trabajar con promesas. `await` pausa la función hasta que la promesa se resuelve, haciendo el código más fácil de leer.
-
-```js
-async function ejemplo() {
-  let resultado = await promesa;
-  console.log(resultado);
-}
-
-ejemplo();
-```
-
----
-
-## 8️⃣ 🖋️ **DOM y Eventos**
-
-```html
-<p id="demo">Hola</p>
-<button onclick="cambiarTexto()">Cambia</button>
-
-<script>
-function cambiarTexto() {
-  document.getElementById("demo").innerText = "Texto cambiado";
-}
-</script>
-```
-
----
-
-### Event Listener
-
-```js
-document.getElementById("demo").addEventListener("click", () => {
-  alert("Clic en demo");
-});
-```
-
----
-
-## 9️⃣ 🌐 **AJAX y Fetch**
-
-### Fetch
-
-```js
-fetch("https://jsonplaceholder.typicode.com/posts")
-  .then(res => res.json())
-  .then(data => console.log(data));
-```
-
----
-
-## 🔟 📦 **JSON**
-
-```js
-let persona = {nombre: "Ana", edad: 25};
-
-let json = JSON.stringify(persona); // objeto → JSON
-console.log(json);
-
-let obj = JSON.parse(json);         // JSON → objeto
-console.log(obj);
-```
-
----
-
-## 🔷 1️⃣1️⃣ **BOM (Browser Object Model)**
-
-El *BOM* permite interactuar con el navegador más allá del documento HTML.
-
----
-
-### Window
-
-```js
-console.log(window.innerWidth);  // ancho de la ventana
-console.log(window.location.href); // URL actual
-```
-
----
-
-### Screen
-
-```js
-console.log(screen.width);
-console.log(screen.height);
-```
-
----
-
-### Location
-
-```js
-console.log(location.href);   // URL
-// location.reload();        // recarga la página
-```
-
----
-
-### History
-
-```js
-history.back();   // ir atrás
-history.forward(); // ir adelante
-```
-
----
-
-### Navigator
-
-```js
-console.log(navigator.userAgent);
-console.log(navigator.language);
-```
-
----
-
-### Popups y Alertas
-
-```js
-alert("Hola!");
-confirm("¿Estás seguro?");
-prompt("Escribe tu nombre:");
-```
-
----
-
-### Temporizadores
-
-```js
-setTimeout(() => {
-  console.log("2 segundos después");
-}, 2000);
-
-let intervalo = setInterval(() => {
-  console.log("Cada segundo");
-}, 1000);
-
-clearInterval(intervalo);  // detenerlo
-```
-
----
-
-### Cookies
-
-```js
-document.cookie = "usuario=Ana";
-console.log(document.cookie);
-```
-
----
-
-## 🔷 1️⃣2️⃣ **Web APIs**
-
----
-
-### Web Storage
-
-**¿Qué es?**  
-Permite guardar datos en el navegador del usuario, ya sea de forma permanente (`localStorage`) o solo durante la sesión (`sessionStorage`).
-
-**Ejemplo explicado:**
-
-```js
-localStorage.setItem("nombre", "Ana"); // 1. Guarda el valor "Ana" bajo la clave "nombre" en el almacenamiento local.
-console.log(localStorage.getItem("nombre")); // 2. Recupera y muestra el valor guardado ("Ana").
-localStorage.removeItem("nombre"); // 3. Elimina el dato asociado a la clave "nombre".
-
-sessionStorage.setItem("sesion", "activa"); // 4. Guarda el valor "activa" bajo la clave "sesion" solo durante la sesión actual.
-```
-
----
-
-### Web Workers
-
-**¿Qué es?**  
-Permite ejecutar scripts en segundo plano, sin bloquear la interfaz del usuario.
-
-**Ejemplo explicado:**
-
-```js
-let worker = new Worker("worker.js"); // 1. Crea un nuevo trabajador que ejecuta el archivo "worker.js".
-worker.postMessage("Hola"); // 2. Envía el mensaje "Hola" al trabajador.
-
-worker.onmessage = (e) => { // 3. Define una función que se ejecuta cuando el trabajador responde.
-  console.log(e.data); // 4. Muestra la respuesta recibida del trabajador.
-}
-```
-
----
-
-### Fetch API (visto antes)
-
-**¿Qué es?**  
-Permite hacer solicitudes HTTP para obtener o enviar datos a servidores.
-
-**Ejemplo explicado:**
-
-```js
-fetch("https://jsonplaceholder.typicode.com/posts") // 1. Realiza una solicitud GET a la URL indicada.
-  .then(res => res.json()) // 2. Convierte la respuesta a formato JSON.
-  .then(data => console.log(data)); // 3. Muestra los datos obtenidos en la consola.
-```
-
----
-
-### Geolocation API
-
-**¿Qué es?**  
-Permite obtener la ubicación geográfica del usuario (con su permiso).
-
-**Ejemplo explicado:**
-
-```js
-navigator.geolocation.getCurrentPosition(pos => { // 1. Solicita la ubicación actual del usuario.
-  console.log(pos.coords.latitude, pos.coords.longitude); // 2. Muestra la latitud y longitud en consola.
-});
-```
-
----
-
-### Validation API
-
-**¿Qué es?**  
-Permite validar formularios HTML automáticamente usando atributos como `required` o `type`.
-
-**Ejemplo explicado:**
-
-```html
-<form>
-  <input type="email" required> <!-- 1. Campo de entrada que solo acepta emails y es obligatorio. -->
-  <button type="submit">Enviar</button> <!-- 2. Botón para enviar el formulario. Si el email no es válido, no se envía. -->
-</form>
-```
-
----
-
-## 🔷 1️⃣3️⃣ **AJAX**
-
-Antes de `fetch`, AJAX usaba `XMLHttpRequest`.
-
-```js
-let xhr = new XMLHttpRequest();
-xhr.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
-xhr.onload = function() {
-  if (xhr.status === 200) {
-    console.log(xhr.responseText);
-  }
-};
-xhr.send();
-```
-
----
-
-## 🔷 1️⃣4️⃣ **jQuery vs JavaScript**
-
-Aunque hoy en día se usa menos, jQuery facilita la sintaxis:
-
-```js
-// Vanilla JS
-document.getElementById("demo").innerText = "Hola";
-
-// jQuery
-$("#demo").text("Hola");
-```
-
----
-
-## 🔷 1️⃣5️⃣ **Gráficos y Canvas**
-
----
-
-### Canvas
-
-```html
-<canvas id="miCanvas" width="200" height="100"></canvas>
-<script>
-let c = document.getElementById("miCanvas").getContext("2d");
-c.fillStyle = "blue";
-c.fillRect(10, 10, 100, 50);
-</script>
-```
-
----
-
-### Chart.js (requiere incluir la librería)
-
-```js
-new Chart(ctx, {
-  type: 'bar',
-  data: { ... }
-});
-```
-
----
-
-### D3.js, Plotly y Google Charts son otras bibliotecas para visualización
-
----
-
-## 🔷 1️⃣6️⃣ **Errores y Debugging**
-
-```js
-try {
-  noExiste();
-} catch (err) {
-  console.log("Error: ", err.message);
-} finally {
-  console.log("Esto siempre se ejecuta");
-}
-```
-
-Usa `console.log`, `console.error` y las herramientas de desarrollador del navegador para depurar.
-
----
-
-## 🔷 1️⃣7️⃣ **Moderno y Avanzado**
-
-> **Nota:** Aquí solo mantén ejemplos modernos y evita repetir explicaciones de arrow functions, destructuring, etc., si ya se vieron antes.
-
-### Strict Mode
-
-```js
-"use strict";
-x = 3.14; // Error, variable no declarada
-```
-
----
-
-### Módulos
-
-```js
-// archivo.js
-export const PI = 3.14;
-
-// otro.js
-import { PI } from './archivo.js';
-console.log(PI);
-```
-
----
-
-### Arrow Functions
-
-> Ya se explicó en la sección de funciones. Si quieres, solo deja un ejemplo breve aquí como recordatorio.
-
-```js
-const sumar = (a, b) => a + b;
-```
-
-### Destructuring
-
-```js
-let persona = { nombre: "Ana", edad: 25 };
-let { nombre, edad } = persona;
-
-let [a, b] = [1, 2];
-```
-
----
-
-### RegExp (Expresiones regulares)
-
-```js
-let texto = "Hola123";
-let regex = /\d+/;
-console.log(regex.test(texto));   // true
-```
-
----
-
-### Iterables e Iteradores
-
-```js
-let arr = [10, 20, 30];
-for (let valor of arr) {
-  console.log(valor);
-}
-```
-
----
-
-## 🔷 1️⃣8️⃣ **DOM Avanzado**
-
-- `document.querySelector()`
-- `document.querySelectorAll()`
-- `.classList.add() / remove() / toggle()`
-- `.style` para modificar CSS.
-- Animaciones con `.animate()`.
-- DOM Traversal (padres, hijos, hermanos).
-
----
-
-## 🔷 1️⃣9️⃣ **JSON Profundo**
-
-```js
-let datos = `{"nombre":"Ana","edad":25}`;
-let obj = JSON.parse(datos);
-console.log(obj.nombre);
-
-let json = JSON.stringify(obj);
 ```
