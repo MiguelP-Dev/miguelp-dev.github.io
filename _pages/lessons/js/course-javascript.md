@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "JavaScript Moderno: Curso Completo 2025"
-description: "Domina JavaScript desde fundamentos hasta desarrollo profesional con proyectos reales"
+title: "JavaScript Moderno: Curso de nivel Principiantes"
+description: "Aprende desde cero los conceptos esenciales de JavaScript y adquiere una base sólida para crear aplicaciones web interactivas, comprendiendo buenas prácticas y herramientas modernas desde el inicio."
 permalink: /lessons/js/course-javascript/
 category: lessons
 subcategory: "web development"
@@ -9,42 +9,17 @@ icon: 🚀
 article: true
 ---
 
-# 🚀 JavaScript Moderno: De Principiante a Desarrollador
+## 🎯 Objetivos del Curso (Nivel Principiante)
 
-## 📋 Índice del Curso
+Al finalizar este curso serás capaz de:
 
-### 📚 **NIVEL PRINCIPIANTE** (20-25 horas)
-- [Módulo 1: Fundamentos y Configuración](#módulo-1-fundamentos-y-configuración)
-- [Módulo 2: Variables, Tipos de Datos y Operadores](#módulo-2-variables-tipos-de-datos-y-operadores)
-- [Módulo 3: Control de Flujo y Estructuras](#módulo-3-control-de-flujo-y-estructuras)
-- [Módulo 4: Funciones y Scope](#módulo-4-funciones-y-scope)
-- [**Proyecto 1:** Calculadora Interactiva](#proyecto-1-calculadora-interactiva)
-
-### 🎯 **NIVEL INTERMEDIO** (25-30 horas)
-- [Módulo 5: Objetos y Arrays Avanzados](#módulo-5-objetos-y-arrays-avanzados)
-- [Módulo 6: DOM y Manipulación de Eventos](#módulo-6-dom-y-manipulación-de-eventos)
-- [Módulo 7: Asincronía y APIs](#módulo-7-asincronía-y-apis)
-- [Módulo 8: Almacenamiento y Datos](#módulo-8-almacenamiento-y-datos)
-- [**Proyecto 2:** Gestor de Tareas con API](#proyecto-2-gestor-de-tareas-con-api)
-
-### 🔥 **NIVEL AVANZADO** (30-35 horas)
-- [Módulo 9: Clases, Herencia y Patrones](#módulo-9-clases-herencia-y-patrones)
-- [Módulo 10: Módulos y Herramientas Modernas](#módulo-10-módulos-y-herramientas-modernas)
-- [Módulo 11: Performance y Optimización](#módulo-11-performance-y-optimización)
-- [Módulo 12: Testing y Debugging Avanzado](#módulo-12-testing-y-debugging-avanzado)
-- [**Proyecto Final:** Dashboard de Análisis de Datos](#proyecto-final-dashboard-de-análisis-de-datos)
-
----
-
-## 🎯 Objetivos del Curso
-
-Al completar este curso serás capaz de:
-- ✅ Desarrollar aplicaciones web interactivas desde cero
-- ✅ Manejar APIs y datos asíncronos profesionalmente
-- ✅ Implementar patrones de diseño y arquitecturas escalables
-- ✅ Optimizar aplicaciones para rendimiento y accesibilidad
-- ✅ Usar herramientas modernas de desarrollo y testing
-- ✅ Crear un portfolio de proyectos para empleadores
+- ✅ Comprender qué es JavaScript y cómo se integra en la web
+- ✅ Configurar un entorno de desarrollo profesional desde cero
+- ✅ Escribir, ejecutar y depurar tu primer código JavaScript
+- ✅ Utilizar variables, tipos de datos y operadores fundamentales
+- ✅ Manipular la consola del navegador para pruebas y debugging
+- ✅ Aplicar buenas prácticas básicas en la organización de tu código
+- ✅ Sentar las bases para avanzar hacia proyectos y conceptos más avanzados en el [nivel intermedio del curso](/lessons/js/course-javascript-2nd-level/)
 
 ---
 
@@ -65,17 +40,18 @@ Al completar este curso serás capaz de:
 
 ---
 
-# 📚 NIVEL PRINCIPIANTE
-
 ## Módulo 1: Fundamentos y Configuración
+
 *⏱️ Tiempo estimado: 4-5 horas*
 
 ### 📋 Prerequisites
+
 - Conocimientos básicos de HTML y CSS
 - Navegador web moderno (Chrome, Firefox, Safari, Edge)
 - Editor de código (VS Code recomendado)
 
 ### 🎯 Objetivos del Módulo
+
 - Configurar entorno de desarrollo profesional
 - Entender qué es JavaScript y cómo funciona
 - Dominar las herramientas de desarrollo del navegador
@@ -86,6 +62,7 @@ Al completar este curso serás capaz de:
 ### 📖 ¿Qué es JavaScript?
 
 JavaScript es un lenguaje de programación interpretado, dinámico y de alto nivel que:
+
 - **Se ejecuta en el navegador** para crear interactividad en páginas web
 - **Se ejecuta en el servidor** con Node.js para backend
 - **Es orientado a objetos** basado en prototipos
@@ -93,12 +70,14 @@ JavaScript es un lenguaje de programación interpretado, dinámico y de alto niv
 - **Tiene un event loop** para manejar asincronía
 
 #### Historia y Evolución
+
 - **1995:** Creado por Brendan Eich en 10 días
 - **2009:** Node.js permite JavaScript en servidor
 - **2015:** ES6/ES2015 moderniza el lenguaje
 - **2025:** JavaScript es el lenguaje más usado del mundo
 
 #### ¿Por qué Aprender JavaScript?
+
 ✅ **Versatilidad:** Frontend, backend, mobile, desktop  
 ✅ **Demanda laboral:** Millones de trabajos disponibles  
 ✅ **Comunidad:** Ecosistema gigante de librerías  
@@ -109,6 +88,7 @@ JavaScript es un lenguaje de programación interpretado, dinámico y de alto niv
 ### 🛠️ Configuración del Entorno de Desarrollo
 
 #### 1. Editor de Código: VS Code
+
 ```bash
 # Descargar VS Code desde: https://code.visualstudio.com/
 
@@ -121,6 +101,7 @@ JavaScript es un lenguaje de programación interpretado, dinámico y de alto niv
 ```
 
 #### 2. Navegador y DevTools
+
 ```javascript
 // Abrir DevTools en cualquier navegador:
 // Windows/Linux: F12 o Ctrl+Shift+I
@@ -134,6 +115,7 @@ JavaScript es un lenguaje de programación interpretado, dinámico y de alto niv
 ```
 
 #### 3. Configuración de Proyecto
+
 ```html
 <!-- estructura-proyecto/
 ├── index.html
@@ -146,8 +128,8 @@ JavaScript es un lenguaje de programación interpretado, dinámico y de alto niv
 
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+    <head>
+        <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Primer Proyecto JavaScript</title>
     <link rel="stylesheet" href="css/styles.css">
@@ -167,11 +149,13 @@ JavaScript es un lenguaje de programación interpretado, dinámico y de alto niv
 ### 📖 Formas de Incluir JavaScript
 
 #### 1. Código Inline (No recomendado para producción)
+
 ```html
 <button onclick="alert('¡Hola!')">Click aquí</button>
 ```
 
 #### 2. Script Interno
+
 ```html
 <script>
     // Bueno para código específico de una página
@@ -184,6 +168,7 @@ JavaScript es un lenguaje de programación interpretado, dinámico y de alto niv
 ```
 
 #### 3. Archivo Externo (Recomendado)
+
 ```html
 <!-- En el <head> con defer -->
 <script defer src="js/main.js"></script>
@@ -206,6 +191,7 @@ document.addEventListener('DOMContentLoaded', inicializarApp);
 ```
 
 #### ⚡ Mejores Prácticas
+
 ```html
 <!-- ✅ BUENO: Con defer para cargar sin bloquear -->
 <script defer src="js/main.js"></script>
@@ -225,6 +211,7 @@ document.addEventListener('DOMContentLoaded', inicializarApp);
 ### 📖 Herramientas de Desarrollo
 
 #### Console: Tu Mejor Amigo
+
 ```javascript
 // Tipos de logs
 console.log("Información general");
@@ -250,6 +237,7 @@ console.table([{nombre: "Ana", edad: 25}, {nombre: "Luis", edad: 30}]);
 ```
 
 #### Debugging con Breakpoints
+
 ```javascript
 // Usando debugger statement
 function calculadora(a, b, operacion) {
@@ -273,6 +261,7 @@ function calculadora(a, b, operacion) {
 ### 🏋️‍♂️ Ejercicios Prácticos
 
 #### Ejercicio 1: Configuración Básica
+
 ```javascript
 // 1. Crear estructura de proyecto
 // 2. Configurar VS Code con extensiones
@@ -286,6 +275,7 @@ console.log("Fecha actual:", new Date().toLocaleDateString());
 ```
 
 #### Ejercicio 2: Explorando la Console
+
 ```javascript
 // Experimenta con diferentes tipos de console:
 console.log("Log normal");
@@ -310,6 +300,7 @@ console.timeEnd("bucle"); // bucle: 1.234ms
 ```
 
 #### Ejercicio 3: Debugging Básico
+
 ```javascript
 // Copia este código y usa breakpoints para entender el flujo:
 function saludar(nombre, apellido) {
@@ -328,39 +319,18 @@ saludar("Luis", "Martínez");
 
 ---
 
-### ✅ Quiz Módulo 1
-
-1. **¿Cuál es la mejor forma de incluir JavaScript en producción?**
-   - a) Código inline en HTML
-   - b) Archivo externo con defer
-   - c) Script interno en el head
-   - d) No importa la forma
-
-2. **¿Qué hace el statement `debugger`?**
-   - a) Elimina errores del código
-   - b) Pausa la ejecución para debugging
-   - c) Muestra información en console
-   - d) Optimiza el rendimiento
-
-3. **¿Cuál NO es una ventaja de JavaScript?**
-   - a) Se ejecuta en navegador y servidor
-   - b) Tipado fuerte y estático
-   - c) Gran comunidad y ecosistema
-   - d) Versatilidad para diferentes plataformas
-
-**Respuestas:** 1-b, 2-b, 3-b
-
----
-
 ## Módulo 2: Variables, Tipos de Datos y Operadores
+
 *⏱️ Tiempo estimado: 6-7 horas*
 
 ### 📋 Prerequisites
+
 - Módulo 1 completado
 - Entorno de desarrollo configurado
 - Conocimiento básico de la console del navegador
 
 ### 🎯 Objetivos del Módulo
+
 - Dominar la declaración y uso de variables modernas
 - Entender todos los tipos de datos de JavaScript
 - Aplicar operadores en contextos reales
@@ -371,6 +341,7 @@ saludar("Luis", "Martínez");
 ### 📖 Variables en JavaScript Moderno
 
 #### Evolución de Variables
+
 ```javascript
 // ❌ ANTIGUO: var (evitar en código nuevo)
 var nombre = "Ana";
@@ -386,6 +357,7 @@ const PI = 3.14159;      // Constante, no puede cambiar
 ```
 
 #### Scope (Alcance) de Variables
+
 ```javascript
 // Global scope
 const globalVar = "Soy global";
@@ -412,6 +384,7 @@ function ejemploScope() {
 ```
 
 #### Hoisting Explicado
+
 ```javascript
 // Lo que escribes:
 console.log(miVar);    // undefined (no error)
@@ -428,6 +401,7 @@ let miLet = "Hola";
 ```
 
 #### Reglas para Naming
+
 ```javascript
 // ✅ VÁLIDO
 let nombre = "Ana";
@@ -448,6 +422,7 @@ let numero1 = 1;
 ### 📖 Tipos de Datos Primitivos
 
 #### 1. String (Cadenas de Texto)
+
 ```javascript
 // Formas de declarar strings
 let nombre = "Ana";           // Comillas dobles
@@ -466,6 +441,7 @@ console.log(presentacion);
 ```
 
 ##### Métodos Esenciales de String
+
 ```javascript
 const texto = "  JavaScript es genial  ";
 
@@ -497,6 +473,7 @@ console.log(texto.substr(2, 10));             // "JavaScript"
 ```
 
 #### 2. Number (Números)
+
 ```javascript
 // Tipos de números
 let entero = 42;
@@ -522,6 +499,7 @@ console.log(Number.isFinite(Infinity)); // false
 ```
 
 ##### Métodos de Number
+
 ```javascript
 const numero = 123.456789;
 
@@ -542,6 +520,7 @@ console.log(Number.MIN_SAFE_INTEGER);     // -9007199254740991
 ```
 
 #### 3. BigInt (Números Grandes)
+
 ```javascript
 // Para números mayores que Number.MAX_SAFE_INTEGER
 const numeroGrande = 1234567890123456789012345678901234567890n;
@@ -556,6 +535,7 @@ const suma = numeroGrande + 100n;         // Solo con otros BigInt
 ```
 
 #### 4. Boolean (Booleanos)
+
 ```javascript
 let esVerdadero = true;
 let esFalso = false;
@@ -579,6 +559,7 @@ console.log(Boolean(function(){})); // true (función)
 ```
 
 #### 5. Undefined y Null
+
 ```javascript
 // undefined: variable declarada pero no asignada
 let sinAsignar;
@@ -596,6 +577,7 @@ console.log(undefined === null);  // false (strict equality)
 ```
 
 #### 6. Symbol (Único en ES6+)
+
 ```javascript
 // Símbolos: valores únicos e inmutables
 const sym1 = Symbol('descripcion');
@@ -618,6 +600,7 @@ console.log(objeto[PRIVATE_PROP]); // "privado"
 ### 📖 Tipos de Datos No Primitivos
 
 #### Objects (Objetos)
+
 ```javascript
 // Objeto literal
 const persona = {
@@ -646,6 +629,7 @@ console.log(persona[propiedad]);       // "Ana"
 ```
 
 #### Arrays (Arreglos)
+
 ```javascript
 // Diferentes formas de crear arrays
 const frutas = ["manzana", "banana", "uva"];
@@ -673,6 +657,7 @@ console.log(textosTareas);
 ### 📖 Operadores en Profundidad
 
 #### Operadores Aritméticos
+
 ```javascript
 const a = 10;
 const b = 3;
@@ -703,6 +688,7 @@ console.log(--i);   // 5 (pre-decremento)
 ```
 
 #### Operadores de Comparación
+
 ```javascript
 // Igualdad (==) vs Identidad (===)
 console.log(5 == "5");     // true  (coerción de tipos)
@@ -726,6 +712,7 @@ console.log("Ana" < "Luis"); // true
 ```
 
 #### Operadores Lógicos
+
 ```javascript
 const esAdulto = edad => edad >= 18;
 const tieneLicencia = true;
@@ -753,6 +740,7 @@ const nombreDefault = usuario?.nombre || "Invitado"; // "Invitado"
 ```
 
 #### Operadores Modernos (ES2020+)
+
 ```javascript
 // Nullish coalescing (??)
 const configuracion = {
@@ -788,6 +776,7 @@ console.log(valor); // "valor por defecto"
 ### 📖 Type Coercion (Coerción de Tipos)
 
 #### Coerción Implícita
+
 ```javascript
 // Suma: número + string = string
 console.log(5 + "3");      // "53"
@@ -807,6 +796,7 @@ console.log(false + 1);    // 1 (false = 0)
 ```
 
 #### Coerción Explícita
+
 ```javascript
 // A número
 console.log(Number("42"));      // 42
@@ -832,6 +822,7 @@ console.log(!!"hello");         // true (doble negación)
 ### 🏋️‍♂️ Ejercicios Prácticos
 
 #### Ejercicio 1: Variables y Scope
+
 ```javascript
 // Completa este código identificando los errores:
 function ejemploScope() {
@@ -855,6 +846,7 @@ ejemploScope();
 ```
 
 #### Ejercicio 2: Manipulación de Strings
+
 ```javascript
 // Crea una función que limpie y formatee nombres
 function formatearNombre(nombreCompleto) {
@@ -879,6 +871,7 @@ console.log(formatearNombre("  ana   garcia lopez  "));
 ```
 
 #### Ejercicio 3: Coerción y Comparaciones
+
 ```javascript
 // Predice el resultado de cada expresión:
 console.log(5 + "3" - 2);           // ?
@@ -898,6 +891,7 @@ console.log(null === undefined);    // ?
 ```
 
 #### Ejercicio 4: Operadores Modernos
+
 ```javascript
 // Implementa una función segura para acceder a propiedades anidadas
 function obtenerDireccionCompleta(usuario) {
@@ -1034,3 +1028,7 @@ casos.forEach((caso, index) => {
     }
 });
 ```
+
+#### Has terminado el curso? 🎉
+
+Para profundizar en javascript puedes seguir el siguiente nivel de curso: [nivel intermedio del curso](/lessons/js/course-javascript-2nd-level/)
